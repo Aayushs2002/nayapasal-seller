@@ -1,5 +1,5 @@
-@extends('Frontend.layout.app')
-@section('content')
+{{-- @extends('Frontend.layout.app')
+@section('content') --}}
 
 
 
@@ -21,4 +21,4 @@
     </div>
     </div>
 
-@endsection
+{{-- @endsection --}}

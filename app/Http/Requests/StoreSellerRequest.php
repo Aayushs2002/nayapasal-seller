@@ -11,7 +11,7 @@ class StoreSellerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class StoreSellerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'mobileno' => 'required',
+            'email' => 'required|unique:sellers',
+            'businessname' => 'required',
+            'establishdate' => 'required',
+            'activities' => 'required',
+            // 'registration_number' => 'required|unique:sellers',
+            'vatno' => 'unique:sellers',
+            'address1' => 'required',
+            'password' => 'required',
+            'address2' => 'required',
+            'postaladdress' => 'required',
+            'registration_documents' => 'required|mimes:jpg,jpeg,png',
+            'vat_registration_documents' => 'required|mimes:pdf,jpg,jpeg,png',
         ];
     }
 }
