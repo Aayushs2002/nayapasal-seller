@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Hash;
 class SellerService{
     function storeSeller($request){
         // dd($request);
-        $registrationDocuments =   (new FileService)->fileUpload($request->file("registration_documents"), "registration_documents");
+        $registrationDocuments =   (new FileService)->fileUpload($request->file("registration_documents"), "registration_documents","seller");
        
-        $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents");
+        $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents","seller");
         $data = $request->all();
         $data['status'] = 'PENDING';
         $data['registration_documents'] = $registrationDocuments;

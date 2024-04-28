@@ -233,7 +233,7 @@
                 </div>
 
                 <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-gray-100"
-                    href="">
+                    href="{{route('seller.product.index')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"

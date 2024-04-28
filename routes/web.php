@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Seller\ProductController;
 use App\Http\Controllers\Seller\SellerAuthController;
 use App\Http\Controllers\Seller\SellerDashboardController;
 use App\Http\Controllers\Seller\SellerProfileController;
 use Illuminate\Support\Facades\Route;
-
+Route::get('/', function () {
+    return 'Welcome to my Laravel application!';
+});
 Route::controller(SellerAuthController::class)->group(function () {
     Route::get('/login',  'login')->name('login');
     Route::post('/loginpost',  'loginpost')->name('loginpost');
@@ -18,4 +21,7 @@ Route::middleware(['seller'])->group(function () {
     Route::get('/sellerdashboard', [SellerDashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
     Route::resource('seller-profile', SellerProfileController::class);
+    Route::resource('seller-profile', SellerProfileController::class);
+    Route::resource('product', ProductController::class);
 });
+
