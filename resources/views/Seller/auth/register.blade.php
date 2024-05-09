@@ -22,6 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @include('links.admin.adminscript')
+    @include('links.frontend.script')
 </head>
 
 <body class="max-w-screen-2xl mx-auto bg-gray-100">

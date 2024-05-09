@@ -7,6 +7,7 @@
     <title>Document</title>
     @include('links.admin.adminscript')
     @include('links.admin.adminstyle')
+    
 </head>
 <body>
     

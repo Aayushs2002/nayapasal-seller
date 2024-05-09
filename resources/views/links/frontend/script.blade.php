@@ -60,6 +60,7 @@
 
 
         nextButton.addEventListener("click", function() {
+            console.log("object")
             personalInfo.classList.add("hidden");
             companyInfo.classList.remove("hidden");
         });
