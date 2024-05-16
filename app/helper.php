@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\DB;
 function baseUrl()
 {
-   return config('app.main_url');
+   return config('app.sellerurl');
 }
 
 function getCategories($parent_id)

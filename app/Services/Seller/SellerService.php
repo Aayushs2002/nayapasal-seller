@@ -3,6 +3,7 @@
 namespace App\Services\Seller;
 
 use App\Models\Seller;
+use Faker\Core\Uuid;
 use Illuminate\Support\Facades\Hash;
 
 class SellerService{
@@ -17,6 +18,8 @@ class SellerService{
        
         $data['vat_registration_documents'] = $vatRegistrationDocuments;
         $data['password'] = Hash::make($request->password);
+        // dd($data);
+        $data['token'] = uniqid();
         $data['otp'] = rand(1000, 9999);
 
         $seller = Seller::create($data);
