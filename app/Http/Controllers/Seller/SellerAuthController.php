@@ -41,13 +41,17 @@ class SellerAuthController extends Controller
         $seller = (new SellerService)->storeSeller($request);
         // Mail::to($request->email)->send(new RegisterOtpMail($seller->otp));
 
-        return redirect()->route('seller.otp')->with('popsuccess', 'Registration successful. Check your email for the OTP.');
+        return redirect()->route('seller.otp', ['token' => $seller->token])->with('popsuccess', 'Registration successful. Check your email for the OTP.');
     }
 
 
     public function otp()
     {
-
+        $token = request('token');
+        
+        if (!$token) {
+            return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
+        }
         return view('Seller.auth.otp');
     }
 
@@ -55,11 +59,17 @@ class SellerAuthController extends Controller
     public function registerotp(Request $request)
     {
         //    dd($request);
+        $token = request('token');
+        if (!$token) {
+            
+            return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
+        }
+        // dd($token);
+        // dd($request);
         $otp = $request->otp;
-        $seller = Seller::where("otp",  $otp)->first();
+        $seller = Seller::where("token",  $request->token)->first();
 
-        if (!$seller) {
-
+        if ($seller->otp != $otp) {
             return redirect()->back()->with('poperror', 'Invalid Otp');
         }
 
@@ -72,6 +82,6 @@ class SellerAuthController extends Controller
     {
         Auth::guard('seller')->logout();
 
-        return redirect()->route('seller.login')->with('popsuccess',"Logout Successful");
+        return redirect()->route('seller.login')->with('popsuccess', "Logout Successful");
     }
 }
