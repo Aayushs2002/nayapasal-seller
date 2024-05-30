@@ -3,8 +3,10 @@
 use App\Http\Controllers\Seller\ProductController;
 use App\Http\Controllers\Seller\SellerAuthController;
 use App\Http\Controllers\Seller\SellerDashboardController;
+use App\Http\Controllers\Seller\SellerOrderController;
 use App\Http\Controllers\Seller\SellerProfileController;
 use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return 'Welcome to my Laravel application!';
 });
@@ -23,5 +25,6 @@ Route::middleware(['seller'])->group(function () {
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('product', ProductController::class);
+    Route::get('/order', [SellerOrderController::class, 'order'])->name('order');
+    Route::get('order/details/{details}', [SellerOrderController::class, 'orderdetail'])->name('order.details');
 });
-
