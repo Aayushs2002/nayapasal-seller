@@ -14,8 +14,8 @@ class FileService
 
     public function fileUpload($file, $fileinput, $name)
     {
-     
-        $url = baseUrl();
+
+        $url = $this->baseUrl;
         // dd($url);
         $response = Http::attach(
             $fileinput, // Attachment name
