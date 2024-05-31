@@ -1,7 +1,7 @@
-<section class="flex items-center px-6 py-4 justify-between bg-primary  border-b-2 border-gray-200">
+<section class="flex items-center px-6 py-4 justify-between  border-b-2 border-gray-200">
     <div class="flex items-center space-x-3 justify-between ">
         <div class="">
-            <button @click="sidebarOpen = !sidebarOpen" class="text-white focus:outline-none lg:block w-8">
+            <button @click="sidebarOpen = !sidebarOpen" class="text-primary focus:outline-none lg:block w-8">
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
@@ -10,7 +10,7 @@
         </div>
         <div class=" md:col-span-1 lg:col-span-2">
             <div class="flex items-center w-40">
-                <img class="w-full" src="{{ asset('images/svg/logo-no-background.svg')  }}" alt="banner_image">
+                <img class="w-full" src="{{ asset('images/naulopasal.svg')  }}" alt="banner_image">
             </div>
         </div>
     </div>
