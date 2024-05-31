@@ -31,7 +31,7 @@ class FileService
 
     public function imageDelete($filePath)
     {
-        $url = baseUrl();
+        $url = $this->baseUrl;
 
 
         $response = Http::post($url . 'api/deleteimage',  [

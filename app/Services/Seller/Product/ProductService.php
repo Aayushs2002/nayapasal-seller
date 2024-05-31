@@ -15,12 +15,12 @@ class ProductService
 
     public function store($request)
     {
-        
+
         $req = $request->except("attributes", "brand");
         // dd($req->except("attributes"));
         if ($request->file("featured_image")) {
             $product_image = (new FileService)->fileUpload($request->file("featured_image"), "featured_image", "product");
-           
+
             $req['featured_image'] = $product_image;
         }
         if ($request->disc) {
@@ -33,9 +33,9 @@ class ProductService
         $req['brand_id'] = $request->brand;
         $req['slug'] = Str::slug($request->product_name);
         $req['seller_id'] =Auth::guard("seller")->user()->id;
-  
+
         $add_product = Product::create($req);
-   
+
         return $add_product;
     }
 
@@ -47,7 +47,7 @@ class ProductService
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
-                    'seller_id'=>Auth::guard("seller")->user()->id
+                    // 'seller_id'=>Auth::guard("seller")->user()->id
                 ]);
             }
         }
@@ -56,12 +56,12 @@ class ProductService
 
     public function storeProduct($request)
     {
- 
+
         $selectedAttributes = $request->input('attributes');
 
         try {
             $addproduct = $this->store($request);
-         
+
             if ($selectedAttributes) {
                 $addattribute = $this->storeProductAttribute($selectedAttributes, $addproduct);
             }
@@ -135,7 +135,7 @@ class ProductService
             $deleteimage = (new FileService)->imageDelete($product->featured_image);
         }
         // $productImages = ProductImage::where('product_id', $product->id)->get();
- 
+
         // if (!$productImages->isEmpty()) {
         //     foreach ($productImages as $image) {
         //         $deleteimage = (new FileService)->imageDelete($image->images);
