@@ -86,7 +86,10 @@
                                             </td>
 
                                             <td class="py-7 pr-12 flex  item-center ">
-
+                                                <a href="{{ route('seller.myimage', $product->id) }}"
+                                                    class=" mr-4 rounded-lg bg-green-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 ">
+                                                    Add Image
+                                                </a>
                                                 <a href="{{ route('seller.product.edit', $product->id) }}"
                                                     class=" mr-4 rounded-lg bg-green-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 ">
                                                     Edit
