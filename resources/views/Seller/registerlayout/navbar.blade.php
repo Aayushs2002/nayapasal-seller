@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 as:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
+        <a href="https://naulopasal.com/" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
             <img src="{{ asset('images/naulopasal.svg') }}" class="h-16" />
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
