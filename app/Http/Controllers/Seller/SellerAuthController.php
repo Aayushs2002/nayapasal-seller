@@ -48,7 +48,7 @@ class SellerAuthController extends Controller
     public function otp()
     {
         $token = request('token');
-        
+
         if (!$token) {
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
@@ -61,7 +61,7 @@ class SellerAuthController extends Controller
         //    dd($request);
         $token = request('token');
         if (!$token) {
-            
+
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
         // dd($token);
@@ -73,7 +73,8 @@ class SellerAuthController extends Controller
             return redirect()->back()->with('poperror', 'Invalid Otp');
         }
 
-
+        $seller->verified = 1;
+        $seller->save();
         return redirect()->route('seller.login');
     }
 

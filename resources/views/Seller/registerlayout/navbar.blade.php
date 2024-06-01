@@ -1,7 +1,7 @@
 <nav class="bg-white border-gray-200 as:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
-            <img src="{{ asset('images/newnayapasal.png') }}" class="h-16" />
+        <a href="https://naulopasal.com/" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
+            <img src="{{ asset('images/naulopasal.svg') }}" class="h-16" />
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 as:text-gray-400 as:hover:bg-gray-700 as:focus:ring-gray-600"

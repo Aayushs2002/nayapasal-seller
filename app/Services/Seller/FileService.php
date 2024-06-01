@@ -14,8 +14,8 @@ class FileService
 
     public function fileUpload($file, $fileinput, $name)
     {
-     
-        $url = baseUrl();
+
+        $url = $this->baseUrl;
         // dd($url);
         $response = Http::attach(
             $fileinput, // Attachment name
@@ -31,7 +31,7 @@ class FileService
 
     public function imageDelete($filePath)
     {
-        $url = baseUrl();
+        $url = $this->baseUrl;
 
 
         $response = Http::post($url . 'api/deleteimage',  [
