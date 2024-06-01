@@ -183,6 +183,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="my-3 w-full">
+                        <label class="text-sm font-semibold w-full">Is this Customized</label>
+                        <div class="flex mt-2">
+                            <div class="ml-4">
+                                <input type="radio" name="customized" value="1"
+                                    {{ $product->customized ? 'checked' : '' }}>
+                                <span class="ml-1">Yes</span>
+                            </div>
+                            <div class="ml-4">
+                                <input type="radio" name="customized" value="0"
+                                    {{ !$product->customized ? 'checked' : '' }}>
+                                <span class="ml-1">No</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="w-full lg:w-5/12 bg-white lg:ml-3 ">
