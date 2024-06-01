@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\AttributeGroup;
 use App\Models\Product;
 use App\Models\ProductAttribute;
+use App\Models\ProductImage;
 use App\Services\Seller\Product\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,5 +88,23 @@ class ProductController extends Controller
         
         $product = (new ProductService)->deleteProduct($product);
         return redirect()->route('seller.product.index')->with('success', 'Product Successfully Deleted');
+    }
+
+    public function productImage(Request $request)
+    {
+        $product = (new ProductService)->addMultipleImage($request);
+    }
+
+    public function imagecreate(Product $product)
+    {
+        $productImages = (new ProductService)->productImages($product);
+        return view('Seller.product.images.addimage', compact('product', 'productImages'));
+    }
+
+    public function deleteImage(ProductImage $img)
+    {
+
+        $img = (new ProductService)->deleteImage($img);
+        return $img;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Services\Seller\Product;
 
 use App\Models\Product;
 use App\Models\ProductAttribute;
+use App\Models\ProductImage;
 use App\Services\Seller\FileService;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -144,5 +145,35 @@ class ProductService
         // }
         $product->delete();
         return true;
+    }
+
+    public function addMultipleImage($request)
+    {
+        $image = $request->file("file");
+        // $destinationPath = public_path('uploads');
+        // $randomString = $this->randomString(8);
+        // $imageName = "product_" . $randomString . ".jpg";
+        // $image->move($destinationPath, $imageName);
+        $imageName = (new FileService)->fileUpload($request->file("file"), "file", "multi_product");
+        // $myfeatured_image = $this->fileUpload($request, 'images');
+        ProductImage::create([
+            'product_id' => $request->product_id,
+            'images' => $imageName,
+        ]);
+        return true;
+    }
+
+    public function productImages($product)
+    {
+        return ProductImage::where('product_id', $product->id)->get();
+    }
+    public function deleteImage($img)
+    {
+        $product = $img->product_id;
+        $img->delete();
+        if ($img->images) {
+            $deleteimage = (new FileService)->imageDelete($img->images);
+        }
+        return redirect()->route('seller.myimage', $product)->with('success', 'Image Successfully Deleted');
     }
 }
