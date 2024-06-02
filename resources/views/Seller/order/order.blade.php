@@ -106,7 +106,7 @@
                                                     <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
                                                 </svg>
                                             </button>
-
+ 
                                             <div x-cloak x-show="dropdownOpen" @click="dropdownOpen = false"
                                                 class="fixed inset-0 z-10 w-full h-full">
                                             </div>
