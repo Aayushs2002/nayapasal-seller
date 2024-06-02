@@ -121,9 +121,14 @@
                                 <tbody>
 
 
-
+                                    @php
+                                        $total = 0;
+                                    @endphp
                                     @foreach ($order->orderItem as $item)
                                         @if (Auth::guard('seller')->user()->id == $item->seller_id)
+                                            @php
+                                                $total += $item->quantity * $item->product_price;
+                                            @endphp
                                             <tr class="bg-white border-b ">
                                                 <th>
                                                     {{-- @dd($item->product) --}}
@@ -165,14 +170,7 @@
                                             </tr>
                                         @endif
                                     @endforeach
-                                    <tr class="bg-white border-b">
-                                        <td colspan="5" class="px-6 py-4 text-right font-medium">
-                                            Delivery Charge:
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $order->delivery_charge }}
-                                        </td>
-                                    </tr>
+
                                     <tr class="bg-white border-b">
                                         <td colspan="5" class="px-6 py-4 text-right font-medium">
                                             Tax ({{ $order->taxpercent }}%):
@@ -201,7 +199,7 @@
                                             Grand Total:
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $order->delivery_charge + $order->taxamount + $order->amount ?? 'Loading' }}
+                                            {{ $total }}
                                         </td>
                                     </tr>
                                 </tbody>

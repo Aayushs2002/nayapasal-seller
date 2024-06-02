@@ -13,7 +13,7 @@ class OrderService
     /**
      * Create a new class instance.
      */
-   
+
     // public function __construct(
     //     protected FileService $fileService
     // ){
@@ -23,14 +23,14 @@ class OrderService
         $orderItems=OrderItem::where('seller_id',Auth::guard("seller")->user()->id)->pluck('order_id')->toArray();
         $order_list=Order::whereIn('id',$orderItems)->latest()->get();
         // dd($orderItems,$order_list);
-        
+
         return $order_list;
     }
 
     public function orderdetails($order_id){
-        $order = Order::where('id', $order_id)->first();
+        $order = Order::where('order_id', $order_id)->first();
 
-        $productdetails = Order::where('id', $order_id)->get();
+        $productdetails = Order::where('id', $order->id)->get();
         $user_details = OrderBillingInfo::where('order_id', $order->id)->first();
 
         return [$order,$productdetails,$user_details];
