@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attribute_groups', function (Blueprint $table) {
-            $table->id();
-            $table->string('attributegroupname')->nullable();
-            $table->string('slug')->nullable();
-            $table->integer('order')->nullable();
-            $table->timestamps();
+        Schema::table('sellers', function (Blueprint $table) {
+            //
+            $table->string('active')->nullable();
+
         });
     }
 
@@ -25,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attribute_groups');
+        Schema::table('sellers', function (Blueprint $table) {
+            //
+        });
     }
 };

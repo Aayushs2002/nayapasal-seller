@@ -4,6 +4,7 @@ namespace App\Services\Seller\Product;
 
 use App\Models\Product;
 use App\Models\ProductAttribute;
+use App\Models\ProductImage;
 use App\Services\Seller\FileService;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +16,12 @@ class ProductService
 
     public function store($request)
     {
-        
+
         $req = $request->except("attributes", "brand");
         // dd($req->except("attributes"));
         if ($request->file("featured_image")) {
             $product_image = (new FileService)->fileUpload($request->file("featured_image"), "featured_image", "product");
-           
+
             $req['featured_image'] = $product_image;
         }
         if ($request->disc) {
@@ -33,9 +34,9 @@ class ProductService
         $req['brand_id'] = $request->brand;
         $req['slug'] = Str::slug($request->product_name);
         $req['seller_id'] =Auth::guard("seller")->user()->id;
-  
+
         $add_product = Product::create($req);
-   
+
         return $add_product;
     }
 
@@ -47,7 +48,7 @@ class ProductService
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
-                    'seller_id'=>Auth::guard("seller")->user()->id
+                    // 'seller_id'=>Auth::guard("seller")->user()->id
                 ]);
             }
         }
@@ -56,12 +57,12 @@ class ProductService
 
     public function storeProduct($request)
     {
- 
+
         $selectedAttributes = $request->input('attributes');
 
         try {
             $addproduct = $this->store($request);
-         
+
             if ($selectedAttributes) {
                 $addattribute = $this->storeProductAttribute($selectedAttributes, $addproduct);
             }
@@ -121,7 +122,7 @@ class ProductService
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
-                    'seller_id'=>Auth::guard("seller")->user()->id
+                    // 'seller_id'=>Auth::guard("seller")->user()->id
                 ]);
             }
         }
@@ -135,7 +136,7 @@ class ProductService
             $deleteimage = (new FileService)->imageDelete($product->featured_image);
         }
         // $productImages = ProductImage::where('product_id', $product->id)->get();
- 
+
         // if (!$productImages->isEmpty()) {
         //     foreach ($productImages as $image) {
         //         $deleteimage = (new FileService)->imageDelete($image->images);
@@ -144,5 +145,35 @@ class ProductService
         // }
         $product->delete();
         return true;
+    }
+
+    public function addMultipleImage($request)
+    {
+        $image = $request->file("file");
+        // $destinationPath = public_path('uploads');
+        // $randomString = $this->randomString(8);
+        // $imageName = "product_" . $randomString . ".jpg";
+        // $image->move($destinationPath, $imageName);
+        $imageName = (new FileService)->fileUpload($request->file("file"), "file", "multi_product");
+        // $myfeatured_image = $this->fileUpload($request, 'images');
+        ProductImage::create([
+            'product_id' => $request->product_id,
+            'images' => $imageName,
+        ]);
+        return true;
+    }
+
+    public function productImages($product)
+    {
+        return ProductImage::where('product_id', $product->id)->get();
+    }
+    public function deleteImage($img)
+    {
+        $product = $img->product_id;
+        $img->delete();
+        if ($img->images) {
+            $deleteimage = (new FileService)->imageDelete($img->images);
+        }
+        return redirect()->route('seller.myimage', $product)->with('success', 'Image Successfully Deleted');
     }
 }

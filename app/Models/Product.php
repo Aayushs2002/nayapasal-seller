@@ -28,6 +28,8 @@ class Product extends Model
         'discount_type',
         'discount_amount',
         'discount_percentage',
-        'seller_id'
+        'seller_id',
+        'customized'
+
     ];
 }

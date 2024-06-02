@@ -23,7 +23,17 @@ class SellerAuthController extends Controller
 
 
         if (Auth::guard('seller')->attempt($credentials)) {
-            return redirect()->route('seller.dashboard')->with('popsuccess', 'Login Sucessfull');
+            if (Auth::guard('seller')->user()->status == "VERIFIED") {
+                if (Auth::guard('seller')->user()->active == "1") {
+
+                    return redirect()->route('seller.dashboard')->with('popsuccess', 'Login Sucessfull');
+                }else{
+                    return redirect()->back()->with('poperror', 'Your Account is currently Inactive');
+
+                }
+            }else {
+                return redirect()->back()->with('poperror', 'Account is Not verified');
+            }
         }
 
         return redirect()->route('seller.login')->with('poperror', 'Credentials do not match or account is not verified');
@@ -48,7 +58,7 @@ class SellerAuthController extends Controller
     public function otp()
     {
         $token = request('token');
-        
+
         if (!$token) {
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
@@ -61,7 +71,7 @@ class SellerAuthController extends Controller
         //    dd($request);
         $token = request('token');
         if (!$token) {
-            
+
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
         // dd($token);
@@ -73,7 +83,8 @@ class SellerAuthController extends Controller
             return redirect()->back()->with('poperror', 'Invalid Otp');
         }
 
-
+        $seller->verified = 1;
+        $seller->save();
         return redirect()->route('seller.login');
     }
 

@@ -29,6 +29,8 @@ class Seller extends Authenticatable
         'status',
         'password',
         'remarks',
-        'token'
+        'token',
+        'verified',
+        'active'
     ];
 }
