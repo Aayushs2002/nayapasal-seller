@@ -26,11 +26,11 @@ class SellerOrderController extends Controller
         // dd($order_id);
 
         $orderdetail = $this->orderService->orderdetails($order_id);         
-        // dd($orderdetail);
-        $order = $orderdetail[0];
+        // dd($orderdetail); 
+        $orders = $orderdetail[0];
         $productdetails = $orderdetail[1];
         $user_details = $orderdetail[2];
-        return view('Seller.order.order_detail',compact('order','productdetails','user_details'));
+        return view('Seller.order.order_detail',compact('orders','productdetails','user_details'));
         
     }
 }

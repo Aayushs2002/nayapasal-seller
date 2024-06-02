@@ -10,6 +10,8 @@
             </a>
             <div class="text-xl font-bold">Back</div>
         </div>
+        {{-- @dd($productdetails) --}}
+
         @foreach ($productdetails as $order)
             <div class="mt-8 text-xl font-semibold text-slate-600">
                 Order : {{ $order->order_id }}
@@ -67,8 +69,10 @@
 
                             </li>
                             {{-- @dd($user_details) --}}
-                            <li class="font-semibold text-black">First Name: {{ $user_details->billing_firstname ?? 'loading' }}</li>
-                            <li class="font-semibold text-black">Last Name: {{ $user_details->billing_lastname ?? 'loading' }}</li>
+                            <li class="font-semibold text-black">First Name:
+                                {{ $user_details->billing_firstname ?? 'loading' }}</li>
+                            <li class="font-semibold text-black">Last Name:
+                                {{ $user_details->billing_lastname ?? 'loading' }}</li>
                             <li>Phone: {{ $user_details->billing_phonenumber ?? 'loading' }}</li>
                             <li>Address: {{ $user_details->billing_address ?? 'loading' }}</li>
                             <li>Email: {{ $user_details->billing_email ?? 'loading' }}</li>
@@ -77,8 +81,10 @@
                             <li class="text-lg mb-1 text-slate-800">
                                 Shipping Address
                             </li>
-                            <li class="font-semibold text-black">First Name: {{ $user_details->shipping_firstname ?? 'loading' }}</li>
-                            <li class="font-semibold text-black">Last Name: {{ $user_details->shipping_lastname ?? 'loading' }}</li>
+                            <li class="font-semibold text-black">First Name:
+                                {{ $user_details->shipping_firstname ?? 'loading' }}</li>
+                            <li class="font-semibold text-black">Last Name:
+                                {{ $user_details->shipping_lastname ?? 'loading' }}</li>
                             <li>Phone: {{ $user_details->shipping_phonenumber ?? 'loading' }}</li>
 
                             <li>Address: {{ $user_details->shipping_address ?? 'loading' }}</li>
@@ -117,45 +123,47 @@
 
 
                                     @foreach ($order->orderItem as $item)
-                                        <tr class="bg-white border-b ">
-                                            <th>
-{{-- @dd($item->product) --}}
-                                                <div class="w-10 mx-6 ">
-                                                    <img src="{{ isset($item->product->featured_image) ? baseUrl() . 'uploads/' . $item->product->featured_image : 'LOADING' }}" alt="LOADING"
-                                                        class="img-responsive">
+                                        @if (Auth::guard('seller')->user()->id == $item->seller_id)
+                                            <tr class="bg-white border-b ">
+                                                <th>
+                                                    {{-- @dd($item->product) --}}
+                                                    <div class="w-10 mx-6 ">
+                                                        <img src="{{ isset($item->product->featured_image) ? baseUrl() . 'uploads/' . $item->product->featured_image : 'LOADING' }}"
+                                                            alt="LOADING" class="img-responsive">
 
 
-                                                </div>
-                                            </th>
+                                                    </div>
+                                                </th>
 
-                                            <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $item->product->product_name ?? 'loading' }}
-                                            </th>
-                                            <td class="px-6 py-4">
-
-
-                                                {{-- @dd($item->orderAttributes) --}}
-
-                                                @foreach ($item->orderAttributes as $keys => $attribute)
-                                                    @if ($keys != 0)
-                                                        ,
-                                                    @endif
-                                                    {{ $attribute->getAttributename->attributename??"loading" }}
-                                                @endforeach
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $item->product_price ?? "Loading"}}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $item->quantity ?? "Loading"}}
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                {{ $item->quantity * $item->product_price ?? "Loading"}}
-                                            </td>
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                                    {{ $item->product->product_name ?? 'loading' }}
+                                                </th>
+                                                <td class="px-6 py-4">
 
 
-                                        </tr>
+                                                    {{-- @dd($item->orderAttributes) --}}
+
+                                                    @foreach ($item->orderAttributes as $keys => $attribute)
+                                                        @if ($keys != 0)
+                                                            ,
+                                                        @endif
+                                                        {{ $attribute->getAttributename->attributename ?? 'loading' }}
+                                                    @endforeach
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $item->product_price ?? 'Loading' }}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $item->quantity ?? 'Loading' }}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $item->quantity * $item->product_price ?? 'Loading' }}
+                                                </td>
+
+
+                                            </tr>
+                                        @endif
                                     @endforeach
                                     <tr class="bg-white border-b">
                                         <td colspan="5" class="px-6 py-4 text-right font-medium">
@@ -180,10 +188,10 @@
                                         @endphp
                                         <tr class="bg-white border-b">
                                             <td colspan="5" class="px-6 py-4 text-right font-medium">
-                                                Coupon ({{ $coupon->discount_amount?? "Loading" }}%):
+                                                Coupon ({{ $coupon->discount_amount ?? 'Loading' }}%):
                                             </td>
                                             <td class="px-6 py-4">
-                                                - {{ $order->coupondiscount ?? "Loading"}}
+                                                - {{ $order->coupondiscount ?? 'Loading' }}
                                             </td>
                                         </tr>
                                     @endif
@@ -193,7 +201,7 @@
                                             Grand Total:
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $order->delivery_charge + $order->taxamount + $order->amount ?? "Loading" }}
+                                            {{ $order->delivery_charge + $order->taxamount + $order->amount ?? 'Loading' }}
                                         </td>
                                     </tr>
                                 </tbody>
