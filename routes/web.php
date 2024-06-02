@@ -25,6 +25,9 @@ Route::middleware(['seller'])->group(function () {
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('product', ProductController::class);
+    Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
+    Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');
+    Route::delete('productimage/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
     Route::get('/order', [SellerOrderController::class, 'order'])->name('order');
     Route::get('order/details/{details}', [SellerOrderController::class, 'orderdetail'])->name('order.details');
 });
