@@ -122,7 +122,7 @@ class ProductService
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
-                    'seller_id'=>Auth::guard("seller")->user()->id
+                    // 'seller_id'=>Auth::guard("seller")->user()->id
                 ]);
             }
         }
