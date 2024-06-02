@@ -9,13 +9,14 @@ class FileService
 
     public function __construct()
     {
-        $this->baseUrl = config('app.base_url');
+        $this->baseUrl = config('app.sellerurl');
     }
 
     public function fileUpload($file, $fileinput, $name)
     {
      
         $url = baseUrl();
+        // dd($url);
         $response = Http::attach(
             $fileinput, // Attachment name
             file_get_contents($file->path()), // Get the file contents
