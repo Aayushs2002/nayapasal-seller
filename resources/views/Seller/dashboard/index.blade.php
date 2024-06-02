@@ -14,7 +14,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Order</p>
                                 <h5 class="mb-0 font-bold">
-                                    100
+                                 {{($order_count);}}
                                 </h5>
                             </div>
                         </div>
@@ -100,15 +100,15 @@
                 <div class="">
                     <div class="card">
                         <div class="card-header font-semibold text-[#0f577d]">Monthly Report of Earning </div>
-                
-                            
+
+
                             <div class="card-body">
                                 <canvas id="lineChart" width="400" height="200"></canvas>
                             </div>
                             <div class="card-body">
                                 <canvas id="piechart" width="400" height="200"></canvas>
                             </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -117,5 +117,5 @@
 
 
     </div>
-    
+
 @endsection
