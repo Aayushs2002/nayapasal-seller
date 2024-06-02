@@ -19,7 +19,7 @@ class SellerService{
                     [
                         'email' => 'unique:sellers,email',
                         'vatno' => 'unique:sellers,vatno',
-                       
+
                     ]
                 );
                 return redirect()->back()->with("poperror", "Email already Exists");
@@ -41,6 +41,8 @@ class SellerService{
         $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents","seller");
         $data = $request->all();
         $data['status'] = 'PENDING';
+        $data['active'] = '1';
+
         $data['registration_documents'] = $registrationDocuments;
 
         $data['vat_registration_documents'] = $vatRegistrationDocuments;

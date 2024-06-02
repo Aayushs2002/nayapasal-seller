@@ -23,7 +23,17 @@ class SellerAuthController extends Controller
 
 
         if (Auth::guard('seller')->attempt($credentials)) {
-            return redirect()->route('seller.dashboard')->with('popsuccess', 'Login Sucessfull');
+            if (Auth::guard('seller')->user()->status == "VERIFIED") {
+                if (Auth::guard('seller')->user()->active == "1") {
+
+                    return redirect()->route('seller.dashboard')->with('popsuccess', 'Login Sucessfull');
+                }else{
+                    return redirect()->back()->with('poperror', 'Your Account is currently Inactive');
+
+                }
+            }else {
+                return redirect()->back()->with('poperror', 'Account is Not verified');
+            }
         }
 
         return redirect()->route('seller.login')->with('poperror', 'Credentials do not match or account is not verified');
