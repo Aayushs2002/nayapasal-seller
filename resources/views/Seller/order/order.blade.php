@@ -61,11 +61,12 @@
 
 
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-
+                                    @php
+                                        $total = 0;
+                                    @endphp
                                     @foreach ($order->orderItem as $item)
                                         @if (Auth::guard('seller')->user()->id == $item->seller_id)
                                             @php
-                                                $total = 0;
                                                 $total += $item->quantity * $item->product_price;
                                             @endphp
                                         @endif
@@ -123,7 +124,7 @@
                                                     class="absolute right-6 mr-auto z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
 
 
-                                                    <a href="{{ route('seller.order.details', $order->id) }}"
+                                                    <a href="{{ route('seller.order.details', $order->order_id) }}"
                                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-500 hover:text-white">View
                                                     </a>
 
