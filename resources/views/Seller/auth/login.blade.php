@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 text-right">
-                                    <a href="" class="text-sm font-semibold text-sky-700 hover:underline">forgot
+                                    <a href="{{ route('seller.resetpassword') }}" class="text-sm font-semibold text-sky-700 hover:underline">forgot
                                         password?</a>
                                 </div>
                                 <button
