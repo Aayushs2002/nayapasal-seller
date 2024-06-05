@@ -27,6 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'sellerurl' => env('MAIN_SELLER_URL'),
 
     /*
     |--------------------------------------------------------------------------
