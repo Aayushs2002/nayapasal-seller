@@ -17,6 +17,14 @@ Route::controller(SellerAuthController::class)->group(function () {
     Route::post('/vendorregister', 'sellerRegister')->name('store');
     Route::get('/sellerotp',  'otp')->name('otp');
     Route::post('/registerotp',  'registerotp')->name('registerotp');
+    Route::get('/resetpassword', 'index')->name('resetpassword');
+    Route::post('/otp', 'store')->name('resetpasswords');
+    Route::get('/checkotp/{token}', 'otps')->name('otps');
+
+    Route::post('/checkresetotp/{token}', 'checkresetotp')->name('checkresetotp');
+    Route::get('/checkresetotp/{token}', 'getresetotp')->name('getresetotp');
+    Route::post('/changepassword/{token}','changepasswords')->name('changepasswords');
+
 });
 
 Route::middleware(['seller'])->group(function () {
