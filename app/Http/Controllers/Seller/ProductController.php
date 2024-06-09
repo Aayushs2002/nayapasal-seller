@@ -66,7 +66,7 @@ class ProductController extends Controller
         $brands = DB::table('brands')->get();
         $attributegroups = AttributeGroup::latest()->get();
         $attributeItem = ProductAttribute::where("product_id", $product->id)->pluck("attribute_id")->toArray();
-        return view("seller.product.edit", compact("product", "brands", "attributegroups", "attributeItem"));
+        return view("Seller.product.edit", compact("product", "brands", "attributegroups", "attributeItem"));
     }
 
     /**
