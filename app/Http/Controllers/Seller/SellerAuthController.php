@@ -9,6 +9,7 @@ use App\Models\Seller;
 use App\Services\Seller\SellerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class SellerAuthController extends Controller
 {
@@ -95,4 +96,119 @@ class SellerAuthController extends Controller
 
         return redirect()->route('seller.login')->with('popsuccess', "Logout Successful");
     }
+
+    public function index()
+    {
+        return view('Seller.ResetPassword.index');
+    }
+
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email',
+        ]);
+
+
+        $email = $request['email'];
+
+        $customer = Seller::where('email', $email)->first();
+
+        if (!$customer) {
+            return redirect()->back()->with('poperror', 'Email not found');
+        }
+
+        $otp = rand(1000, 9999);
+        $customer->update(['otp' => $otp]);
+
+        $token = rand(10000000, 99999999);
+        $req['token'] = $token;
+        $customer->update(['token' => $token]);
+
+        // Mail::to($email)->send(new OtpMail($otp));
+
+
+        return view('Seller.ResetPassword.otp', compact('token'));
+
+    }
+
+
+    public function checkresetotp(Request $request, $token)
+    {
+
+
+        $check = Seller::where('token', $token)->first();
+
+        if (!$check) {
+            return redirect()->back()->with('poperror', 'Invalid token');
+        }
+
+        if ($request->otp !== $check->otp) {
+            return redirect()->route('seller.otps' ,$token)->with('poperror', 'Invalid OTP');
+        } else {
+            return view('Seller.ResetPassword.confirmpassword', compact('token'))->with('sucess', 'OTP verified successfully');
+        }
+
+
+    }
+
+    public function otps($token)
+    {
+
+        if (!request()->token) {
+            abort(403);
+        }
+        return view('Seller.ResetPassword.otp', compact('token'));
+    }
+
+
+    public function getresetotp($token){
+        if (!request()->token) {
+            abort(403);
+        }
+        return view('Seller.ResetPassword.confirmpassword',compact('token'));
+    }
+
+
+    public function changepasswords(Request $request, $token)
+    {
+        $credentials = $request->validate([
+            'newpassword' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
+            ],
+            'confirmpassword' => 'required|same:newpassword',
+        ], [
+            'newpassword.regex' => 'The password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
+            'confirmpassword.same' => 'The confirmation password does not match.'
+        ]);
+
+        $checkmember = Seller::where('token', $token)->first();
+
+
+        if (!$checkmember) {
+            return redirect()->route('seller.getresetotp')->with('poperror', ['token' => 'Invalid token.']);
+        }
+
+        $checkmember->password = Hash::make($request->newpassword);
+        $checkmember->token = null; // Optionally, invalidate the token after use
+        $checkmember->save();
+
+        return redirect()->route('seller.login')->with('popsuccess', 'Your password has been successfully changed.');
+
+
+
+
+        // $response = $this->resetPasswordService->checkpassword($request->all(), $token);
+        // return $response;
+    }
+
+
+
+
+
+
+
 }
