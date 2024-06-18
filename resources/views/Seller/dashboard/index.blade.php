@@ -44,7 +44,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Order Value</p>
                                 <h5 class="mb-0 font-bold">
-                                    Rs.2000
+                                 Rs. {{$total_revenue}}
                                 </h5>
                             </div>
                         </div>
@@ -73,20 +73,14 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Product</p>
                                 <h5 class="mb-0 font-bold">
-                                    2
+                                    {{$product}}
                                 </h5>
                             </div>
                         </div>
                         <div class="w-4/12 max-w-full px-3 ml-auto text-right flex-0">
                             <div
-                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-pink-700 to-pink-500 shadow-soft-2xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user"
-                                    width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                </svg>
+                                class="inline-block w-12 h-12 text-center rounded-lg shadow-soft-2xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"   width="44" height="44"><path d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z"/></svg>
                             </div>
                         </div>
                     </div>
@@ -95,7 +89,7 @@
 
         </div>
 
-        <div class="p-6">
+        {{-- <div class="p-6">
             <div class="row">
                 <div class="">
                     <div class="card">
@@ -112,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
 

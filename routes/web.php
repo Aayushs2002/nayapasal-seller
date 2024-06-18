@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return 'Welcome to my Laravel application!';
 });
+Route::get('/seller', function () {
+    return view("Seller.home.index");
+});
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
