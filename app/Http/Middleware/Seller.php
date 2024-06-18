@@ -16,9 +16,21 @@ class Seller
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard("seller")->user()) {
+
+
+        $user = Auth::guard('seller')->user();
+        if (!$user) {
             return redirect()->route('seller.login')->with('poperror', 'Unauthorized');
         }
+
+        if ($user->active == "0") {
+            Auth::guard('seller')->logout();
+            return redirect()->route('seller.login')->with('poperror', 'Your account is inactive. Please contact support.');
+        }
+
+        // if (!Auth::guard("seller")->user()) {
+        //     return redirect()->route('seller.login')->with('poperror', 'Unauthorized');
+        // }
         return $next($request);
     }
 }
