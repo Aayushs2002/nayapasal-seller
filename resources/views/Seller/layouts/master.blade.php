@@ -7,10 +7,10 @@
     <title>Document</title>
     @include('links.admin.adminscript')
     @include('links.admin.adminstyle')
-    
+
 </head>
 <body>
-    
+
     <div x-cloak x-data="{ sidebarOpen: true }" class="font-roboto flex min-h-screen">
         <div class="fixed w-full top-0 z-[999] bg-white">
         @include('Seller.layouts.navbar')
@@ -24,7 +24,7 @@
         </main>
     </div>
     @include('links.seller.script')
-    
+
 
 </body>
 </html>
