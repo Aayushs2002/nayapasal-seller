@@ -31,6 +31,14 @@ class Seller extends Authenticatable
         'remarks',
         'token',
         'verified',
-        'active'
+        'active',
+        'bank_name',
+        'account_number',
+        'account_holder_name',
+        'bank_Qr',
+        'esewa_id',
+        'esewa_Qr',
+        'khalti_id',
+        'khalti_Qr'
     ];
 }

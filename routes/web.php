@@ -49,6 +49,8 @@ Route::controller(SellerAuthController::class)->group(function () {
 Route::middleware(['seller'])->group(function () {
     Route::get('/sellerdashboard', [SellerDashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
+    Route::get('setting', [SellerProfileController::class, 'setting'])->name('setting');
+    Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('product', ProductController::class);

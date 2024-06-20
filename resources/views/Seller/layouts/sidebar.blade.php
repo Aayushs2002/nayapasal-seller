@@ -20,7 +20,7 @@
             <nav class="mt-24 ">
 
                 <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
-                    href="{{route('seller.dashboard')}}">
+                    href="{{ route('seller.dashboard') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -41,11 +41,10 @@
 
 
                 <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
-                    href="{{route('seller.product.index')}}">
+                    href="{{ route('seller.product.index') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
                     </svg>
@@ -53,11 +52,10 @@
                     <span class="mx-2 text-sm font-medium">Products</span>
                 </a>
                 <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
-                    href="{{route('seller.order')}}">
+                    href="{{ route('seller.order') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
                     </svg>
@@ -65,9 +63,9 @@
                     <span class="mx-2 text-sm font-medium">Order</span>
                 </a>
 
-                             <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="
-                    {{-- {{ route('admin.setting') }} --}}
+                    {{ route('seller.setting') }}
                     ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">

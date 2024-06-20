@@ -202,11 +202,11 @@
 
                 <div class="w-full lg:w-5/12 bg-white lg:ml-3 ">
                     {{-- category --}}
-                    @include('seller.components.product.edit-category')
+                    @include('Seller.components.product.edit-category')
 
 
                     {{-- attributes --}}
-                    @include('seller.components.product.edit-attribute')
+                    @include('Seller.components.product.edit-attribute')
 
                 </div>
             </div>

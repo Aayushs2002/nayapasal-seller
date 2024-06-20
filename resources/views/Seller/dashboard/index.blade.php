@@ -89,7 +89,7 @@
 
         </div>
 
-        <div class="p-6">
+        {{-- <div class="p-6">
             <div class="row">
                 <div class="">
                     <div class="card">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\Controller;
 use App\Models\Seller;
+use App\Services\Seller\Settting\PaymentDetail;
 use Illuminate\Http\Request;
 
 class SellerProfileController extends Controller
@@ -14,7 +15,7 @@ class SellerProfileController extends Controller
     public function index()
     {
         $sellers = Seller::first();
-        return view('Seller.profile.index',compact('sellers'));
+        return view('Seller.profile.index', compact('sellers'));
     }
 
     /**
@@ -63,5 +64,16 @@ class SellerProfileController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function setting()
+    {
+        return view("Seller.profile.setting");
+    }
+    public function paymentdetails(Request $request)
+    {
+        $detail = (new PaymentDetail())->update_detail($request);
+
+        return redirect()->back()->with("popsuccess", "Added");
     }
 }
