@@ -32,4 +32,9 @@ class Product extends Model
         'customized'
 
     ];
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
 }

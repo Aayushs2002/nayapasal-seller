@@ -41,4 +41,9 @@ class Seller extends Authenticatable
         'khalti_id',
         'khalti_Qr'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

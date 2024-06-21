@@ -165,6 +165,10 @@ class ProductService
 
     public function productImages($product)
     {
+        // dd('dad');
+        if($product->seller_id != Auth::guard('seller')->user()->id){
+            abort(403);
+           }
         return ProductImage::where('product_id', $product->id)->get();
     }
     public function deleteImage($img)

@@ -62,7 +62,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-       
+        
+       if($product->seller_id != Auth::guard('seller')->user()->id){
+        abort(403);
+       }
         $brands = DB::table('brands')->get();
         $attributegroups = AttributeGroup::latest()->get();
         $attributeItem = ProductAttribute::where("product_id", $product->id)->pluck("attribute_id")->toArray();
