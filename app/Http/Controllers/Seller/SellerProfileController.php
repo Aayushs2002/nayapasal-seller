@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Seller;
 use App\Services\Seller\Settting\PaymentDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SellerProfileController extends Controller
 {
@@ -14,7 +15,12 @@ class SellerProfileController extends Controller
      */
     public function index()
     {
-        $sellers = Seller::first();
+
+
+
+            $sellers = Auth::guard('seller')->user();
+            // $sellers = Seller::first();
+
         return view('Seller.profile.index', compact('sellers'));
     }
 
