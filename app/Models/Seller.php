@@ -11,6 +11,7 @@ class Seller extends Authenticatable
 {
     use HasFactory;
     protected $fillable = [
+        'slug',
         'firstname',
         'lastname',
         'mobileno',
