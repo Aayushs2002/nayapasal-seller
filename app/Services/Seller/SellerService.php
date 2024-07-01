@@ -5,6 +5,7 @@ namespace App\Services\Seller;
 use App\Models\Seller;
 use Faker\Core\Uuid;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class SellerService{
     function storeSeller($request){
@@ -50,7 +51,7 @@ class SellerService{
         // dd($data);
         $data['token'] = uniqid();
         $data['otp'] = rand(1000, 9999);
-
+        $data['slug'] = Str::slug($request->businessname);
         $seller = Seller::create($data);
         return $seller;
     }
