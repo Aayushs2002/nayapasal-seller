@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{Auth::guard("seller")->user()->firstname}} {{Auth::guard("seller")->user()->lastname}} | NauloPasal</title>
+    <title>{{ Auth::guard('seller')->user()->firstname ?? '' }} {{ Auth::guard('seller')->user()->lastname ?? '' }} |
+        NauloPasal</title>
     @include('links.admin.adminscript')
     @include('links.admin.adminstyle')
 
 </head>
+
 <body>
 
     <div x-cloak x-data="{ sidebarOpen: true }" class="font-roboto flex min-h-screen">
         <div class="fixed w-full top-0 z-[999] bg-white">
-        @include('Seller.layouts.navbar')
+            @include('Seller.layouts.navbar')
         </div>
         @include('Seller.layouts.sidebar')
         <main :class="sidebarOpen ? 'ml-64' : 'ml-0'"
@@ -27,4 +30,5 @@
 
 
 </body>
+
 </html>
