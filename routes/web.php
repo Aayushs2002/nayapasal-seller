@@ -52,7 +52,7 @@ Route::middleware(['seller'])->group(function () {
     Route::get('setting', [SellerProfileController::class, 'setting'])->name('setting');
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
     Route::resource('seller-profile', SellerProfileController::class);
-    Route::resource('seller-profile', SellerProfileController::class);
+    // Route::resource('seller-profile', SellerProfileController::class);
     Route::resource('product', ProductController::class);
     Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
     Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');

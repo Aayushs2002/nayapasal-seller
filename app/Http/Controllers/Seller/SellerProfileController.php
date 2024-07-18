@@ -18,8 +18,8 @@ class SellerProfileController extends Controller
 
 
 
-            $sellers = Auth::guard('seller')->user();
-            // $sellers = Seller::first();
+        $sellers = Auth::guard('seller')->user();
+        // $sellers = Seller::first();
 
         return view('Seller.profile.index', compact('sellers'));
     }
