@@ -9,7 +9,7 @@
                 <div
                     class="absolute items-center mx-auto transition duration-200 transform border-4 border-white rounded-full shadow-md w-28 h-28 hover:scale-110">
                     <div class="">
-                        <div class="text-[3rem] text-primary font-bold mt-3.5 ml-4">
+                        <div class="text-[3rem] text-primary font-bold mt-3.5 ml-5">
                             {{ $sellers->firstname[0] . $sellers->lastname[0] }}
                         </div>
                     </div>

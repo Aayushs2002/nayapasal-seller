@@ -1,4 +1,5 @@
-<link rel="shortcut icon" href="{{ asset('favicon/favicon-32x32.png') }}">
+<link rel="shortcut icon" href="{{ asset('logos/favicon.svg') }}">
+
 {{-- swal toaster style  --}}
 <style>
     .colored-toast.swal2-icon-success {
