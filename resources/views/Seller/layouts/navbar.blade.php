@@ -1,5 +1,5 @@
 <section class="flex items-center px-6 py-4 justify-between  border-b-2 border-gray-200">
-    <div class="flex items-center space-x-3 justify-between ">
+    <div class="flex items-center max-sm:space-x-0 space-x-3 justify-between ">
         <div class="">
             <button @click="sidebarOpen = !sidebarOpen" class="text-primary focus:outline-none lg:block w-8">
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,16 +9,14 @@
             </button>
         </div>
         <div class=" md:col-span-1 lg:col-span-2">
-            <div class="flex items-center w-40">
-                <img class="w-full" src="{{ asset('images/naulopasal.svg')  }}" alt="banner_image">
+            <div class="flex items-center max-sm:w-24 w-32">
+                <img class="w-full" src="{{ asset('images/naulopasal.svg') }}" alt="banner_image">
             </div>
         </div>
     </div>
-    <div x-data="{ dropdownOpen: false }"
-    {{-- class="relative shadow-[0_3px_10px_rgb(0,0,0,0.2)] h-9 w-9 rounded-full mr-3" --}}
-    >
+    <div x-data="{ dropdownOpen: false }" {{-- class="relative shadow-[0_3px_10px_rgb(0,0,0,0.2)] h-9 w-9 rounded-full mr-3" --}}>
         <button @click="dropdownOpen = ! dropdownOpen" class="" {{-- class="relative block overflow-hidden rounded-full h-9 w-9 focus:outline-none" --}}>
-            <div class="flex items-center gap-2 group">
+            <div class="flex items-center max-sm:gap-0 gap-2 group">
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                     fill="none">
@@ -31,13 +29,13 @@
                         d="M8 16.5C10.0726 14.302 13.9051 14.1986 16 16.5M14.2179 9.75C14.2179 10.9926 13.2215 12 11.9925 12C10.7634 12 9.76708 10.9926 9.76708 9.75C9.76708 8.50736 10.7634 7.5 11.9925 7.5C13.2215 7.5 14.2179 8.50736 14.2179 9.75Z"
                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
-                <span class="group-hover:hover:text-primary text-md font-semibold">
+                <span class="group-hover:hover:text-primary text-secondary max-sm:text-xs text-md font-semibold">
 
                     {{ Auth::guard('seller')->user()->firstname ?? ' ' }}
                     {{ Auth::guard('seller')->user()->lastname ?? ' ' }}
                 </span>
 
-                <div class="group-hover:hover:text-primary ">
+                <div class="group-hover:hover:text-primary max-sm:hidden ">
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         fill="none">
@@ -58,7 +56,7 @@
 
         <div x-cloak x-show="dropdownOpen"
             class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
-            <a href="{{route('seller.seller-profile.index')}}"
+            <a href="{{ route('seller.seller-profile.index') }}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary  hover:text-white">Profile</a>
             <a href="
             {{-- {{ route('admin.changepassword') }} --}}
@@ -66,10 +64,11 @@
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary  hover:text-white">Change
                 Password</a>
 
-            <form action="{{route('seller.logout')}}" method="POST" class="">
+            <form action="{{ route('seller.logout') }}" method="POST" class="">
                 @csrf
                 <button class="w-full flex justify-start">
-                    <div class="block px-4 py-2 text-left text-sm w-full text-gray-700 hover:bg-primary  hover:text-white">
+                    <div
+                        class="block px-4 py-2 text-left text-sm w-full text-gray-700 hover:bg-primary  hover:text-white">
                         Logout
                     </div>
                 </button>
