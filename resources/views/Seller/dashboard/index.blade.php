@@ -5,7 +5,7 @@
         <div class="font-semibold text-lg py-2">
             Order and Product
         </div>
-        <div class="grid grid-cols-4 gap-x-5">
+        <div class="grid  grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-x-5">
             <div
                 class="relative border-[1px] flex flex-col min-w-0 mb-6 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
@@ -14,7 +14,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Order</p>
                                 <h5 class="mb-0 font-bold">
-                                 {{($order_count);}}
+                                    {{ $order_count }}
                                 </h5>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Order Value</p>
                                 <h5 class="mb-0 font-bold">
-                                 Rs. {{$total_revenue}}
+                                    Rs. {{ $total_revenue }}
                                 </h5>
                             </div>
                         </div>
@@ -73,14 +73,16 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">Total Product</p>
                                 <h5 class="mb-0 font-bold">
-                                    {{$product}}
+                                    {{ $product }}
                                 </h5>
                             </div>
                         </div>
                         <div class="w-4/12 max-w-full px-3 ml-auto text-right flex-0">
-                            <div
-                                class="inline-block w-12 h-12 text-center rounded-lg shadow-soft-2xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"   width="44" height="44"><path d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z"/></svg>
+                            <div class="inline-block w-12 h-12 text-center rounded-lg shadow-soft-2xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="44" height="44">
+                                    <path
+                                        d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z" />
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -111,6 +113,4 @@
 
 
     </div>
-
-    
 @endsection
