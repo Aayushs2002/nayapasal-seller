@@ -2,10 +2,12 @@
 
 namespace App\Services\Seller;
 
+use App\Mail\otp;
 use App\Models\Seller;
 use Faker\Core\Uuid;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Mail;
 
 class SellerService{
     function storeSeller($request){
@@ -53,6 +55,9 @@ class SellerService{
         $data['otp'] = rand(1000, 9999);
         $data['slug'] = Str::slug($request->businessname);
         $seller = Seller::create($data);
+        // $mailData = $seller->otp;
+        Mail::to($email)->send(new otp($seller->otp));
+
         return $seller;
     }
 
