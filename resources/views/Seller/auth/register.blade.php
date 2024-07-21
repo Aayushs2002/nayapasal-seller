@@ -22,6 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Seller | Register</title>
     @include('links.admin.adminscript')
+    @include('links.admin.adminstyle')
     @include('links.frontend.script')
 </head>
 

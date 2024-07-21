@@ -2,6 +2,8 @@
 @include('Seller.registerlayout.navbar')
 @include('links.admin.adminscript')
 @include('links.frontend.script')
+<title>Seller | ConfirmPassword</title>
+
     <section class="">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0 my-10">
 

@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Seller | Otp</title>
     @include('links.admin.adminscript')
+    @include('links.admin.adminstyle')
     @include('links.frontend.script')
 </head>
 
