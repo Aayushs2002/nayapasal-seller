@@ -1,6 +1,8 @@
 @include('Seller.registerlayout.navbar')
 @include('links.admin.adminscript')
 @include('links.frontend.script')
+<title>Seller | OTP</title>
+
 
 <div class="max-w-md mx-auto text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow my-20">
     <header class="mb-8">
