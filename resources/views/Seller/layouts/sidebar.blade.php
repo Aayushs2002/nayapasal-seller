@@ -19,7 +19,7 @@
         <div>
             <nav class="mt-24 ">
 
-                <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(2) == 'dashboard' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="{{ route('seller.dashboard') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -33,14 +33,7 @@
 
 
 
-
-
-
-
-
-
-
-                <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(2) == 'product' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-primary hover:text-white"
                     href="{{ route('seller.product.index') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -51,7 +44,7 @@
 
                     <span class="mx-2 text-sm font-medium">Products</span>
                 </a>
-                <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(2) == 'order' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="{{ route('seller.order') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -63,7 +56,7 @@
                     <span class="mx-2 text-sm font-medium">Order</span>
                 </a>
 
-                <a class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(2) == 'setting' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="
                     {{ route('seller.setting') }}
                     ">
