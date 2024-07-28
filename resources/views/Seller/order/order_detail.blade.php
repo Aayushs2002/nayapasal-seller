@@ -104,9 +104,7 @@
                                         <th scope="col" class="px-6 py-3">
                                             Product name
                                         </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Attributes
-                                        </th>
+                                        
                                         <th scope="col" class="px-6 py-3">
                                             Price
                                         </th>
@@ -116,6 +114,12 @@
                                         <th scope="col" class="px-6 py-3">
                                             Total
                                         </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Commission
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Receivable Amount
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -123,6 +127,8 @@
 
                                     @php
                                         $total = 0;
+                                        $sumcommission = 0;
+                                        $paidsum = 0;
                                     @endphp
                                     @foreach ($order->orderItem as $item)
                                         @if (Auth::guard('seller')->user()->id == $item->seller_id)
@@ -142,20 +148,16 @@
 
                                                 <th scope="row"
                                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                    {{ $item->product->product_name ?? 'loading' }}
-                                                </th>
-                                                <td class="px-6 py-4">
+                                                    {{ $item->product->product_name ?? '' }}
 
-
-                                                    {{-- @dd($item->orderAttributes) --}}
-
-                                                    @foreach ($item->orderAttributes as $keys => $attribute)
+                                                    (@foreach ($item->orderAttributes as $keys => $attribute)
                                                         @if ($keys != 0)
                                                             ,
                                                         @endif
-                                                        {{ $attribute->getAttributename->attributename ?? 'loading' }}
-                                                    @endforeach
-                                                </td>
+                                                        {{ $attribute->getAttributename->attributename ?? '' }}
+                                                    @endforeach)
+                                                </th>
+
                                                 <td class="px-6 py-4">
                                                     {{ $item->product_price ?? 'Loading' }}
                                                 </td>
@@ -165,27 +167,46 @@
                                                 <td class="px-6 py-4">
                                                     {{ $item->quantity * $item->product_price ?? 'Loading' }}
                                                 </td>
+                                                @php
+                                                    $commission = 0;
+                                                @endphp
+
+                                                @php
+                                                    $commission =
+                                                        ($item->product_commission / 100) *
+                                                        ($item->quantity * $item->product_price);
+                                                    $sumcommission += $commission;
+
+                                                    $paid = $item->product_price * $item->quantity - $commission;
+                                                    $paidsum += $paid;
+                                                @endphp
+                                                <td class="px-6 py-4">
+                                                    {{ $commission ?? 'Loading' }}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $paid ?? 'Loading' }}
+                                                </td>
 
 
                                             </tr>
                                         @endif
                                     @endforeach
 
-                                    <tr class="bg-white border-b">
-                                        <td colspan="5" class="px-6 py-4 text-right font-medium">
+                                    {{-- <tr class="bg-white border-b">
+                                        <td colspan="4" class="px-6 py-4 text-right font-medium">
                                             Tax ({{ $order->taxpercent }}%):
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $order->taxamount }}
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                     @if ($order->coupondiscount)
                                         @php
                                             $coupon = getCoupon($order->coupon);
                                             // dd($coupon->discount_amount)
                                         @endphp
                                         <tr class="bg-white border-b">
-                                            <td colspan="5" class="px-6 py-4 text-right font-medium">
+                                            <td colspan="4" class="px-6 py-4 text-right font-medium">
                                                 Coupon ({{ $coupon->discount_amount ?? 'Loading' }}%):
                                             </td>
                                             <td class="px-6 py-4">
@@ -195,11 +216,17 @@
                                     @endif
                                     <tr class="bg-white border-b">
 
-                                        <td colspan="5" class="px-6 py-4 text-right font-bold">
+                                        <td colspan="4" class="px-6 py-4 text-right font-bold">
                                             Grand Total:
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 font-bold">
                                             {{ $total }}
+                                        </td>
+                                        <td class="px-6 py-4 font-bold">
+                                            {{ $sumcommission }}
+                                        </td>
+                                        <td class="px-6 py-4 font-bold">
+                                            {{ $paidsum }}
                                         </td>
                                     </tr>
                                 </tbody>
