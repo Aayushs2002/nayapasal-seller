@@ -10,7 +10,7 @@
         </div>
         <div class=" md:col-span-1 lg:col-span-2">
             <div class="flex items-center max-sm:w-24 w-32">
-                <img class="w-full" src="{{ asset('images/naulopasal.svg') }}" alt="banner_image">
+                <img class="w-full" src="{{ asset('logos/newlogo.svg') }}" alt="banner_image">
             </div>
         </div>
     </div>
