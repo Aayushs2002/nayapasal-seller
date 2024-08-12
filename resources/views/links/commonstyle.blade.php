@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="{{ asset('logos/favicon.svg') }}">
+<link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
 
 {{-- swal toaster style  --}}
 <style>

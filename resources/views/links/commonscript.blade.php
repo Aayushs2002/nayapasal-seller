@@ -6,7 +6,8 @@
             extend: {
 
                 colors: {
-                    primary: '#f3ab23',
+                    primary: '#023047',
+                    oldprimary: '#f3ab23',
                     secondary: '#3939ac',
                 }
             },
