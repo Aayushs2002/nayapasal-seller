@@ -46,9 +46,10 @@ class SellerAuthController extends Controller
 
         return view('Seller.auth.register');
     }
-
+ 
     public function sellerRegister(StoreSellerRequest $request)
     {
+        // dd($request);
         $seller = (new SellerService)->storeSeller($request);
         // Mail::to($request->email)->send(new RegisterOtpMail($seller->otp));
 
