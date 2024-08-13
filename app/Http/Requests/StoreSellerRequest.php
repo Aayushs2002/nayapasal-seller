@@ -30,11 +30,11 @@ class StoreSellerRequest extends FormRequest
             'establishdate' => 'required',
             'activities' => 'required',
             // 'registration_number' => 'required|unique:sellers',
-            'vatno' => 'required',
+            // 'vatno' => 'required',
             'address1' => 'required',
             'password' => 'required',
             // 'address2' => 'required',
-            'postaladdress' => 'nullable|numeric',
+            'postaladdress' => 'nullable|numeric', 
             'registration_documents' => 'required|mimes:jpg,jpeg,png',
             'vat_registration_documents' => 'required|mimes:pdf,jpg,jpeg,png',
         ];
