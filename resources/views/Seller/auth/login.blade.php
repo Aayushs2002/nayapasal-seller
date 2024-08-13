@@ -9,7 +9,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="{{ asset('logos/favicon.svg') }}">
+    <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
 </head>
 
 <style>
