@@ -1,4 +1,4 @@
-<script>
+{{-- <script>
     const inputFields = document.querySelectorAll('.input-field');
     const errorMessages = document.querySelectorAll('.error-message');
 
@@ -11,7 +11,7 @@
             }
         });
     });
-</script>
+</script> --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +77,7 @@
                                     <input type="text" name="firstname" id="firstname" value="{{ old('firstname') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     @error('firstname')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-primary"
+                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -94,7 +94,7 @@
                                     <input type="text" value="{{ old('lastname') }}" name="lastname" id="lastname"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     @error('lastname')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-primary"
+                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -116,7 +116,7 @@
                                     <input type="text" name="mobileno" id="mobileno" value="{{ old('mobileno') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     @error('mobileno')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-primary"
+                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -132,7 +132,7 @@
                                     <input type="email" name="email" id="email" value="{{ old('email') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     @error('email')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-primary"
+                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -149,7 +149,7 @@
                                     <input type="password" name="password" id="password" value="{{ old('password') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     @error('password')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-primary"
+                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -210,7 +210,7 @@
                                             value="{{ old('businessname') }}"
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('businessname')
-                                            <div class="error-message invalid-feedback text-sm text-primary"
+                                            <div class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -227,7 +227,7 @@
                                             value="{{ old('establishdate') }}"
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('establishdate')
-                                            <div class="error-message invalid-feedback text-sm text-primary"
+                                            <div class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -246,7 +246,7 @@
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('activities')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -271,7 +271,7 @@
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('vatno')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -285,11 +285,12 @@
                                             Physical Address 1
                                         </label>
 
-                                        <input type="text" name="address1" id="address1" value="{{old("address1")}}"
+                                        <input type="text" name="address1" id="address1"
+                                            value="{{ old('address1') }}"
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('address1')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -306,11 +307,12 @@
                                             Physical Address 2
                                         </label>
 
-                                        <input type="text" name="address2" id="address2" value="{{old("address2")}}"
+                                        <input type="text" name="address2" id="address2"
+                                            value="{{ old('address2') }}"
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('address2')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -330,7 +332,7 @@
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('postaladdress')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -400,7 +402,7 @@
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('registration_documents')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
@@ -418,7 +420,7 @@
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         @error('vat_registration_documents')
                                             <div id="error-message"
-                                                class="error-message invalid-feedback text-sm text-primary"
+                                                class="error-message invalid-feedback text-sm text-red-500"
                                                 style="display: block;">
                                                 {{ $message }}
 
