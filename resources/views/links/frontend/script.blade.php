@@ -81,9 +81,8 @@
             const firstName = document.getElementById("firstname").value.trim();
             const lastName = document.getElementById("lastname").value.trim();
             const mobileNo = document.getElementById("mobileno").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-
+            const email = document.getElementById("emailss").value.trim();
+            const password = document.getElementById("passwordss").value.trim();
             if (!firstName) {
                 setError("firstname", "First name is required.");
                 isValid = false;
