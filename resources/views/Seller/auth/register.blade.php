@@ -148,7 +148,7 @@
                                         Email Address
                                     </label>
 
-                                    <input type="email" name="email" id="email" value="{{ old('email') }}"
+                                    <input type="email" name="email" id="emailss" value="{{ old('email') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     <div id="email-error" class="error-message"></div>
                                     @error('email')
@@ -166,7 +166,7 @@
                                         Password
                                     </label>
 
-                                    <input type="password" name="password" id="password" value="{{ old('password') }}"
+                                    <input type="password" name="password" id="passwordss" value="{{ old('password') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                     <div id="password-error" class="error-message"></div>
 
