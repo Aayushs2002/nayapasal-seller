@@ -32,6 +32,7 @@ Route::get('/clear', function () {
 Route::controller(SellerAuthController::class)->group(function () {
     Route::get('/login',  'login')->name('login');
     Route::post('/loginpost',  'loginpost')->name('loginpost');
+    Route::get('/clickhere/{token}',  'clickhere')->name('clickhere');
     Route::get('/registers',  'register')->name('register');
     Route::post('/vendorregister', 'sellerRegister')->name('store');
     Route::get('/sellerotp',  'otp')->name('otp');
