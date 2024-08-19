@@ -57,7 +57,7 @@
         const previousButton2 = document.getElementById("previous-button2");
         const nextButton2 = document.getElementById("next-button2");
 
-       
+
         function setError(inputId, message) {
             const inputElement = document.getElementById(inputId);
             const errorElement = document.getElementById(inputId + "-error");
@@ -74,7 +74,7 @@
             errorElement.textContent = "";
         }
 
-        
+
         function validatePersonalInfo() {
             let isValid = true;
 
@@ -122,7 +122,7 @@
             return isValid;
         }
 
-       
+
         function validateCompanyInfo() {
             let isValid = true;
 
@@ -163,12 +163,12 @@
             return isValid;
         }
 
-      
+
         function validateCompanyDocuments() {
             let isValid = true;
 
             const registrationDocuments = document.getElementById("registration_documents").value;
-       
+
             const vatRegistrationDocuments = document.getElementById("vat_registration_documents").value;
 
             if (!registrationDocuments) {
@@ -188,7 +188,7 @@
             return isValid;
         }
 
-       
+
         nextButton.addEventListener("click", function() {
             if (validatePersonalInfo()) {
                 personalInfoSection.classList.add("hidden");
@@ -213,10 +213,10 @@
             companyInfoSection.classList.remove("hidden");
         });
 
-        
+
         document.getElementById('registration-form').addEventListener('submit', function(event) {
             if (!validateCompanyDocuments()) {
-                event.preventDefault(); 
+                event.preventDefault();
             } else {
                 console.log('Form submitted');
             }
