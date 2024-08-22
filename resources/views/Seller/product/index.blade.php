@@ -5,7 +5,7 @@
         <div class="w-full flex flex-wrap items-center  mx-auto">
             <form id="sortForm" method="GET" action="{{ route('seller.product.index') }}">
                 <div class="flex items-center ">
-                    <div class="w-44 font-semibold text-pink-500 max-sm:text-xs">Sort By Stock :</div>
+                    <div class="w-44 font-semibold text-newsecondary max-sm:text-xs">Sort By Stock :</div>
                     <select id="sortSelect" name="sortby"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-1.5">
                         <option value="" disabled selected>None</option>
@@ -52,7 +52,7 @@
                                                     type="text" value="{{ old('searchterm', request('searchterm')) }}" />
                                             </div>
                                             <button type="submit"
-                                                class="border border-[#EC1564]  px-1 text-sm rounded-md mr-2 text-[#EC1564] bg-white hover:bg-[#EC1564] hover:text-white">
+                                                class="border border-newsecondary  px-1 text-sm rounded-md mr-2 text-newsecondary bg-white hover:bg-newsecondary hover:text-white">
 
                                                 <div>Search</div>
                                             </button>
