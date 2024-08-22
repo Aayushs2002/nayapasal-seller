@@ -29,7 +29,9 @@ class Product extends Model
         'discount_amount',
         'discount_percentage',
         'seller_id',
-        'customized'
+        'customized',
+        'active',
+
 
     ];
 

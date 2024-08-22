@@ -8,6 +8,7 @@
                 colors: {
                     primary: '#023047',
                     oldprimary: '#f3ab23',
+                    newsecondary: '#ff7300',
                     secondary: '#3939ac',
                 }
             },
