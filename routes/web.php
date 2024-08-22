@@ -54,6 +54,9 @@ Route::middleware(['seller'])->group(function () {
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
     Route::resource('seller-profile', SellerProfileController::class);
     // Route::resource('seller-profile', SellerProfileController::class);
+    Route::post('/productstock/{product}', [ProductController::class, 'editstock'])->name('editstock');
+    Route::post('/togleActive/{product}', [ProductController::class, 'togleActive'])->name('togleActive');
+
     Route::resource('product', ProductController::class);
     Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
     Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');

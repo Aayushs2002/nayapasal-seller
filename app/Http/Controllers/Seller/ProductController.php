@@ -38,6 +38,26 @@ class ProductController extends Controller
         return view("Seller.product.create", compact("brands", "attributegroups"));
     }
 
+    public function editstock(Request $request, Product $product)
+    {
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
+        $product->product_stock = $request->stock;
+        $product->save();
+        return redirect()->back()->with("popsuccess", "Stock Successfully Updated");
+    }
+
+    public function togleActive(Product $product)
+    {
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
+        $product->active = !$product->active;
+        $product->save();
+        return redirect()->back()->with("popsuccess", "Active Status Changed");
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -62,10 +82,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        
-       if($product->seller_id != Auth::guard('seller')->user()->id){
-        abort(403);
-       }
+
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
         $brands = DB::table('brands')->get();
         $attributegroups = AttributeGroup::latest()->get();
         $attributeItem = ProductAttribute::where("product_id", $product->id)->pluck("attribute_id")->toArray();
@@ -75,9 +95,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request,Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        
+
         $product = (new ProductService)->updateProduct($request, $product);
 
         return redirect()->route('seller.product.index')->with('success', 'Product Updated');
@@ -88,7 +108,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        
+
         $product = (new ProductService)->deleteProduct($product);
         return redirect()->route('seller.product.index')->with('success', 'Product Successfully Deleted');
     }
