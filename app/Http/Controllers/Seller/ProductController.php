@@ -19,13 +19,29 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = DB::table('products')->where('seller_id', Auth::guard("seller")->user()->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $products = DB::table('products')->where('seller_id', Auth::guard("seller")->user()->id);
 
-        return view("Seller.product.index", compact("products"));
+        $sort = $request->sortby;
+        if ($sort) {
+            if ($sort == "maximum") {
+                $products = $products->orderBy('product_stock', 'desc');
+            }
+            if ($sort == "minimum") {
+                $products = $products->orderBy('product_stock', 'asc');
+            }
+        } else {
+            $products = $products->orderBy('id', 'desc');
+        }
+
+        if ($request->searchterm) {
+            $products = $products->where('product_name', 'like', '%' . $request->searchterm . '%')->orderBy('id', 'desc');
+        }
+
+        $products = $products->paginate(15);
+        $params = $_GET;
+        return view("Seller.product.index", compact("products", 'params'));
     }
 
     /**

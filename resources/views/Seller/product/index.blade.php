@@ -2,7 +2,25 @@
 @section('body')
     <section class="py-1 bg-blueGray-50">
 
-        <div class="w-full  mx-auto">
+        <div class="w-full flex flex-wrap items-center  mx-auto">
+            <form id="sortForm" method="GET" action="{{ route('seller.product.index') }}">
+                <div class="flex items-center ">
+                    <div class="w-44 font-semibold text-newsecondary max-sm:text-xs">Sort By Stock :</div>
+                    <select id="sortSelect" name="sortby"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-1.5">
+                        <option value="" disabled selected>None</option>
+                        <option {{ request()->sortby == 'minimum' ? 'selected' : '' }} value="minimum">Minimum Stock
+                        </option>
+                        <option {{ request()->sortby == 'maximum' ? 'selected' : '' }} value="maximum">
+                            Maximum Stock </option>
+                    </select>
+                </div>
+            </form>
+            <script>
+                document.getElementById('sortSelect').addEventListener('change', function() {
+                    document.getElementById('sortForm').submit();
+                });
+            </script>
             <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                 <a href="{{ route('seller.product.create') }}"
                     class="bg-secondary hover:bg-lightsecondary text-white py-2 text-xs font-bold uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Add
@@ -18,13 +36,28 @@
                         class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
                         <!-- card header -->
                         <div class="rounded-t mb-0 px-4 py-4   border-b ">
-                            <div class="flex flex-wrap items-center">
-                                <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <div class="flex flex-wrap  justify-between items-center">
+                                <div class="relative px-4  ">
                                     <h3 class="font-bold text-primary max-sm:text-xs text-xl text-gray-700">Products
                                     </h3>
                                 </div>
-                                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                    <div class="">Search...</div>
+                                <div class="relative px-4  text-right">
+                                    <form action="{{ route('seller.product.index') }}" method="GET">
+                                        <div class="flex gap-2 ">
+
+                                            <div>
+                                                <input
+                                                    class="text-xs border h-5 py-4 border-gray-300 p-3 focus:outline-none rounded focus:border-[#646368] hover:border-[#646368] w-full"
+                                                    name="searchterm" required placeholder="Search from product name"
+                                                    type="text" value="{{ old('searchterm', request('searchterm')) }}" />
+                                            </div>
+                                            <button type="submit"
+                                                class="border border-newsecondary  px-1 text-sm rounded-md mr-2 text-newsecondary bg-white hover:bg-newsecondary hover:text-white">
+
+                                                <div>Search</div>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -79,8 +112,7 @@
                                                 <span class="font-semibold text-light-inverse text-md/normal">
                                                     {{ $product->product_stock }}</span>
                                             </td> --}}
-                                                <td
-                                                    class="flex items-center gap-2 px-5 text-sm bg-white  py-7 ">
+                                                <td class="flex items-center gap-2 px-5 text-sm bg-white  py-7 ">
 
                                                     @if ($product->product_stock == 0)
                                                         <span class="font-semibold text-newsecondary">(Sold Out)</span>
@@ -150,6 +182,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="mt-3 ">
+                    {{ $products->appends($params)->links() }}
+                    {{-- {{ $products->links('vendor.pagination.tailwind') }} --}}
                 </div>
             </div>
         </div>
