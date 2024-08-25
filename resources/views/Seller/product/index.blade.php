@@ -87,7 +87,7 @@
                                                     @else
                                                         <p class="text-lg font-semibold text-newsecondary ">
                                                             {{ $product->product_stock }}</p>
-                                                    @endif
+                                                    @endif 
                                                     <div class="pt-[9px]">
 
                                                         @include('Seller.product.action.edit_product_quantity')

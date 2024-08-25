@@ -82,7 +82,7 @@ class SellerAuthController extends Controller
     public function otp()
     {
         $token = request('token');
-
+        // dd($token);
         if (!$token) {
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
