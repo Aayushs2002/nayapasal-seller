@@ -31,7 +31,7 @@ class StoreProductRequest extends FormRequest
             'product_stock' => 'required|numeric',
             'discount_amount' => 'nullable|numeric',
             'description' => 'required',
-            'attributes' => 'required|array',
+            // 'attributes' => 'required|array',
         ];
     }
 }
