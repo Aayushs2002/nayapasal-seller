@@ -33,8 +33,10 @@
                                 @include('message.index')
                                 <div class="">
                                     @if (session('error') == 'Your Email is not verified')
+                                        {{-- @dd(session('token')) --}}
                                         <div class="flex gap-x-2">
-                                            <form method="GET" action="{{ route('seller.clickhere', ['token' => session('token')]) }}">
+                                            <form method="GET"
+                                                action="{{ route('seller.clickhere', ['token' => session('token')]) }}">
                                                 <button type="submit"
                                                     class="text-pink-600 font-semibold underline">Click Here</button>
                                             </form>
