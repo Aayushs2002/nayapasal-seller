@@ -43,8 +43,7 @@ Route::controller(SellerAuthController::class)->group(function () {
 
     Route::post('/checkresetotp/{token}', 'checkresetotp')->name('checkresetotp');
     Route::get('/checkresetotp/{token}', 'getresetotp')->name('getresetotp');
-    Route::post('/changepassword/{token}','changepasswords')->name('changepasswords');
-
+    Route::post('/changepassword/{token}', 'changepasswords')->name('changepasswords');
 });
 
 Route::middleware(['seller'])->group(function () {
@@ -59,6 +58,9 @@ Route::middleware(['seller'])->group(function () {
 
     Route::resource('product', ProductController::class);
     Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
+    Route::post('flashdeal/{id}', [ProductController::class, 'flashdeal'])->name('flashdeal');
+    Route::delete('/delete-flashdeal/{productId}', [ProductController::class, 'destroyFlashDeal'])->name('flashdeal.destroy');
+
     Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');
     Route::delete('productimage/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
     Route::get('/order', [SellerOrderController::class, 'order'])->name('order');

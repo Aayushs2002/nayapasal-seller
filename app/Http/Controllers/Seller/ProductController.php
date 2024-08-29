@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\AttributeGroup;
+use App\Models\FlashDeal;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductImage;
@@ -21,8 +22,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = DB::table('products')->where('seller_id', Auth::guard("seller")->user()->id);
-
+        $products =Product::where('seller_id', Auth::guard("seller")->user()->id);
+        $aa = FlashDeal::get();
         $sort = $request->sortby;
         if ($sort) {
             if ($sort == "maximum") {
@@ -118,6 +119,36 @@ class ProductController extends Controller
 
         return redirect()->route('seller.product.index')->with('success', 'Product Updated');
     }
+
+    public function flashdeal(Request $request, string $id)
+    {
+
+
+        $validated = $request->validate([
+            'product_price' => 'required|numeric',
+            'discount_percent' => 'required|numeric',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
+        FlashDeal::create([
+            'product_id' => $id,
+            'product_price' => $validated['product_price'],
+            'discount_percent' => $validated['discount_percent'],
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+            'status' => '1'
+        ]);
+
+        return redirect()->back()->with('success', 'Flash deal created successfully.');
+    }
+
+    public function destroyFlashDeal($id)
+    {
+        FlashDeal::where('product_id', $id)->delete();
+        return response()->json(['success' => true], 200);
+    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -83,6 +83,9 @@
                                             <th class="pb-3">
                                                 Active
                                             </th>
+                                            <th class="pb-3">
+                                                Flash Deal
+                                            </th>
 
                                             <th class="pb-3">
                                                 Created At
@@ -119,7 +122,7 @@
                                                     @else
                                                         <p class="text-lg font-semibold text-newsecondary ">
                                                             {{ $product->product_stock }}</p>
-                                                    @endif 
+                                                    @endif
                                                     <div class="pt-[9px]">
 
                                                         @include('Seller.product.action.edit_product_quantity')
@@ -141,6 +144,24 @@
                                                         </label>
                                                     </form>
                                                 </td>
+                                                {{-- @dd($product->flashDeal) --}}
+                                                @php
+                                                    $flashDeal = $product->flashDeal ;
+                                                    
+                                                @endphp
+                                                <td class="p-3">
+                                                    <label class="inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="flashdeal" value=""
+                                                            {{ $flashDeal ? 'checked' : '' }} class="sr-only peer"
+                                                            id="toggleSwitch{{ $product->id }}">
+                                                        <div
+                                                            class="relative w-11 h-6 bg-gray-500 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                                                        </div>
+                                                    </label>
+                                                </td>
+                                                @include('Seller.product.action.flash_deal')
+                                            
+
                                                 <td class="p-3 pr-0 ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
                                                         @if ($product->created_at)

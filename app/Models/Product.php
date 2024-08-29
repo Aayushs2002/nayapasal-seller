@@ -39,4 +39,9 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class);
     }
+
+    public function flashDeal()
+    {
+        return $this->hasOne(FlashDeal::class, 'product_id');
+    }
 }
