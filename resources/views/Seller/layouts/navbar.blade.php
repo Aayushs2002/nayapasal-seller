@@ -59,7 +59,7 @@
             <a href="{{ route('seller.seller-profile.index') }}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary  hover:text-white">Profile</a>
             <a href="
-            {{-- {{ route('admin.changepassword') }} --}}
+            {{ route('seller.sellerchangepassword') }}
             "
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary  hover:text-white">Change
                 Password</a>

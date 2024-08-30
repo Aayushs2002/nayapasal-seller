@@ -7,6 +7,8 @@ use App\Models\Seller;
 use App\Services\Seller\Settting\PaymentDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Hash;
+
 
 class SellerProfileController extends Controller
 {
@@ -70,6 +72,35 @@ class SellerProfileController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    public function sellerchangepassword(Request $request){
+        return view('Seller.auth.changepassword');
+    }
+
+
+    public function changepassword(Request $request){
+
+
+        $request->validate([
+            'current_password' =>'required',
+            'new_password' => 'required|string|confirmed',
+        ]);
+
+
+        $user = Auth::guard('seller')->user();
+        $currentpassword = $request->current_password;
+
+        if(Hash::check($currentpassword, $user->password)){
+
+            $user->update([
+                'password' => Hash::make($request->input('new_password')),
+            ]);
+            return redirect()->back()->with('popsuccess','Password Changed Successfully');
+        }else{
+            return redirect()->back()->with('poperror','Password is incorrect');
+        }
     }
 
     public function setting()
