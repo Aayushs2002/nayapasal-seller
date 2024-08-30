@@ -43,7 +43,7 @@ Route::controller(SellerAuthController::class)->group(function () {
 
     Route::post('/checkresetotp/{token}', 'checkresetotp')->name('checkresetotp');
     Route::get('/checkresetotp/{token}', 'getresetotp')->name('getresetotp');
-    Route::post('/changepassword/{token}', 'changepasswords')->name('changepasswords');
+    Route::post('/changepassword/{token}','changepasswords')->name('changepasswords');
 });
 
 Route::middleware(['seller'])->group(function () {
@@ -51,8 +51,12 @@ Route::middleware(['seller'])->group(function () {
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
     Route::get('setting', [SellerProfileController::class, 'setting'])->name('setting');
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
-    Route::resource('seller-profile', SellerProfileController::class);
+    Route::resource('seller-profile', SellerProfileController::class); 
     // Route::resource('seller-profile', SellerProfileController::class);
+        // from dashboard
+        Route::get('/seller/changepassword', [SellerProfileController::class, 'sellerchangepassword'])->name('sellerchangepassword');
+
+        Route::post('/seller/changepassword', [SellerProfileController::class, 'changepassword'])->name('changepassword');
     Route::post('/productstock/{product}', [ProductController::class, 'editstock'])->name('editstock');
     Route::post('/togleActive/{product}', [ProductController::class, 'togleActive'])->name('togleActive');
 
