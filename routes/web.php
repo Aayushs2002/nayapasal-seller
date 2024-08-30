@@ -62,7 +62,7 @@ Route::middleware(['seller'])->group(function () {
     Route::delete('/delete-flashdeal/{productId}', [ProductController::class, 'destroyFlashDeal'])->name('flashdeal.destroy');
 
     Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');
-    Route::delete('productimage/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
+    Route::delete('productimage/delete/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
     Route::get('/order', [SellerOrderController::class, 'order'])->name('order');
     Route::get('order/details/{details}', [SellerOrderController::class, 'orderdetail'])->name('order.details');
 });

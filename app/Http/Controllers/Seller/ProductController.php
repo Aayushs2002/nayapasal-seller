@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products =Product::where('seller_id', Auth::guard("seller")->user()->id);
+        $products = Product::where('seller_id', Auth::guard("seller")->user()->id);
         $aa = FlashDeal::get();
         $sort = $request->sortby;
         if ($sort) {
@@ -163,6 +163,10 @@ class ProductController extends Controller
     public function productImage(Request $request)
     {
         $product = (new ProductService)->addMultipleImage($request);
+        return response()->json([
+            'id' => $product->id,
+            'images' => $product->images
+        ]);
     }
 
     public function imagecreate(Product $product)

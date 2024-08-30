@@ -33,7 +33,7 @@ class ProductService
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
         $req['slug'] = Str::slug($request->product_name);
-        $req['seller_id'] =Auth::guard("seller")->user()->id;
+        $req['seller_id'] = Auth::guard("seller")->user()->id;
 
         $add_product = Product::create($req);
 
@@ -44,7 +44,7 @@ class ProductService
     {
         foreach ($selectedAttributes as $attributegroupID => $attributeItems) {
             foreach ($attributeItems as $attributeItemID) {
-              ProductAttribute::create([
+                ProductAttribute::create([
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
@@ -114,11 +114,11 @@ class ProductService
 
     public function updateAttribute($selectedAttributes, $product)
     {
-       ProductAttribute::where('product_id', $product->id)->delete();
+        ProductAttribute::where('product_id', $product->id)->delete();
         foreach ($selectedAttributes as $attributegroupID => $attributeItems) {
             foreach ($attributeItems as $attributeItemID) {
                 // Create a new ProductAttribute record for each selected attribute item.
-               ProductAttribute::create([
+                ProductAttribute::create([
                     'product_id' => $product->id,
                     'attribute_group_id' => $attributegroupID,
                     'attribute_id' => $attributeItemID,
@@ -131,7 +131,7 @@ class ProductService
 
     public function deleteProduct($product)
     {
-       ProductAttribute::where('product_id', $product->id)->delete();
+        ProductAttribute::where('product_id', $product->id)->delete();
         if ($product->featured_image) {
             $deleteimage = (new FileService)->imageDelete($product->featured_image);
         }
@@ -156,19 +156,19 @@ class ProductService
         // $image->move($destinationPath, $imageName);
         $imageName = (new FileService)->fileUpload($request->file("file"), "file", "multi_product");
         // $myfeatured_image = $this->fileUpload($request, 'images');
-        ProductImage::create([
+        $product = ProductImage::create([
             'product_id' => $request->product_id,
             'images' => $imageName,
         ]);
-        return true;
+        return $product;
     }
 
     public function productImages($product)
     {
         // dd('dad');
-        if($product->seller_id != Auth::guard('seller')->user()->id){
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
             abort(403);
-           }
+        }
         return ProductImage::where('product_id', $product->id)->get();
     }
     public function deleteImage($img)
