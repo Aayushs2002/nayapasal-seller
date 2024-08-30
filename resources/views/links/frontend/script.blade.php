@@ -1,8 +1,8 @@
-@include("links.commonscript")
+@include('links.commonscript')
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 
 
 <script>
@@ -49,40 +49,177 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const nextButton = document.getElementById("next-button");
-        const personalInfo = document.getElementById("personalinfo");
-        const companyInfo = document.getElementById("companyinfo");
-        const companyDocument = document.getElementById("companydocument");
+        const companyInfoSection = document.getElementById("companyinfo");
+        const personalInfoSection = document.getElementById("personalinfo");
+        const companyDocumentSection = document.getElementById("companydocument");
 
         const previousButton = document.getElementById("previous-button");
         const previousButton2 = document.getElementById("previous-button2");
         const nextButton2 = document.getElementById("next-button2");
 
 
+        function setError(inputId, message) {
+            const inputElement = document.getElementById(inputId);
+            const errorElement = document.getElementById(inputId + "-error");
+
+            inputElement.classList.add("error");
+            errorElement.textContent = message;
+        }
+
+        function clearError(inputId) {
+            const inputElement = document.getElementById(inputId);
+            const errorElement = document.getElementById(inputId + "-error");
+
+            inputElement.classList.remove("error");
+            errorElement.textContent = "";
+        }
+
+
+        function validatePersonalInfo() {
+            let isValid = true;
+
+            const firstName = document.getElementById("firstname").value.trim();
+            const lastName = document.getElementById("lastname").value.trim();
+            const mobileNo = document.getElementById("mobileno").value.trim();
+            const email = document.getElementById("emailss").value.trim();
+            const password = document.getElementById("passwordss").value.trim();
+            if (!firstName) {
+                setError("firstname", "First name is required.");
+                isValid = false;
+            } else {
+                clearError("firstname");
+            }
+
+            if (!lastName) {
+                setError("lastname", "Last name is required.");
+                isValid = false;
+            } else {
+                clearError("lastname");
+            }
+
+            if (!mobileNo) {
+                setError("mobileno", "Mobile number is required.");
+                isValid = false;
+            } else {
+                clearError("mobileno");
+            }
+
+            if (!email) {
+                setError("email", "Email is required.");
+                isValid = false;
+            } else {
+                clearError("email");
+            }
+
+            if (!password) {
+                setError("password", "Password is required.");
+                isValid = false;
+            } else {
+                clearError("password");
+            }
+
+            return isValid;
+        }
+
+
+        function validateCompanyInfo() {
+            let isValid = true;
+
+            const businessName = document.getElementById("businessname").value.trim();
+            const establishDate = document.getElementById("establishdate").value.trim();
+            const activities = document.getElementById("activities").value.trim();
+            const vatNo = document.getElementById("vatno").value.trim();
+            const address1 = document.getElementById("address1").value.trim();
+
+            if (!businessName) {
+                setError("businessname", "Business name is required.");
+                isValid = false;
+            } else {
+                clearError("businessname");
+            }
+
+            if (!establishDate) {
+                setError("establishdate", "Establish date is required.");
+                isValid = false;
+            } else {
+                clearError("establishdate");
+            }
+
+            if (!activities) {
+                setError("activities", "Activities are required.");
+                isValid = false;
+            } else {
+                clearError("activities");
+            }
+
+            if (!address1) {
+                setError("address1", "Address is required.");
+                isValid = false;
+            } else {
+                clearError("address1");
+            }
+
+            return isValid;
+        }
+
+
+        function validateCompanyDocuments() {
+            let isValid = true;
+
+            const registrationDocuments = document.getElementById("registration_documents").value;
+
+            const vatRegistrationDocuments = document.getElementById("vat_registration_documents").value;
+
+            if (!registrationDocuments) {
+                setError("registration_documents", "Registration document is required.");
+                isValid = false;
+            } else {
+                clearError("registration_documents");
+            }
+
+            if (!vatRegistrationDocuments) {
+                setError("vat_registration_documents", "VAT registration document is required.");
+                isValid = false;
+            } else {
+                clearError("vat_registration_documents");
+            }
+
+            return isValid;
+        }
+
 
         nextButton.addEventListener("click", function() {
-            console.log("object")
-            personalInfo.classList.add("hidden");
-            companyInfo.classList.remove("hidden");
+            if (validatePersonalInfo()) {
+                personalInfoSection.classList.add("hidden");
+                companyInfoSection.classList.remove("hidden");
+            }
         });
 
         previousButton.addEventListener("click", function() {
-            companyInfo.classList.add("hidden");
-            personalInfo.classList.remove("hidden");
+            companyInfoSection.classList.add("hidden");
+            personalInfoSection.classList.remove("hidden");
         });
 
         nextButton2.addEventListener("click", function() {
-            companyInfo.classList.add("hidden");
-            personalInfo.classList.add("hidden");
-            companyDocument.classList.remove("hidden");
+            if (validateCompanyInfo()) {
+                companyInfoSection.classList.add("hidden");
+                companyDocumentSection.classList.remove("hidden");
+            }
+        });
 
-        });
         previousButton2.addEventListener("click", function() {
-            companyInfo.classList.remove("hidden");
-            companyDocument.classList.add("hidden");
+            companyDocumentSection.classList.add("hidden");
+            companyInfoSection.classList.remove("hidden");
         });
-    });
-    document.querySelector('form').addEventListener('submit', function(event) {
-        console.log('Form submitted');
+
+
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            if (!validateCompanyDocuments()) {
+                event.preventDefault();
+            } else {
+                console.log('Form submitted');
+            }
+        });
     });
 </script>
 

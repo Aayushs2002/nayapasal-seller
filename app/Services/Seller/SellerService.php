@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Mail;
 
-class SellerService{
-    function storeSeller($request){
+class SellerService
+{
+    function storeSeller($request)
+    {
         // dd($request);
         $email = $request->email;
 
@@ -36,12 +38,11 @@ class SellerService{
                     (new FileService)->imageDelete($vendor->vat_registration_documents);
                 }
                 $vendor->delete();
-
             }
         }
-        $registrationDocuments =   (new FileService)->fileUpload($request->file("registration_documents"), "registration_documents","seller");
+        $registrationDocuments =   (new FileService)->fileUpload($request->file("registration_documents"), "registration_documents", "seller");
 
-        $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents","seller");
+        $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents", "seller");
         $data = $request->all();
         $data['status'] = 'PENDING';
         $data['active'] = '1';
@@ -61,7 +62,23 @@ class SellerService{
         return $seller;
     }
 
+    public function checkOTP()
+    {
+        $otp = rand(1000, 9999);
+        $vendortoken = Seller::where('otp', $otp)->first();
+        if ($vendortoken) {
+            $this->checkOTP();
+        }
+        return $otp;
+    }
 
-
+    function clickHereLogin($token)
+    {
+        $vendor = Seller::where('token', $token)->first();
+        $otp =  $this->checkOTP();
+        $vendor->otp = $otp;
+        $vendor->save();
+        Mail::to($vendor->email)->send(new otp($otp));
+        return $vendor;
+    }
 }
-

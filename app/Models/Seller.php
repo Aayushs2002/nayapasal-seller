@@ -40,7 +40,8 @@ class Seller extends Authenticatable
         'esewa_id',
         'esewa_Qr',
         'khalti_id',
-        'khalti_Qr'
+        'khalti_Qr',
+        "logo",
     ];
 
     public function products()

@@ -32,6 +32,7 @@ Route::get('/clear', function () {
 Route::controller(SellerAuthController::class)->group(function () {
     Route::get('/login',  'login')->name('login');
     Route::post('/loginpost',  'loginpost')->name('loginpost');
+    Route::get('/clickhere/{token}',  'clickhere')->name('clickhere');
     Route::get('/registers',  'register')->name('register');
     Route::post('/vendorregister', 'sellerRegister')->name('store');
     Route::get('/sellerotp',  'otp')->name('otp');
@@ -43,9 +44,6 @@ Route::controller(SellerAuthController::class)->group(function () {
     Route::post('/checkresetotp/{token}', 'checkresetotp')->name('checkresetotp');
     Route::get('/checkresetotp/{token}', 'getresetotp')->name('getresetotp');
     Route::post('/changepassword/{token}','changepasswords')->name('changepasswords');
-
-
-
 });
 
 Route::middleware(['seller'])->group(function () {
@@ -53,16 +51,22 @@ Route::middleware(['seller'])->group(function () {
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
     Route::get('setting', [SellerProfileController::class, 'setting'])->name('setting');
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
-    Route::resource('seller-profile', SellerProfileController::class);
+    Route::resource('seller-profile', SellerProfileController::class); 
     // Route::resource('seller-profile', SellerProfileController::class);
         // from dashboard
         Route::get('/seller/changepassword', [SellerProfileController::class, 'sellerchangepassword'])->name('sellerchangepassword');
 
         Route::post('/seller/changepassword', [SellerProfileController::class, 'changepassword'])->name('changepassword');
+    Route::post('/productstock/{product}', [ProductController::class, 'editstock'])->name('editstock');
+    Route::post('/togleActive/{product}', [ProductController::class, 'togleActive'])->name('togleActive');
+
     Route::resource('product', ProductController::class);
     Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
+    Route::post('flashdeal/{id}', [ProductController::class, 'flashdeal'])->name('flashdeal');
+    Route::delete('/delete-flashdeal/{productId}', [ProductController::class, 'destroyFlashDeal'])->name('flashdeal.destroy');
+
     Route::post('productimage/{product_id}', [ProductController::class, 'productImage'])->name('productImage');
-    Route::delete('productimage/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
+    Route::delete('productimage/delete/{img}', [ProductController::class, 'deleteImage'])->name('deleteImage');
     Route::get('/order', [SellerOrderController::class, 'order'])->name('order');
     Route::get('order/details/{details}', [SellerOrderController::class, 'orderdetail'])->name('order.details');
 });

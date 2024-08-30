@@ -31,7 +31,7 @@ class UpdateProductRequest extends FormRequest
             'product_order' => 'numeric',
             'category' => 'required',
             'discount_amount' => 'nullable|numeric',
-            'attributes' => 'required|array',
+            // 'attributes' => 'required|array',
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\AttributeGroup;
+use App\Models\FlashDeal;
 use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductImage;
@@ -19,13 +20,29 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = DB::table('products')->where('seller_id', Auth::guard("seller")->user()->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $products = Product::where('seller_id', Auth::guard("seller")->user()->id);
+        $aa = FlashDeal::get();
+        $sort = $request->sortby;
+        if ($sort) {
+            if ($sort == "maximum") {
+                $products = $products->orderBy('product_stock', 'desc');
+            }
+            if ($sort == "minimum") {
+                $products = $products->orderBy('product_stock', 'asc');
+            }
+        } else {
+            $products = $products->orderBy('id', 'desc');
+        }
 
-        return view("Seller.product.index", compact("products"));
+        if ($request->searchterm) {
+            $products = $products->where('product_name', 'like', '%' . $request->searchterm . '%')->orderBy('id', 'desc');
+        }
+
+        $products = $products->paginate(15);
+        $params = $_GET;
+        return view("Seller.product.index", compact("products", 'params'));
     }
 
     /**
@@ -36,6 +53,26 @@ class ProductController extends Controller
         $brands = DB::table('brands')->get();
         $attributegroups = AttributeGroup::latest()->get();
         return view("Seller.product.create", compact("brands", "attributegroups"));
+    }
+
+    public function editstock(Request $request, Product $product)
+    {
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
+        $product->product_stock = $request->stock;
+        $product->save();
+        return redirect()->back()->with("popsuccess", "Stock Successfully Updated");
+    }
+
+    public function togleActive(Product $product)
+    {
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
+        $product->active = !$product->active;
+        $product->save();
+        return redirect()->back()->with("popsuccess", "Active Status Changed");
     }
 
     /**
@@ -62,10 +99,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        
-       if($product->seller_id != Auth::guard('seller')->user()->id){
-        abort(403);
-       }
+
+        if ($product->seller_id != Auth::guard('seller')->user()->id) {
+            abort(403);
+        }
         $brands = DB::table('brands')->get();
         $attributegroups = AttributeGroup::latest()->get();
         $attributeItem = ProductAttribute::where("product_id", $product->id)->pluck("attribute_id")->toArray();
@@ -75,20 +112,50 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request,Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        
+
         $product = (new ProductService)->updateProduct($request, $product);
 
         return redirect()->route('seller.product.index')->with('success', 'Product Updated');
     }
+
+    public function flashdeal(Request $request, string $id)
+    {
+
+
+        $validated = $request->validate([
+            'product_price' => 'required|numeric',
+            'discount_percent' => 'required|numeric',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
+        FlashDeal::create([
+            'product_id' => $id,
+            'product_price' => $validated['product_price'],
+            'discount_percent' => $validated['discount_percent'],
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+            'status' => '1'
+        ]);
+
+        return redirect()->back()->with('success', 'Flash deal created successfully.');
+    }
+
+    public function destroyFlashDeal($id)
+    {
+        FlashDeal::where('product_id', $id)->delete();
+        return response()->json(['success' => true], 200);
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
     {
-        
+
         $product = (new ProductService)->deleteProduct($product);
         return redirect()->route('seller.product.index')->with('success', 'Product Successfully Deleted');
     }
@@ -96,6 +163,10 @@ class ProductController extends Controller
     public function productImage(Request $request)
     {
         $product = (new ProductService)->addMultipleImage($request);
+        return response()->json([
+            'id' => $product->id,
+            'images' => $product->images
+        ]);
     }
 
     public function imagecreate(Product $product)

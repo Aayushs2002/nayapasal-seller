@@ -18,22 +18,34 @@ class SellerAuthController extends Controller
         return view('Seller.auth.login');
     }
 
+    public function checkOTP()
+    {
+        $otp = rand(1000, 9999);
+        $vendortoken = Seller::where('otp', $otp)->first();
+        if ($vendortoken) {
+            $this->checkOTP();
+        }
+        return $otp;
+    }
     public function loginpost(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
 
-
         if (Auth::guard('seller')->attempt($credentials)) {
+            if (Auth::guard('seller')->user()->verified != "1") {
+                $token=Auth::guard('seller')->user()->token;
+                return redirect()->route("seller.login")->with('token', $token)->with('error', 'Your Email is not verified');
+
+            }
             if (Auth::guard('seller')->user()->status == "VERIFIED") {
                 if (Auth::guard('seller')->user()->active == "1") {
-
                     return redirect()->route('seller.dashboard')->with('popsuccess', 'Login Sucessfull');
                 }else{
-                    return redirect()->back()->with('poperror', 'Your Account is currently Inactive');
+                    return redirect()->back()->with('poperror', 'Your Account is currently Not Verified By Admin');
 
                 }
             }else {
-                return redirect()->back()->with('poperror', 'Account is Not verified');
+                return redirect()->back()->with('poperror', 'Your Account is currently Not Verified By Admin');
             }
         }
 
@@ -43,12 +55,23 @@ class SellerAuthController extends Controller
 
     public function register()
     {
-
         return view('Seller.auth.register');
+    }
+
+
+    public function clickhere($token)
+    {
+
+
+        $vendor = (new SellerService)->clickHereLogin($token);
+
+        return redirect()->route('seller.otp', ['token' => $vendor->token])->with('popsuccess', 'OTP has been sent to your email .');
+
     }
 
     public function sellerRegister(StoreSellerRequest $request)
     {
+        // dd($request);
         $seller = (new SellerService)->storeSeller($request);
         // Mail::to($request->email)->send(new RegisterOtpMail($seller->otp));
 
@@ -59,7 +82,7 @@ class SellerAuthController extends Controller
     public function otp()
     {
         $token = request('token');
-
+        // dd($token);
         if (!$token) {
             return redirect()->route('seller.otp')->with('poperror', 'Invalid Token');
         }
@@ -86,7 +109,7 @@ class SellerAuthController extends Controller
 
         $seller->verified = 1;
         $seller->save();
-        return redirect()->route('seller.login');
+        return redirect()->route('seller.login')->with('popsuccess', 'Please Login to Continue');
     }
 
 
@@ -118,7 +141,9 @@ class SellerAuthController extends Controller
             return redirect()->back()->with('poperror', 'Email not found');
         }
 
-        $otp = rand(1000, 9999);
+        // $otp = rand(1000, 9999);
+        $otp =  $this->checkOTP();
+
         $customer->update(['otp' => $otp]);
 
         $token = rand(10000000, 99999999);

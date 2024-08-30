@@ -29,12 +29,19 @@ class Product extends Model
         'discount_amount',
         'discount_percentage',
         'seller_id',
-        'customized'
+        'customized',
+        'active',
+
 
     ];
 
     public function seller()
     {
         return $this->belongsTo(Seller::class);
+    }
+
+    public function flashDeal()
+    {
+        return $this->hasOne(FlashDeal::class, 'product_id');
     }
 }

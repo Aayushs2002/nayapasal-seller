@@ -29,9 +29,24 @@
                         <div class="z-10 w-full p-5 shadow-md bg-gray-50  rounded-lg ">
                             <h2 class="text-xl font-bold leading-tight mb-7 md:text-2xl ">
                                 Login to your seller account</h2>
+                            <div class="">
+                                @include('message.index')
+                                <div class="">
+                                    @if (session('error') == 'Your Email is not verified')
+                                        {{-- @dd(session('token')) --}}
+                                        <div class="flex gap-x-2">
+                                            <form method="GET"
+                                                action="{{ route('seller.clickhere', ['token' => session('token')]) }}">
+                                                <button type="submit"
+                                                    class="text-pink-600 font-semibold underline">Click Here</button>
+                                            </form>
+                                            to verify your email
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                             <form action="{{ route('seller.loginpost') }}" class="mt-4" method="POST">
                                 @csrf
-                                @include('message.index')
                                 <div>
                                     <label for="" class="block text-gray-700 ">Email:</label>
                                     <input type="email" class="w-full px-4 py-3 mt-2 bg-gray-200 rounded-lg  "
