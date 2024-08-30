@@ -32,7 +32,8 @@ class ProductService
 
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
-        $req['slug'] = Str::slug($request->product_name);
+        $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
         $req['seller_id'] = Auth::guard("seller")->user()->id;
 
         $add_product = Product::create($req);
@@ -104,7 +105,10 @@ class ProductService
             $req['discount_amount'] = "";
         }
         $req['featured_image'] = $product_image;
-        $req['slug'] = Str::slug($request->product_name);
+        $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
+
+        // $req['slug'] = Str::slug($request->product_name);
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
 
