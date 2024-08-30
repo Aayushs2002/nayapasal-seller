@@ -118,10 +118,9 @@ class ProductService
             $req['discount_amount'] = "";
         }
         $req['featured_image'] = $product_image;
-        if ($request->product_name) {
+        $req['token'] = $product->token;
+        $req['slug'] = Str::slug($request->product_name . '-' . $product->token);
 
-            $req['slug'] = Str::slug($request->product_name . '-' . $product->token);
-        }
 
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
