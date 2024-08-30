@@ -14,6 +14,18 @@ use Illuminate\Support\Str;
 class ProductService
 {
 
+    public function checkrandom()
+    {
+        $token = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        $product = Product::where('token', $token)->first();
+        if ($product) {
+            return $this->checkrandom();
+        }
+        return $token;
+    }
+
+
+
     public function store($request)
     {
 
@@ -32,8 +44,9 @@ class ProductService
 
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
-        $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
+        $token = $this->checkrandom();
+        $req['slug'] = Str::slug($request->product_name . '-' . $token);
+        $req['token'] = $token;
         $req['seller_id'] = Auth::guard("seller")->user()->id;
 
         $add_product = Product::create($req);
@@ -105,10 +118,8 @@ class ProductService
             $req['discount_amount'] = "";
         }
         $req['featured_image'] = $product_image;
-        $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
+        $req['slug'] = Str::slug($request->product_name . '-' . $product->token);
 
-        // $req['slug'] = Str::slug($request->product_name);
         $req['category_id'] = $request->category;
         $req['brand_id'] = $request->brand;
 
