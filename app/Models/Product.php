@@ -31,6 +31,7 @@ class Product extends Model
         'seller_id',
         'customized',
         'active',
+        'token',
 
 
     ];
