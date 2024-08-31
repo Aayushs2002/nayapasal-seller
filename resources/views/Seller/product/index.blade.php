@@ -147,7 +147,7 @@
                                                 {{-- @dd($product->flashDeal) --}}
                                                 @php
                                                     $flashDeal = $product->flashDeal ;
-                                                    
+
                                                 @endphp
                                                 <td class="p-3">
                                                     <label class="inline-flex items-center cursor-pointer">
@@ -160,7 +160,7 @@
                                                     </label>
                                                 </td>
                                                 @include('Seller.product.action.flash_deal')
-                                            
+
 
                                                 <td class="p-3 pr-0 ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
