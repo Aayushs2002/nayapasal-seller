@@ -81,22 +81,23 @@
         </div>
     </form>
 </div>
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('input[id^="toggleSwitch"]').forEach(function(toggleSwitch) {
 
             if (!toggleSwitch.dataset.listenerAdded) {
                 toggleSwitch.addEventListener('change', function() {
+
                     const productId = this.id.replace('toggleSwitch', '');
                     const popup = document.getElementById(`popup${productId}`);
 
                     if (this.checked) {
                         popup.classList.remove('hidden');
                     } else {
-
                         const csrfToken = document.querySelector('meta[name="csrf-token"]')
-                            .getAttribute('content');
+                        .getAttribute('content');
+
 
 
                         fetch(`{{ route('seller.flashdeal.destroy', '') }}/${productId}`, {
