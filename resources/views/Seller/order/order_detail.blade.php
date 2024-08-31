@@ -16,6 +16,7 @@
             <div class="mt-8 text-xl font-semibold text-slate-600">
                 Order : {{ $order->order_id }}
             </div>
+
             <div class="flex justify-between w-full space-x-2 max-md:flex-col">
                 <div class="mt-10 bg-white p-3 px-6 w-full shadow">
                     <div class="my-2 mb-4">
@@ -28,7 +29,7 @@
 
                             <li class="font-semibold">Total Amount :
                                 <span class="font-normal">
-                                    {{ $order->amount }}
+                                    {{ (float) $order->amount - (float) $order->delivery_charge }}
                                 </span>
                             </li>
                             <li class="font-semibold">Payment Method :
@@ -104,7 +105,7 @@
                                         <th scope="col" class="px-6 py-3">
                                             Product name
                                         </th>
-                                        
+
                                         <th scope="col" class="px-6 py-3">
                                             Price
                                         </th>
