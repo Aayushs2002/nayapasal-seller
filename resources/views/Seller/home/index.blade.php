@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base - Tailwind CSS Startup Template</title>
+    <title>NauloPasal | Seller</title>
     <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
 
     <link href="{{asset("css/style.css")}}" rel="stylesheet" />
@@ -19,7 +19,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
             <div class="vd to/4 tc wf yf">
                 <a href="index.html">
-                    <img class="om" src={{asset("image/logo-light.svg")}} alt="Logo Light" />
+                    <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Light" />
                     <img class="xc nm" src={{asset("image/logo-dark.svg")}} alt="Logo Dark" />
                 </a>
 
@@ -111,10 +111,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </label>
                     </div>
 
-                    <a href="signin.html"
+                    <a target="_blank" href="{{ route('seller.login') }}"
                         :class="{ 'nk yl': page === 'home', 'ok': page === 'home' && stickyMenu }"
                         class="ek pk xl">Sign In</a>
-                    <a href="signup.html"
+                    <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
                         class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
                 </div>
@@ -141,16 +141,14 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="tc _o">
                     <div class="animate_left jn/2">
                         <h1 class="fk vj zp or kk wm wb">
-                            We specialize in UI/UX, Web Development, Digital Marketing.
+                            Join Our <span style="color:#ff2953">Marketplace </span> Expand Your Business with Ease!
                         </h1>
                         <p class="fq">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                            fringilla magna mauris. Nulla fermentum viverra sem eu rhoncus
-                            consequat varius nisi quis, posuere magna.
+                            Elevate Your Business Now. Your Products, Our Platform, Let’s Boost Your Sales!
                         </p>
 
                         <div class="tc tf yo zf mb">
-                            <a href="#" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                            <a href="{{ route('seller.register') }}" style="background-color:#ff2953" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
 
                             <span class="tc sf">
                                 <a href="#" class="inline-block ek xj kk wm">
@@ -176,7 +174,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">24/7 Support</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <p>Get round-the-clock assistance to keep your business running smoothly.</p>
                         </div>
                     </div>
 
@@ -187,7 +185,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">Take Ownership</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <p>Manage your store your way with full control over your products and pricing.</p>
                         </div>
                     </div>
 
@@ -198,7 +196,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">Team Work</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <p>Partner with us to achieve your business goals together with dedicated support.</p>
                         </div>
                     </div>
                 </div>
@@ -226,14 +224,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- About Content -->
                     <div class="animate_right jn/2">
-                        <h4 class="ek yj mk gb">Why Choose Us</h4>
+                        <h4 style="color: #ff2953" class="ek yj mk gb ">Why Choose Us</h4>
                         <h2 class="fk vj zp pr kk wm qb">
                             We Make Our customers happy by giving Best services.
                         </h2>
                         <p class="uo">
-                            It is a long established fact that a reader will be distracted
-                            by the readable content of a page when looking at its layout.
-                            The point of using Lorem Ipsum.
+                            We go above and beyond to ensure your satisfaction by providing top-notch services tailored to your needs. Our commitment to quality, reliability, and customer care sets us apart, making your experience with us seamless and enjoyable.
                         </p>
 
                         <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
@@ -445,60 +441,78 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-04.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Crafted for Startups</h4>
+                        <h4 class="ek zj kk wm nb _b">Reach
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                            Grow your business, reach a wide audience and enhance your brand.
                         </p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-05.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">High-quality Design</h4>
+                        <h4 class="ek zj kk wm nb _b">Free Registration
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                            Create an account and list your products for free—start selling without any fees!
+
+
+
+
+
+
+
+
                         </p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-06.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">All Essential Sections</h4>
+                        <h4 class="ek zj kk wm nb _b">Reliable Shipping
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                            Enjoy fast, dependable, and hassle-free delivery with our Naulo logistic network.
+
                         </p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-07.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Speed Optimized</h4>
+                        <h4 class="ek zj kk wm nb _b">Timely Payments
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                            Funds are securely deposited directly into your bank account every week.
+
+
                         </p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-05.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Fully Customizable</h4>
+                        <h4 class="ek zj kk wm nb _b">Marketing Tools
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                            Attract new customers with our comprehensive advertising.
+
+
+
+
+
+
+
                         </p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src={{asset("image/icon-06.svg")}} alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Regular Updates</h4>
+                        <h4 class="ek zj kk wm nb _b">Support & Training
+                        </h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            convallis tortor.
+                        Receive dedicated support through our Seller Support and Naulopasal.
                         </p>
                     </div>
                 </div>
@@ -516,7 +530,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <img src={{asset("image/shape-13.svg")}} alt="Shape" class="h r q" />
 
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
+            <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Advertising.`, sectionTitleText: `Achieve maximum exposure with our competitively priced premium advertising options. Boost your brand and reach more customers while staying within your budget.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
                     <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
