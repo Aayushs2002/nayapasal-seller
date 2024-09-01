@@ -103,7 +103,7 @@
 
                     {{-- brand --}}
 
-                    <div class="mt-4">
+                    {{-- <div class="mt-4">
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 ">
                             Brands
                         </label>
@@ -119,7 +119,7 @@
                         @error('brand')
                             <div class="invalid-feedback text-red-400 text-sm ">* {{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- image --}}
                     <div class="my-3">

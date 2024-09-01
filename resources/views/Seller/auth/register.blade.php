@@ -41,6 +41,23 @@
     </style>
 </head>
 
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LdX4fApAAAAAJB6MgjOZP5orH8A2UkX3bRfNq8K"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdX4fApAAAAAJB6MgjOZP5orH8A2UkX3bRfNq8K', {
+            action: 'contact'
+        }).then(
+            function(token) {
+                if (token) {
+
+                    document.getElementById('recaptcha3').value = token;
+                }
+            }
+        )
+    })
+</script>
+
 <body class="max-w-screen-2xl mx-auto bg-gray-100">
     <div class="sticky top-0 z-[999]">
 
@@ -483,8 +500,10 @@
                                         class="md:w-[150px] max-sm:text-sm cursor-pointer bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2  border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Previous
                                     </div>
+                                    <input type="hidden" name="g-recaptcha-response" value="" id="recaptcha3" />
+
                                     <button type="submit"
-                                        class="md:w-[270px] max-sm:text-sm bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2 border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">Send
+                                        class="md:w-[270px] g-recaptcha max-sm:text-sm bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2 border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">Send
                                         Registration Form</button>
 
 

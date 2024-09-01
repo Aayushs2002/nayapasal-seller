@@ -43,6 +43,9 @@ class ProductService
         }
 
         $req['category_id'] = $request->category;
+        // $req['brand_id'] = $request->brand;
+        $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
         $req['brand_id'] = $request->brand;
         $token = $this->checkrandom();
         $req['slug'] = Str::slug($request->product_name . '-' . $token);
@@ -123,7 +126,7 @@ class ProductService
 
 
         $req['category_id'] = $request->category;
-        $req['brand_id'] = $request->brand;
+        // $req['brand_id'] = $request->brand;
 
         $product->update($req);
         return true;

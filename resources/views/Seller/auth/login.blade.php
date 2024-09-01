@@ -19,6 +19,23 @@
     }
 </style>
 
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LdX4fApAAAAAJB6MgjOZP5orH8A2UkX3bRfNq8K"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdX4fApAAAAAJB6MgjOZP5orH8A2UkX3bRfNq8K', {
+            action: 'contact'
+        }).then(
+            function(token) {
+                if (token) {
+
+                    document.getElementById('recaptcha3').value = token;
+                }
+            }
+        )
+    })
+</script>
+
 <body x-data="{ showPassword: false }">
     <section class="font-poppins pattern">
         <div class=" z-10 flex items-center h-screen py-16 overflow-hidden 2xl:py-44 object-cover w-full "
@@ -79,8 +96,11 @@
                                         class="text-sm font-semibold text-sky-700 hover:underline">forgot
                                         password?</a>
                                 </div>
+
+                                <input type="hidden" name="g-recaptcha-response" value="" id="recaptcha3" />
+
                                 <button
-                                    class="w-full px-4 py-3 mt-4 font-semibold text-gray-700 bg-yellow-400 rounded-lg hover:text-gray-700 hover:bg-sky-200 "
+                                    class="w-full g-recaptcha  px-4 py-3 mt-4 font-semibold text-gray-700 bg-yellow-400 rounded-lg hover:text-gray-700 hover:bg-sky-200 "
                                     type="submit">LOGIN</button>
                                 <div class="mt-4 text-gray-700  ">
                                     Need

@@ -25,7 +25,7 @@ class UpdateProductRequest extends FormRequest
             'product_name' => 'required',
             // 'product_name' => 'required|unique:products,product_name,' . $this->product->id,
             'description' => 'required',
-            'brand' => 'required',
+            // 'brand' => 'required',
             'product_price' => 'required|numeric',
             'product_stock' => 'required|numeric',
             'tax_percentage' => 'nullable|numeric',

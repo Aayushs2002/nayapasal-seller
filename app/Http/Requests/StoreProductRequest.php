@@ -25,7 +25,7 @@ class StoreProductRequest extends FormRequest
             'product_name' => 'required',
             // 'product_name' => 'required|unique:products,product_name',
             'featured_image' => 'required',
-            'brand' => 'required',
+            // 'brand' => 'required',
             'category' => 'required',
             'product_order' => 'numeric',
             'product_price' => 'required|numeric',
