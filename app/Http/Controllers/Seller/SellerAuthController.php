@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\StoreSellerRequest;
+use App\Mail\otp;
 use App\Models\Seller;
 use App\Services\Seller\SellerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Mail;
+
 
 class SellerAuthController extends Controller
 {
@@ -150,7 +153,7 @@ class SellerAuthController extends Controller
         $req['token'] = $token;
         $customer->update(['token' => $token]);
 
-        // Mail::to($email)->send(new OtpMail($otp));
+        Mail::to($email)->send(new otp($otp));
 
 
         return view('Seller.ResetPassword.otp', compact('token'));
