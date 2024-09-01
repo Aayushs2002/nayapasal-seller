@@ -31,7 +31,7 @@ class ProductService
         }
 
         $req['category_id'] = $request->category;
-        $req['brand_id'] = $request->brand;
+        // $req['brand_id'] = $request->brand;
         $randomNumber = 'np_' . str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
         $req['slug'] = Str::slug($request->product_name) . '_' . $randomNumber;
         $req['seller_id'] = Auth::guard("seller")->user()->id;
@@ -110,7 +110,7 @@ class ProductService
 
         // $req['slug'] = Str::slug($request->product_name);
         $req['category_id'] = $request->category;
-        $req['brand_id'] = $request->brand;
+        // $req['brand_id'] = $request->brand;
 
         $product->update($req);
         return true;
