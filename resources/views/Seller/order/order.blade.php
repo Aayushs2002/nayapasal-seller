@@ -128,19 +128,7 @@
                                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-sky-500 hover:text-white">View
                                                     </a>
 
-                                                    <form method="POST" action=""
-                                                        id="delete-form-{{ $order->id }}">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="button"
-                                                            onclick="deleteSingleImage({{ $order->id }})"
-                                                            class="flex w-full items-center gap-2   px-2 py-2 text-md openModal text-center text-red-700 hover:bg-red-50">
-                                                            <span class="pl-2">
-                                                                Delete
-
-                                                            </span>
-                                                        </button>
-                                                    </form>
+                                                 
 
                                                 </div>
                                             </div>
