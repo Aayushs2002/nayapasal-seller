@@ -66,7 +66,7 @@ class SellerAuthController extends Controller
     {
 
 
-        $vendor = (new SellerService)->clickHereLogin($token);
+        $vendor = (new SellerService)->clickHereLogin($token); 
 
         return redirect()->route('seller.otp', ['token' => $vendor->token])->with('popsuccess', 'OTP has been sent to your email .');
 

@@ -52,7 +52,7 @@
         const companyInfoSection = document.getElementById("companyinfo");
         const personalInfoSection = document.getElementById("personalinfo");
         const companyDocumentSection = document.getElementById("companydocument");
-
+        
         const previousButton = document.getElementById("previous-button");
         const previousButton2 = document.getElementById("previous-button2");
         const nextButton2 = document.getElementById("next-button2");
@@ -169,6 +169,7 @@
             const registrationDocuments = document.getElementById("registration_documents").value;
 
             const vatRegistrationDocuments = document.getElementById("vat_registration_documents").value;
+            const companyLogo = document.getElementById("company_logo").value;
 
             if (!registrationDocuments) {
                 setError("registration_documents", "Registration document is required.");
@@ -182,6 +183,12 @@
                 isValid = false;
             } else {
                 clearError("vat_registration_documents");
+            }
+            if (!companyLogo) {
+                setError("company_logo", "Company logo is required.");
+                isValid = false;
+            } else {
+                clearError("company_logo");
             }
 
             return isValid;

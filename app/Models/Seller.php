@@ -42,6 +42,7 @@ class Seller extends Authenticatable
         'khalti_id',
         'khalti_Qr',
         "logo",
+        "company_logo"
     ];
 
     public function products()
