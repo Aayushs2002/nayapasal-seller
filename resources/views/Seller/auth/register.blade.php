@@ -28,7 +28,7 @@
         .hidden {
             display: none;
         }
- 
+
         .error-message {
             color: red;
             font-size: 12px;
@@ -59,10 +59,10 @@
 </script>
 
 <body class="max-w-screen-2xl mx-auto bg-gray-100">
-    <div class="sticky top-0 z-[999]">
+    {{-- <div class="sticky top-0 z-[999]">
 
-        @include('Seller.registerlayout.navbar') 
-    </div>
+        @include('Seller.registerlayout.navbar')
+    </div> --}}
     <div class="lg:mx-32 max-lg:mx-2 max-sm:mx-5">
         <div class=" my-10 border  border-[#ff2953]">
             <form action="{{ route('seller.store') }}" id="registration-form" method="POST"
@@ -71,7 +71,15 @@
                 <div class="" id="personalinfo">
                     <div class="p-5 md:px-10 flex flex-col space-y-14">
 
-                        <div class="font-medium text-xl">Easy Fast Track Registration Form</div>
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium text-xl">
+                                Easy Fast Track Registration Form
+                            </div>
+                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                                Already have an account? Login
+                            </a>
+                        </div>
+
 
                         <div class=" ">
                             <div class="flex justify-center items-center">
@@ -210,8 +218,14 @@
                 </div>
                 <div class="hidden" id="companyinfo">
                     <div class="p-5 md:px-10 flex flex-col space-y-14">
-                        <div class="font-medium text-xl">Easy Fast Track Registration Form</div>
-                        <div class="">
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium text-xl">
+                                Easy Fast Track Registration Form
+                            </div>
+                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                                Already have an account? Login
+                            </a>
+                        </div>                        <div class="">
                             <div class="flex justify-center items-center">
                                 <div
                                     class="flex justify-center items-center rounded-full text-white bg-[#4F4F4F] md:h-[35px] md:w-[35px] px-2">
@@ -408,8 +422,14 @@
                 <div class="hidden" id="companydocument">
                     <div class="p-5 md:px-10 flex flex-col space-y-14">
 
-                        <div class="font-medium text-xl">Easy Fast Track Registration Form</div>
-
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium text-xl">
+                                Easy Fast Track Registration Form
+                            </div>
+                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                                Already have an account? Login
+                            </a>
+                        </div>
                         <div class="">
                             <div class="flex justify-center items-center">
                                 <div
@@ -438,7 +458,7 @@
                         <div>
                             <div class="space-y-6">
                                 <div class="md:grid grid-cols-3 gap-5 max-sm:space-y-5">
-                                    <div class="flex flex-col gap-2 flex-1 w-full"> 
+                                    <div class="flex flex-col gap-2 flex-1 w-full">
                                         <label htmlFor="registration_documents"
                                             class="text-13 font-semibold text-[#0A0A0A]" data-after=" *">
                                             Citizen/License Image
