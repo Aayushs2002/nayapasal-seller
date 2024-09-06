@@ -65,7 +65,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
-                        class="lk gh dk rg tc wf xf _l gi hi" >Sign hUp</a>
+                        class="lk gh dk rg tc wf xf _l gi hi" >Sign Up</a>
                 </div>
             </div>
         </div>
