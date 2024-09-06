@@ -18,7 +18,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
             <div class="vd to/4 tc wf yf">
-                <a href="index.html">
+                <a href="/seller/seller">
                     <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Light" />
                     <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Dark" />
                 </a>
