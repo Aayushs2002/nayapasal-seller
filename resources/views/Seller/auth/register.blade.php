@@ -476,6 +476,25 @@
                                             </div>
                                         @enderror
                                     </div>
+                                    <div class="flex flex-col gap-2 flex-1 w-full">
+                                        <label htmlFor="company_logo"
+                                            class="text-13 font-semibold text-[#0A0A0A]" data-after=" *">
+                                            Company Logo
+                                        </label>
+
+                                        <input type="file" name="company_logo"
+                                            id="company_logo"
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        <div id="company_logo-error" class="error-message"></div>
+                                        @error('company_logo')
+                                            <div id="error-message"
+                                                class="error-message invalid-feedback text-sm text-red-500"
+                                                style="display: block;">
+                                                {{ $message }}
+
+                                            </div>
+                                        @enderror
+                                    </div>
 
                                     {{-- <div class="flex flex-col gap-2 flex-1 w-full">
                                         <label htmlFor="banking_details" class="text-13 font-semibold text-[#0A0A0A]"
