@@ -514,12 +514,20 @@
 
                                 </div>
 
+                                <label>
+                                    <input type="checkbox" name="check" value="check" required />
+                                    I accept the
+                                    <a class="text-blue-500 underline" href="https://naulopasal.com/termsandcondition " target="_blank">terms and conditions</a>
+                                  </label>
+
+
                                 <div class="flex gap-5">
                                     <div id="previous-button2"
                                         class="md:w-[150px] max-sm:text-sm cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2  border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Previous
                                     </div>
                                     <input type="hidden" name="g-recaptcha-response" value="" id="recaptcha3" />
+
 
                                     <button type="submit"
                                         class="md:w-[270px] g-recaptcha max-sm:text-sm bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2 border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">Send
