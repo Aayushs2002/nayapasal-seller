@@ -28,7 +28,7 @@
         .hidden {
             display: none;
         }
-
+ 
         .error-message {
             color: red;
             font-size: 12px;
@@ -61,7 +61,7 @@
 <body class="max-w-screen-2xl mx-auto bg-gray-100">
     <div class="sticky top-0 z-[999]">
 
-        @include('Seller.registerlayout.navbar')
+        @include('Seller.registerlayout.navbar') 
     </div>
     <div class="lg:mx-32 max-lg:mx-2 max-sm:mx-5">
         <div class=" my-10 border  border-[#ff2953]">
@@ -165,7 +165,7 @@
                                         Email Address
                                     </label>
 
-                                    <input type="email" name="email" id="emailss" value="{{ old('email') }}"
+                                    <input type="email" name="email" id="email" value="{{ old('email') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="email-error" class="error-message"></div>
                                     @error('email')
@@ -183,7 +183,7 @@
                                         Password
                                     </label>
 
-                                    <input type="password" name="password" id="passwordss" value="{{ old('password') }}"
+                                    <input type="password" name="password" id="password" value="{{ old('password') }}"
                                         class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="password-error" class="error-message"></div>
 
