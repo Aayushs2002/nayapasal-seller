@@ -19,19 +19,19 @@
                 @include('message.index')
                 <div class="flex gap-x-2">
                     <div class="flex-col flex">
-                        <label for="email" class="text-primary font-semibold text-lg pb-1">Email</label>
+                        <label for="email" class="text-primary font-semibold text-sm pb-1">Email</label>
                         <input type="text" name="email" id="email" placeholder="Email"
-                            class="border border-black p-1 rounded-md " />
+                            class="border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 p-1 rounded-md " />
                     </div>
                     <div class="flex-col flex">
-                        <label for="password" class="text-primary font-semibold text-lg pb-1">Password</label>
+                        <label for="password" class="text-primary font-semibold text-sm pb-1">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password"
-                            class="border border-black p-1 rounded-md" />
+                            class="border border-gray-300 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 p-1 rounded-md" />
                     </div>
-                    <div class="flex items-center h-full  mt-[30px]">
+                    <div class="flex items-center mt-5">
 
                         <button
-                            class="bg-primary text-white py-1 px-5 rounded-md font-semibold h-1/2 text-lg">Login</button>
+                        class="bg-[#ff2953] text-white  px-6 py-1 rounded-md  hover:bg-[#e02447] transition duration-200">Login</button>
                     </div>
                 </div>
             </form>

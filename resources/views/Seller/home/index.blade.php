@@ -20,7 +20,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <div class="vd to/4 tc wf yf">
                 <a href="index.html">
                     <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Light" />
-                    <img class="xc nm" src={{asset("image/logo-dark.svg")}} alt="Logo Dark" />
+                    <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Dark" />
                 </a>
 
                 <!-- Hamburger Toggle BTN -->
@@ -52,71 +52,20 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             <a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a>
                         </li>
                         <li><a href="index.html#features" class="xl">Features</a></li>
-                        <li class="c i" x-data="{ dropdown: false }">
-                            <a href="#" class="xl tc wf yf bg" @click.prevent="dropdown = !dropdown"
-                                :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' ||
-                                        page === 'signup' || page === '404' }">
-                                Pages
 
-                                <svg :class="{ 'wh': dropdown }" class="th mm we fd pf"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path
-                                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                </svg>
-                            </a>
-
-                            <!-- Dropdown Start -->
-                            <ul class="a" :class="{ 'tc': dropdown }">
-                                <li>
-                                    <a href="blog-grid.html" class="xl"
-                                        :class="{ 'mk': page === 'blog-grid' }">Blog Grid</a>
-                                </li>
-                                <li>
-                                    <a href="blog-single.html" class="xl"
-                                        :class="{ 'mk': page === 'blog-single' }">Blog Single</a>
-                                </li>
-                                <li>
-                                    <a href="signin.html" class="xl" :class="{ 'mk': page === 'signin' }">Sign
-                                        In</a>
-                                </li>
-                                <li>
-                                    <a href="signup.html" class="xl" :class="{ 'mk': page === 'signup' }">Sign
-                                        Up</a>
-                                </li>
-                                <li>
-                                    <a href="404.html" class="xl" :class="{ 'mk': page === '404' }">404</a>
-                                </li>
-                            </ul>
-                            <!-- Dropdown End -->
-                        </li>
                         <li><a href="index.html#support" class="xl">Support</a></li>
                     </ul>
                 </nav>
 
                 <div class="tc wf ig pb no">
-                    <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
-                        <label class="rc ab i">
-                            <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode"
-                                class="pf vd yc uk h r za ab" />
-                            <!-- Icon Sun -->
-                            <svg :class="{ 'wn': page === 'home', 'xh': page === 'home' && stickyMenu }"
-                                class="th om" width="25" height="25" viewBox="0 0 25 25" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z"
-                                    fill="" />
-                            </svg>
-                            <!-- Icon Sun -->
-                            <img class="xc nm" src={{asset("image/icon-moon.svg")}} alt="Moon" />
-                        </label>
-                    </div>
+
 
                     <a target="_blank" href="{{ route('seller.login') }}"
                         :class="{ 'nk yl': page === 'home', 'ok': page === 'home' && stickyMenu }"
                         class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
-                        class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
+                        class="lk gh dk rg tc wf xf _l gi hi" >Sign hUp</a>
                 </div>
             </div>
         </div>
@@ -151,8 +100,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             <a href="{{ route('seller.register') }}" style="background-color:#ff2953" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
 
                             <span class="tc sf">
-                                <a href="#" class="inline-block ek xj kk wm">
-                                    Call us (0123) 456 – 789
+                                <a href="mailto:info@naulopasal.com" class="inline-block ek xj kk wm">
+                                    Contact at info@naulopasal.com
                                 </a>
                                 <span class="inline-block">For any question or concern</span>
                             </span>
@@ -245,7 +194,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </section>
         <!-- ===== About End ===== -->
 
-        <!-- ===== Team Start ===== -->
+        {{-- <!-- ===== Team Start ===== -->
         <section class="i pg ji gp uq">
             <!-- Bg Shapes -->
             <span class="rc h s r vd fd/5 fh rm"></span>
@@ -423,12 +372,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 </div>
             </div>
         </section>
-        <!-- ===== Team End ===== -->
+        <!-- ===== Team End ===== --> --}}
 
         <!-- ===== Services Start ===== -->
         <section class="lj tp kr">
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `We Offer The Best Quality Service for You`, sectionTitleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.` }">
+            <div x-data="{ sectionTitle: `We Offer The Best Quality Service for You`, sectionTitleText: `Our platform offers top-notch support and tools to help you succeed. Streamline your sales and reach more customers with ease.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
                     <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
@@ -590,7 +539,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Pricing Table End ===== -->
 
         <!-- ===== Projects Start ===== -->
-        <section class="pg pj vp mr oj wp nr">
+        {{-- <section class="pg pj vp mr oj wp nr">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -701,7 +650,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- ===== Projects End ===== -->
 
         <!-- ===== Testimonials Start ===== -->
@@ -779,6 +728,16 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Testimonials End ===== -->
 
         <!-- ===== Counter Start ===== -->
+
+        <div x-data="{ sectionTitle: `5 Simple Steps to Start Selling`}">
+            <div class="animate_top bb ze rj ki xn vq">
+                <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+                <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+            </div>
+        </div>
+
+
+
         <section class="i pg qh rm ji hp">
             <img src={{asset("image/shape-11.svg")}} alt="Shape" class="of h ga ha ke" />
             <img src={{asset("image/shape-07.svg")}} alt="Shape" class="h ia o ae jf" />
@@ -788,20 +747,25 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <div class="bb ze i va ki xn br">
                 <div class="tc uf sn tn xf un gg">
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">785</h2>
-                        <p class="ek bk aq">Global Brands</p>
+                        {{-- <h2 class="gk vj zp or kk wm hc">Signup</h2> --}}
+                        <p class="ek bk aq">Signup</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">533</h2>
-                        <p class="ek bk aq">Happy Clients</p>
+                        {{-- <h2 class="gk vj zp or kk wm hc">Complete Profile</h2> --}}
+                        <p class="ek bk aq">Complete Profile</p>
+                    </div>
+
+                    <div class="animate_top me/5 ln rj">
+                        {{-- <h2 class="gk vj zp or kk wm hc">Complete Profile</h2> --}}
+                        <p class="ek bk aq">Configure Payment and Shipping</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">865</h2>
-                        <p class="ek bk aq">Winning Award</p>
+                        {{-- <h2 class="gk vj zp or kk wm hc">Add Products</h2> --}}
+                        <p class="ek bk aq">Add Products</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">346</h2>
-                        <p class="ek bk aq">Happy Clients</p>
+                        {{-- <h2 class="gk vj zp or kk wm hc">Manage Listings</h2> --}}
+                        <p class="ek bk aq">Manage Listings</p>
                     </div>
                 </div>
             </div>
@@ -809,7 +773,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Counter End ===== -->
 
         <!-- ===== Clients Start ===== -->
-        <section class="pj vp mr">
+        {{-- <section class="pj vp mr">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -847,11 +811,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </a>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- ===== Clients End ===== -->
 
         <!-- ===== Blog Start ===== -->
-        <section class="ji gp uq">
+        {{-- <section class="ji gp uq">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -945,11 +909,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- ===== Blog End ===== -->
 
         <!-- ===== Contact Start ===== -->
-        <section id="support" class="i pg fh rm ji gp uq">
+        {{-- <section id="support" class="i pg fh rm ji gp uq">
             <!-- Bg Shapes -->
             <img src={{asset("image/shape-06.svg")}} alt="Shape" class="h aa y" />
             <img src={{asset("image/shape-03.svg")}} alt="Shape" class="h ca u" />
@@ -1078,7 +1042,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             </div>
 
                             <div class="tc xf">
-                                <button class="vc rg lk gh ml il hi gi _l">
+                                <button class="vc rg lk gh ml il hi gi _l" style="background-color:#ff2953">
                                     Send Message
                                 </button>
                             </div>
@@ -1086,11 +1050,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- ===== Contact End ===== -->
 
         <!-- ===== CTA Start ===== -->
-        <section class="i pg gh ji">
+        <section class="i pg gh ji" style="background-color: #ff2953; margin-top: 60px">
             <!-- Bg Shape -->
             <img class="h p q" src={{asset("image/shape-16.svg")}} alt="Bg Shape" />
 
@@ -1099,15 +1063,15 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <div class="animate_left to/2">
                         <h2 class="fk vj zp pr lk ac">
                             Join with 5000+ Startups Growing with Base.
+
                         </h2>
                         <p class="lk">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                            quis nibh lorem. Duis sed odio lorem. In a efficitur leo. Ut
-                            venenatis rhoncus.
+                            Become A Naulo Seller Today!
+                            What are you waiting for? Start selling with Naulopasal today.
                         </p>
                     </div>
                     <div class="animate_right bf">
-                        <a href="#" class="vc ek kk hh rg ol il cm gi hi">
+                        <a href="{{ route('seller.register') }}" class="vc ek kk hh rg ol il cm gi hi">
                             Get Started Now
                         </a>
                     </div>
@@ -1118,16 +1082,13 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== CTA End ===== -->
     </main>
     <!-- ===== Footer Start ===== -->
-    <footer>
+    <footer style="background-color: black; color: white">
         <div class="bb ze ki xn 2xl:ud-px-0">
             <!-- Footer Top -->
             <div class="ji gp">
                 <div class="tc uf ap gg fp">
                     <div class="animate_top zd/2 to/4">
-                        <a href="index.html">
-                            <img src={{asset("image/logo-light.svg")}} alt="Logo" class="om" />
-                            <img src={{asset("image/logo-dark.svg")}} alt="Logo" class="xc nm" />
-                        </a>
+
 
                         <p class="lc fb">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

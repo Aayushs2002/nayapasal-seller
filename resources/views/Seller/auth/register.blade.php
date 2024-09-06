@@ -64,7 +64,7 @@
         @include('Seller.registerlayout.navbar')
     </div>
     <div class="lg:mx-32 max-lg:mx-2 max-sm:mx-5">
-        <div class=" my-10 border  border-primary">
+        <div class=" my-10 border  border-[#ff2953]">
             <form action="{{ route('seller.store') }}" id="registration-form" method="POST"
                 enctype="multipart/form-data">
                 @csrf
@@ -108,7 +108,7 @@
                                     </label>
 
                                     <input type="text" name="firstname" id="firstname" value="{{ old('firstname') }}"
-                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="firstname-error" class="error-message"></div>
                                     @error('firstname')
                                         <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
@@ -126,7 +126,7 @@
                                     </label>
 
                                     <input type="text" value="{{ old('lastname') }}" name="lastname" id="lastname"
-                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="lastname-error" class="error-message"></div>
                                     @error('lastname')
                                         <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
@@ -149,7 +149,7 @@
                                     </label>
 
                                     <input type="text" name="mobileno" id="mobileno" value="{{ old('mobileno') }}"
-                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="mobileno-error" class="error-message"></div>
                                     @error('mobileno')
                                         <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
@@ -166,7 +166,7 @@
                                     </label>
 
                                     <input type="email" name="email" id="emailss" value="{{ old('email') }}"
-                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="email-error" class="error-message"></div>
                                     @error('email')
                                         <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
@@ -184,7 +184,7 @@
                                     </label>
 
                                     <input type="password" name="password" id="passwordss" value="{{ old('password') }}"
-                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                        class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                     <div id="password-error" class="error-message"></div>
 
                                     @error('password')
@@ -199,7 +199,7 @@
 
                             </div>
 
-                            <div class="w-[150px] cursor-pointer bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier next-button"
+                            <div class="w-[150px] cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier next-button"
                                 id="next-button">
                                 Next
                             </div>
@@ -247,7 +247,7 @@
 
                                         <input type="text" name="businessname" id="businessname"
                                             value="{{ old('businessname') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="businessname-error" class="error-message"></div>
 
                                         @error('businessname')
@@ -266,7 +266,7 @@
 
                                         <input type="date" name="establishdate" id="establishdate"
                                             value="{{ old('establishdate') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="establishdate-error" class="error-message"></div>
                                         @error('establishdate')
                                             <div class="error-message invalid-feedback text-sm text-red-500"
@@ -285,7 +285,7 @@
 
                                         <input type="text" value="{{ old('activities') }}" name="activities"
                                             id="activities"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="activities-error" class="error-message"></div>
                                         @error('activities')
                                             <div id="error-message"
@@ -311,7 +311,7 @@
 
                                         <input type="text" name="vatno" id="vatno"
                                             value="{{ old('vatno') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="vatno-error" class="error-message"></div>
                                         @error('vatno')
                                             <div id="error-message"
@@ -331,7 +331,7 @@
 
                                         <input type="text" name="address1" id="address1"
                                             value="{{ old('address1') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="address1-error" class="error-message"></div>
                                         @error('address1')
                                             <div id="error-message"
@@ -354,7 +354,7 @@
 
                                         <input type="text" name="address2" id="address2"
                                             value="{{ old('address2') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="address2-error" class="error-message"></div>
                                         @error('address2')
                                             <div id="error-message"
@@ -375,7 +375,7 @@
 
                                         <input type="text" name="postaladdress"
                                             id="postaladdress"value="{{ old('postaladdress') }}"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="postaladdress-error" class="error-message"></div>
                                         @error('postaladdress')
                                             <div id="error-message"
@@ -392,11 +392,11 @@
 
                                 <div class="flex gap-5">
                                     <div id="previous-button"
-                                        class="w-[150px] cursor-pointer bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
+                                        class="w-[150px] cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Previous
                                     </div>
                                     <div id="next-button2"
-                                        class="w-[150px] cursor-pointer bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
+                                        class="w-[150px] cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg px-4 py-[10px] border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Next
                                     </div>
                                 </div>
@@ -446,7 +446,7 @@
 
                                         <input type="file" name="registration_documents"
                                             id="registration_documents"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="registration_documents-error" class="error-message"></div>
                                         @error('registration_documents')
                                             <div id="error-message"
@@ -465,7 +465,7 @@
 
                                         <input type="file" name="vat_registration_documents"
                                             id="vat_registration_documents"
-                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         <div id="vat_registration_documents-error" class="error-message"></div>
                                         @error('vat_registration_documents')
                                             <div id="error-message"
@@ -503,7 +503,7 @@
                                         </label>
 
                                         <input type="file" name="banking_details" id="banking_details"
-                                            class="bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
+                                            class="bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-[#ff2953] focus:outline-none" />
                                         @error('banking_details')
                                             <div class="invalid-feedback text-sm text-primary" style="display: block;">
                                                 {{ $message }}
@@ -514,15 +514,23 @@
 
                                 </div>
 
+                                <label>
+                                    <input type="checkbox" name="check" value="check" required />
+                                    I accept the
+                                    <a class="text-blue-500 underline" href="https://naulopasal.com/termsandcondition " target="_blank">terms and conditions</a>
+                                  </label>
+
+
                                 <div class="flex gap-5">
                                     <div id="previous-button2"
-                                        class="md:w-[150px] max-sm:text-sm cursor-pointer bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2  border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
+                                        class="md:w-[150px] max-sm:text-sm cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2  border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Previous
                                     </div>
                                     <input type="hidden" name="g-recaptcha-response" value="" id="recaptcha3" />
 
+
                                     <button type="submit"
-                                        class="md:w-[270px] g-recaptcha max-sm:text-sm bg-primary flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2 border-[1px] border-primary hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">Send
+                                        class="md:w-[270px] g-recaptcha max-sm:text-sm bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2 border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">Send
                                         Registration Form</button>
 
 
@@ -539,7 +547,7 @@
         </div>
 
 
-        <div class="pb-10 pt-16 text-center">
+        {{-- <div class="pb-10 pt-16 text-center">
             <h1 class="text-4xl font-medium">Frequently Asked Questions</h1>
         </div>
         <div class="pb-10">
@@ -613,7 +621,7 @@
                 </details>
             </div>
 
-        </div>
+        </div> --}}
     </div>
 
 </body>
