@@ -438,7 +438,7 @@
                         <div>
                             <div class="space-y-6">
                                 <div class="md:grid grid-cols-3 gap-5 max-sm:space-y-5">
-                                    <div class="flex flex-col gap-2 flex-1 w-full">
+                                    <div class="flex flex-col gap-2 flex-1 w-full"> 
                                         <label htmlFor="registration_documents"
                                             class="text-13 font-semibold text-[#0A0A0A]" data-after=" *">
                                             Citizen/License Image

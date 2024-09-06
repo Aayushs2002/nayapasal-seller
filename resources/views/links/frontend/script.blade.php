@@ -43,7 +43,7 @@
         },
     });
 </script>
-
+ 
 
 {{-- seller register  --}}
 <script>

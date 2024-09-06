@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NauloPasal | Seller</title>
     <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
@@ -37,7 +37,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         <span class="du-block h q vd yc lf">
                             <span class="rc eh um tg ml jl el h na r ve yc"
                                 :class="{ 'sd dl': !navigationOpen }"></span>
-                            <span class="rc eh um tg ml jl qr h s pa vd rd"
+                            <span class="rc eh um tg ml jl qr h s pa vd rd"  
                                 :class="{ 'sd rr': !navigationOpen }"></span>
                         </span>
                     </span>
@@ -65,7 +65,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
-                        class="lk gh dk rg tc wf xf _l gi hi" >Sign hUp</a>
+                        class="lk gh dk rg tc wf xf _l gi hi" >Sign hUp</a> 
                 </div>
             </div>
         </div>
