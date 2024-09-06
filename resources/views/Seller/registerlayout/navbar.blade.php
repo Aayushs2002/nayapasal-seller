@@ -13,10 +13,10 @@
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        {{-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <form class="" action="{{route('seller.loginpost')}}" method="POST">
                 @csrf
-                @include('message.index')
+                @include('message.index') 
                 <div class="flex gap-x-2">
                     <div class="flex-col flex">
                         <label for="email" class="text-primary font-semibold text-sm pb-1">Email</label>
@@ -35,6 +35,6 @@
                     </div>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </div>
 </nav>
