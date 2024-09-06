@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NauloPasal | Seller</title>
     <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
@@ -37,7 +37,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         <span class="du-block h q vd yc lf">
                             <span class="rc eh um tg ml jl el h na r ve yc"
                                 :class="{ 'sd dl': !navigationOpen }"></span>
-                            <span class="rc eh um tg ml jl qr h s pa vd rd"  
+                            <span class="rc eh um tg ml jl qr h s pa vd rd"
                                 :class="{ 'sd rr': !navigationOpen }"></span>
                         </span>
                     </span>
@@ -49,14 +49,21 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <nav>
                     <ul class="tc _o sf yo cg ep">
                         <li>
-                            <a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a>
+                            <a href="#home" class="xl" :class="{ 'mk': page === 'home' }">Home</a>
                         </li>
-                        <li><a href="index.html#features" class="xl">Features</a></li>
+                        <li><a href="#features" class="xl">Why Us </a></li>
 
-                        <li><a href="index.html#support" class="xl">Support</a></li>
+                        <li><a href="#service" class="xl">Services</a></li>
+
+                        <li><a href="#advertising" class="xl">Advertise</a></li>
+
                     </ul>
                 </nav>
-
+<style>
+    html {
+    scroll-behavior: smooth;
+}
+</style>
                 <div class="tc wf ig pb no">
 
 
@@ -65,7 +72,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
-                        class="lk gh dk rg tc wf xf _l gi hi" >Sign hUp</a> 
+                        class="lk gh dk rg tc wf xf _l gi hi" >Sign Up</a>
                 </div>
             </div>
         </div>
@@ -86,7 +93,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             </div>
 
             <!-- Hero Content -->
-            <div class="bb ze ki xn 2xl:ud-px-0">
+            <div id="home" class="bb ze ki xn 2xl:ud-px-0">
                 <div class="tc _o">
                     <div class="animate_left jn/2">
                         <h1 class="fk vj zp or kk wm wb">
@@ -172,7 +179,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </div>
 
                     <!-- About Content -->
-                    <div class="animate_right jn/2">
+                    <div id="features" class="animate_right jn/2">
                         <h4 style="color: #ff2953" class="ek yj mk gb ">Why Choose Us</h4>
                         <h2 class="fk vj zp pr kk wm qb">
                             We Make Our customers happy by giving Best services.
@@ -375,7 +382,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Team End ===== --> --}}
 
         <!-- ===== Services Start ===== -->
-        <section class="lj tp kr">
+        <section id="service" class="lj tp kr">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `We Offer The Best Quality Service for You`, sectionTitleText: `Our platform offers top-notch support and tools to help you succeed. Streamline your sales and reach more customers with ease.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -470,7 +477,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Services End ===== -->
 
         <!-- ===== Pricing Table Start ===== -->
-        <section x-data="setup()" class="i pg fh rm ji gp uq">
+        <section id="advertising" x-data="setup()" class="i pg fh rm ji gp uq">
             <!-- Bg Shapes -->
             <img src={{asset("image/shape-06.svg")}} alt="Shape" class="h aa y" />
             <img src={{asset("image/shape-03.svg")}} alt="Shape" class="h ca u" />
@@ -488,7 +495,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <!-- Section Title End -->
 
             <!-- Pricing switcher -->
-            <div class="tc wf xf jb og">
+            {{-- <div class="tc wf xf jb og">
                 <span class="ek kk wm">Bill Monthly</span>
                 <button class="i rg gm" x-cloak
                     @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
@@ -497,7 +504,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         :class="{ 'ff': billPlan == 'monthly', 'gf': billPlan == 'annually' }"></div>
                 </button>
                 <span class="ek kk wm">Bill Annually</span>
-            </div>
+            </div> --}}
 
             <!-- Pricing Table -->
             <div class="bb ze i va ki xn yq bc">
@@ -509,7 +516,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                             <div class="tc wf xf kg cc">
                                 <h2 :class="plan.name == 'Basic' ? 'text-green-500' : ''"
-                                    x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                                    x-text="`Rs${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
                                     class="fk _j kk wm"></h2>
                                 <span x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
                                     class="sc ak kk wm"></span>
@@ -520,7 +527,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             <!-- Button -->
                             <a href="#" class="ek rg lk ml il gi ri"
                                 :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'">
-                                Try for free
+                                Try Now
                             </a>
 
                             <!-- Features -->
@@ -530,7 +537,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 </template>
                             </ul>
 
-                            <p class="kk wm">7-day free trial</p>
+
                         </div>
                     </template>
                 </div>
@@ -654,7 +661,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Projects End ===== -->
 
         <!-- ===== Testimonials Start ===== -->
-        <section class="hj rp hr">
+        {{-- <section class="hj rp hr">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -724,12 +731,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- ===== Testimonials End ===== -->
 
         <!-- ===== Counter Start ===== -->
 
-        <div x-data="{ sectionTitle: `5 Simple Steps to Start Selling`}">
+        <div  x-data="{ sectionTitle: `5 Simple Steps to Start Selling`}">
             <div class="animate_top bb ze rj ki xn vq">
                 <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
                 <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
@@ -1062,7 +1069,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="tc uf sn tn un gg">
                     <div class="animate_left to/2">
                         <h2 class="fk vj zp pr lk ac">
-                            Join with 5000+ Startups Growing with Base.
+                            Join a Thriving Community of Sellers on Our Multivendor Marketplace!
 
                         </h2>
                         <p class="lk">
@@ -1276,39 +1283,47 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 billPlan: "monthly",
 
                 plans: [{
-                        name: "Starter",
+                        name: "3 Months",
                         price: {
-                            monthly: 29,
+                            monthly: 21000,
                             annually: 29 * 12 - 199,
                         },
                         features: [
-                            "400 GB Storaget",
-                            "Unlimited Photos & Videos",
-                            "Exclusive Support",
+                            "- Large, prominent banners on the homepage for high visibility.",
+                            "- Targeted banners on specific category pages (e.g., Fashion, Electronics)",
+                            "- Exclusive Support",
+                            "-Redirect to social media",
+                            "- Display contact details"
                         ],
                     },
                     {
-                        name: "Growth Plan",
+                        name: "6 Months",
                         price: {
-                            monthly: 59,
+                            monthly: 36000,
                             annually: 59 * 12 - 100,
                         },
                         features: [
-                            "400 GB Storaget",
-                            "Unlimited Photos & Videos",
-                            "Exclusive Support",
+                            "- Large, prominent banners on the homepage for high visibility.",
+                            "- Targeted banners on specific category pages (e.g., Fashion, Electronics)",
+                            "- Exclusive Support",
+                            "- Pop-Up or Carousel Banners",
+                            "-Redirect to social media",
+                            "- Display contact details"
                         ],
                     },
                     {
-                        name: "Business",
+                        name: "1 Year",
                         price: {
-                            monthly: 139,
+                            monthly: 60000,
                             annually: 139 * 12 - 100,
                         },
                         features: [
-                            "400 GB Storaget",
-                            "Unlimited Photos & Videos",
-                            "Exclusive Support",
+                            "- Large, prominent banners on the homepage for high visibility.",
+                            "- Targeted banners on specific category pages (e.g., Fashion, Electronics)",
+                            "- Exclusive Support",
+                            "- Pop-Up or Carousel Banners",
+                            "-Redirect to social media",
+                            "- Display contact details"
                         ],
                     },
                 ],
