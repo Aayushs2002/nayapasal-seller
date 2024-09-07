@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 as:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://seller.naulopasal.com/seller/login" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
+        <a href="https://seller.naulopasal.com/seller/seller" class="flex items-center space-x-3 rtl:space-x-reverse text-3xl font-semibold ">
             <img src="{{ asset('logos/newlogo.svg') }}" class="h-16" />
         </a>
         <button data-collapse-toggle="navbar-default" type="button"
@@ -16,7 +16,7 @@
         {{-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <form class="" action="{{route('seller.loginpost')}}" method="POST">
                 @csrf
-                @include('message.index') 
+                @include('message.index')
                 <div class="flex gap-x-2">
                     <div class="flex-col flex">
                         <label for="email" class="text-primary font-semibold text-sm pb-1">Email</label>

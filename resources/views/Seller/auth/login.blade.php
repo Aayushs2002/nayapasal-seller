@@ -36,6 +36,11 @@
     })
 </script>
 
+<div class="sticky top-0 z-[999]">
+
+    @include('Seller.registerlayout.navbar')
+</div>
+
 <body x-data="{ showPassword: false }">
     <section class="font-poppins pattern">
         <div class=" z-10 flex items-center h-screen py-16 overflow-hidden 2xl:py-44 object-cover w-full "

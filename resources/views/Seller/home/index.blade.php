@@ -516,9 +516,9 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                             <div class="tc wf xf kg cc">
                                 <h2 :class="plan.name == 'Basic' ? 'text-green-500' : ''"
-                                    x-text="`Rs${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                                    x-text="`Rs ${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
                                     class="fk _j kk wm"></h2>
-                                <span x-text="billPlan == 'monthly' ? '/per month' : '/per year'"
+                                <span x-text="billPlan == 'monthly' ? '' : '/per year'"
                                     class="sc ak kk wm"></span>
                             </div>
 
@@ -527,7 +527,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             <!-- Button -->
                             <a href="#" class="ek rg lk ml il gi ri"
                                 :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'">
-                                Try Now
+                                Buy Now
                             </a>
 
                             <!-- Features -->
