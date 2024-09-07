@@ -8,7 +8,7 @@
     <title>NauloPasal | Seller</title>
     <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
 
-    <link href="{{asset("css/style.css")}}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 
 <body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -16,11 +16,17 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
     <!-- ===== Header Start ===== -->
     <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll': stickyMenu }"
         @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+        @php
+            $link = getOtherSetting();
+
+        @endphp
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
             <div class="vd to/4 tc wf yf">
                 <a href="/seller/seller">
-                    <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Light" />
-                    <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}" alt="Logo Dark" />
+                    <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
+                        alt="Logo Light" />
+                    <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}"
+                        alt="Logo Dark" />
                 </a>
 
                 <!-- Hamburger Toggle BTN -->
@@ -59,11 +65,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     </ul>
                 </nav>
-<style>
-    html {
-    scroll-behavior: smooth;
-}
-</style>
+                <style>
+                    html {
+                        scroll-behavior: smooth;
+                    }
+                </style>
                 <div class="tc wf ig pb no">
 
 
@@ -72,7 +78,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
-                        class="lk gh dk rg tc wf xf _l gi hi" >Sign Up</a>
+                        class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -85,11 +91,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <section class="gj do ir hj sp jr i pg">
             <!-- Hero Images -->
             <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
-                <img src={{asset("image/shape-01.svg")}} alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
-                <img src={{asset("image/shape-02.svg")}} alt="shape" class="xc 2xl:ud-block h u p va" />
-                <img src={{asset("image/shape-03.svg")}} alt="shape" class="xc 2xl:ud-block h v w va" />
-                <img src={{asset("image/shape-04.svg")}} alt="shape" class="h q r" />
-                <img src={{asset("image/hero.png" )}} alt="Woman" class="h q r ua" />
+                <img src={{ asset('image/shape-01.svg') }} alt="shape"
+                    class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+                <img src={{ asset('image/shape-02.svg') }} alt="shape" class="xc 2xl:ud-block h u p va" />
+                <img src={{ asset('image/shape-03.svg') }} alt="shape" class="xc 2xl:ud-block h v w va" />
+                <img src={{ asset('image/shape-04.svg') }} alt="shape" class="h q r" />
+                <img src={{ asset('image/hero.png') }} alt="Woman" class="h q r ua" />
             </div>
 
             <!-- Hero Content -->
@@ -104,7 +111,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </p>
 
                         <div class="tc tf yo zf mb">
-                            <a href="{{ route('seller.register') }}" style="background-color:#ff2953" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                            <a href="{{ route('seller.register') }}" style="background-color:#ff2953"
+                                class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
 
                             <span class="tc sf">
                                 <a href="mailto:info@naulopasal.com" class="inline-block ek xj kk wm">
@@ -126,7 +134,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <!-- Small Features Item -->
                     <div class="animate_top kn to/3 tc cg oq">
                         <div class="tc wf xf cf ae cd rg mh">
-                            <img src={{asset("image/icon-01.svg")}} alt="Icon" />
+                            <img src={{ asset('image/icon-01.svg') }} alt="Icon" />
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">24/7 Support</h4>
@@ -137,7 +145,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <!-- Small Features Item -->
                     <div class="animate_top kn to/3 tc cg oq">
                         <div class="tc wf xf cf ae cd rg nh">
-                            <img src={{asset("image/icon-02.svg")}} alt="Icon" />
+                            <img src={{ asset('image/icon-02.svg') }} alt="Icon" />
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">Take Ownership</h4>
@@ -148,7 +156,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <!-- Small Features Item -->
                     <div class="animate_top kn to/3 tc cg oq">
                         <div class="tc wf xf cf ae cd rg oh">
-                            <img src={{asset("image/icon-03.svg")}} alt="Icon" />
+                            <img src={{ asset('image/icon-03.svg') }} alt="Icon" />
                         </div>
                         <div>
                             <h4 class="ek yj go kk wm xb">Team Work</h4>
@@ -167,14 +175,14 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     <!-- About Images -->
                     <div class="animate_left xc gn gg jn/2 i">
                         <div>
-                            <img src={{asset("image/shape-05.svg")}} alt="Shape" class="h -ud-left-5 x" />
-                            <img src={{asset("image/about-01.png")}} alt="About" class="ib" />
-                            <img src={{asset("image/about-02.png")}} alt="About" />
+                            <img src={{ asset('image/shape-05.svg') }} alt="Shape" class="h -ud-left-5 x" />
+                            <img src={{ asset('image/about-01.png') }} alt="About" class="ib" />
+                            <img src={{ asset('image/about-02.png') }} alt="About" />
                         </div>
                         <div>
-                            <img src={{asset("image/shape-06.svg")}} alt="Shape" />
-                            <img src={{asset("image/about-03.png")}} alt="About" class="ob gb" />
-                            <img src={{asset("image/shape-07.svg")}} alt="Shape" class="bb" />
+                            <img src={{ asset('image/shape-06.svg') }} alt="Shape" />
+                            <img src={{ asset('image/about-03.png') }} alt="About" class="ob gb" />
+                            <img src={{ asset('image/shape-07.svg') }} alt="Shape" class="bb" />
                         </div>
                     </div>
 
@@ -185,13 +193,15 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             We Make Our customers happy by giving Best services.
                         </h2>
                         <p class="uo">
-                            We go above and beyond to ensure your satisfaction by providing top-notch services tailored to your needs. Our commitment to quality, reliability, and customer care sets us apart, making your experience with us seamless and enjoyable.
+                            We go above and beyond to ensure your satisfaction by providing top-notch services tailored
+                            to your needs. Our commitment to quality, reliability, and customer care sets us apart,
+                            making your experience with us seamless and enjoyable.
                         </p>
 
                         <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
                             <span class="tc wf xf be dd rg i gh ua">
                                 <span class="nf h vc yc vd rg gh qk -ud-z-1"></span>
-                                <img src={{asset("image/icon-play.svg")}} alt="Play" />
+                                <img src={{ asset('image/icon-play.svg') }} alt="Play" />
                             </span>
                             <span class="kk">SEE HOW WE WORK</span>
                         </a>
@@ -396,7 +406,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="wc qf pn xo ng">
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-04.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-04.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Reach
                         </h4>
                         <p>
@@ -406,7 +416,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-05.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-05.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Free Registration
                         </h4>
                         <p>
@@ -424,7 +434,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-06.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-06.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Reliable Shipping
                         </h4>
                         <p>
@@ -435,7 +445,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-07.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-07.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Timely Payments
                         </h4>
                         <p>
@@ -447,7 +457,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-05.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-05.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Marketing Tools
                         </h4>
                         <p>
@@ -464,11 +474,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
-                        <img src={{asset("image/icon-06.svg")}} alt="Icon" />
+                        <img src={{ asset('image/icon-06.svg') }} alt="Icon" />
                         <h4 class="ek zj kk wm nb _b">Support & Training
                         </h4>
                         <p>
-                        Receive dedicated support through our Seller Support and Naulopasal.
+                            Receive dedicated support through our Seller Support and Naulopasal.
                         </p>
                     </div>
                 </div>
@@ -479,11 +489,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== Pricing Table Start ===== -->
         <section id="advertising" x-data="setup()" class="i pg fh rm ji gp uq">
             <!-- Bg Shapes -->
-            <img src={{asset("image/shape-06.svg")}} alt="Shape" class="h aa y" />
-            <img src={{asset("image/shape-03.svg")}} alt="Shape" class="h ca u" />
-            <img src={{asset("image/shape-07.svg")}} alt="Shape" class="h w da ee" />
-            <img src={{asset("image/shape-12.svg")}} alt="Shape" class="h p s" />
-            <img src={{asset("image/shape-13.svg")}} alt="Shape" class="h r q" />
+            <img src={{ asset('image/shape-06.svg') }} alt="Shape" class="h aa y" />
+            <img src={{ asset('image/shape-03.svg') }} alt="Shape" class="h ca u" />
+            <img src={{ asset('image/shape-07.svg') }} alt="Shape" class="h w da ee" />
+            <img src={{ asset('image/shape-12.svg') }} alt="Shape" class="h p s" />
+            <img src={{ asset('image/shape-13.svg') }} alt="Shape" class="h r q" />
 
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Advertising.`, sectionTitleText: `Achieve maximum exposure with our competitively priced premium advertising options. Boost your brand and reach more customers while staying within your budget.` }">
@@ -736,7 +746,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
         <!-- ===== Counter Start ===== -->
 
-        <div  x-data="{ sectionTitle: `5 Simple Steps to Start Selling`}">
+        <div x-data="{ sectionTitle: `5 Simple Steps to Start Selling` }">
             <div class="animate_top bb ze rj ki xn vq">
                 <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
                 <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
@@ -746,10 +756,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 
         <section class="i pg qh rm ji hp">
-            <img src={{asset("image/shape-11.svg")}} alt="Shape" class="of h ga ha ke" />
-            <img src={{asset("image/shape-07.svg")}} alt="Shape" class="h ia o ae jf" />
-            <img src={{asset("image/shape-14.svg")}} alt="Shape" class="h ja ka" />
-            <img src={{asset("image/shape-15.svg")}} alt="Shape" class="h q p" />
+            <img src={{ asset('image/shape-11.svg') }} alt="Shape" class="of h ga ha ke" />
+            <img src={{ asset('image/shape-07.svg') }} alt="Shape" class="h ia o ae jf" />
+            <img src={{ asset('image/shape-14.svg') }} alt="Shape" class="h ja ka" />
+            <img src={{ asset('image/shape-15.svg') }} alt="Shape" class="h q p" />
 
             <div class="bb ze i va ki xn br">
                 <div class="tc uf sn tn xf un gg">
@@ -1063,7 +1073,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <!-- ===== CTA Start ===== -->
         <section class="i pg gh ji" style="background-color: #ff2953; margin-top: 60px">
             <!-- Bg Shape -->
-            <img class="h p q" src={{asset("image/shape-16.svg")}} alt="Bg Shape" />
+            <img class="h p q" src={{ asset('image/shape-16.svg') }} alt="Bg Shape" />
 
             <div class="bb ye i z-10 ki xn dr">
                 <div class="tc uf sn tn un gg">
@@ -1098,12 +1108,25 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 
                         <p class="lc fb">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Improving Your Online Shopping, Your One-stop Shop for Convenience and Quality.
                         </p>
+                        <p class="font-medium text-lg  text-white mt-2">We Offer</p>
 
+                        <div class="flex gap-2"
+                            style="display: flex; gap: 10px; padding-top: 10px; padding-bottom: 10px">
+
+                            <a href="#">
+                                <img src="{{ asset('logos/cashondelivery.png') }}" alt=""
+                                    style="width: 6rem; height: 3rem; object-fit: contain;">
+                            </a>
+                            <a href="#">
+                                <img src="{{ asset('logos/khalti.png') }}" alt=""
+                                    style="width: 6rem; height: 3rem; object-fit: contain;">
+                            </a>
+                        </div>
                         <ul class="tc wf cg">
                             <li>
-                                <a href="#">
+                                <a href="{{ $link->facebook }}">
                                     <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_48_1499)">
@@ -1121,7 +1144,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             </li>
                             <li>
                                 <a href="#">
-                                    <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24"
+                                    {{-- <svg class="" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_48_1502)">
                                             <path
@@ -1133,7 +1156,15 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                                 <rect width="24" height="24" fill="white" />
                                             </clipPath>
                                         </defs>
+                                    </svg> --}}
+
+                                    <svg class="vh ul cl il" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                            clip-rule="evenodd" />
                                     </svg>
+
                                 </a>
                             </li>
                             <li>
@@ -1174,33 +1205,37 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <div class="vd ro tc sf rn un gg vn">
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Quick Links</h4>
+                            <h4 class=" wm tj ec">Company</h4>
 
                             <ul>
-                                <li><a href="#" class="sc xl vb">Home</a></li>
-                                <li><a href="#" class="sc xl vb">Product</a></li>
+                                <li><a href="https://naulopasal.com/about" class="sc xl vb">About</a></li>
+                                <li><a href="https://naulopasal.com/teams" class="sc xl vb">Meet the Team</a></li>
                                 <li>
-                                    <a href="#" class="sc xl vb">
-                                        Careers
-                                        <span class="sc ek uj lk nh rg zi _i nc">Hiring</span>
+                                    <a href="https://naulopasal.com/privacypolicy" class="sc xl vb">
+                                        Privacy Policy
+
                                     </a>
                                 </li>
-                                <li><a href="#" class="sc xl vb">Pricing</a></li>
+                                <li><a href="https://naulopasal.com/termsandcondition" class="sc xl vb">Terms and
+                                        Condition</a></li>
                             </ul>
                         </div>
 
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Services</h4>
+                            <h4 class=" wm tj ec">Helpful Links</h4>
 
                             <ul>
-                                <li><a href="#" class="sc xl vb">Web Development</a></li>
-                                <li><a href="#" class="sc xl vb">Graphics Design</a></li>
-                                <li><a href="#" class="sc xl vb">Digital Marketing</a></li>
-                                <li><a href="#" class="sc xl vb">Ui/Ux Design</a></li>
+                                <li><a href="https://naulopasal.com/helpandsupport" class="sc xl vb">Help &
+                                        Support</a></li>
+                                <li><a href="https://naulopasal.com/returnandrefund" class="sc xl vb">Returns &
+                                        Refunds</a></li>
+                                <li><a href="https://naulopasal.com/contact" class="sc xl vb">Contact</a></li>
+                                <li><a href="https://naulopasal.com/faq" class="sc xl vb">FAQs</a></li>
+                                <li><a href="https://naulopasal.com/blogs" class="sc xl vb">Blogs</a></li>
                             </ul>
                         </div>
 
-                        <div class="animate_top">
+                        {{-- <div class="animate_top">
                             <h4 class="kk wm tj ec">Support</h4>
 
                             <ul>
@@ -1209,34 +1244,71 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 <li><a href="#" class="sc xl vb">Our Blog</a></li>
                                 <li><a href="#" class="sc xl vb">Contact Us</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Newsletter</h4>
-                            <p class="ac qe">Subscribe to receive future updates</p>
+                            <h4 class=" wm tj ec">Contact Us</h4>
+                            <div class="" style="display: flex; gap: 3px">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                    <path d="M3 7l9 6l9 -6" />
+                                </svg>
+                                <a href="mailto:{{ $link->email }}"
+                                    class="text-white text-xs pt-0.5 transition hover:opacity-75">
+                                    {{ $link->email }}
 
-                            <form action="https://formbold.com/s/unique_form_id" method="POST">
-                                <div class="i">
-                                    <input type="text" placeholder="Email address"
-                                        class="vd sm _g ch pm vk xm rg gm dm dn gi mi" />
+                                </a>
+                            </div>
+                            <div class="" style="display: flex; gap: 3px">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                    <path d="M3 7l9 6l9 -6" />
+                                </svg>
+                                <a href="mailto:support@naulopasal.com"
+                                    class="text-white text-xs pt-0.5 transition hover:opacity-75">
+                                    support@naulopasal.com
 
-                                    <button class="h q fi">
-                                        <svg class="th vm ul" width="20" height="20" viewBox="0 0 20 20"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_48_1487)">
-                                                <path
-                                                    d="M3.1175 1.17318L18.5025 9.63484C18.5678 9.67081 18.6223 9.72365 18.6602 9.78786C18.6982 9.85206 18.7182 9.92527 18.7182 9.99984C18.7182 10.0744 18.6982 10.1476 18.6602 10.2118C18.6223 10.276 18.5678 10.3289 18.5025 10.3648L3.1175 18.8265C3.05406 18.8614 2.98262 18.8792 2.91023 18.8781C2.83783 18.8769 2.76698 18.857 2.70465 18.8201C2.64232 18.7833 2.59066 18.7308 2.55478 18.6679C2.51889 18.6051 2.50001 18.5339 2.5 18.4615V1.53818C2.50001 1.46577 2.51889 1.39462 2.55478 1.33174C2.59066 1.26885 2.64232 1.2164 2.70465 1.17956C2.76698 1.14272 2.83783 1.12275 2.91023 1.12163C2.98262 1.12051 3.05406 1.13828 3.1175 1.17318ZM4.16667 10.8332V16.3473L15.7083 9.99984L4.16667 3.65234V9.16651H8.33333V10.8332H4.16667Z"
-                                                    fill="" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_48_1487">
-                                                    <rect width="20" height="20" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </form>
+                                </a>
+                            </div>
+                            <div class="" style="display: flex; gap: 3px">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                    <path d="M3 7l9 6l9 -6" />
+                                </svg>
+                                <a href="mailto:advice@naulopasal.com"
+                                    class="text-white text-xs pt-0.5 transition hover:opacity-75">
+                                    advice@naulopasal.com
+
+                                </a>
+                            </div>
+                            <div class="" style="display: flex; gap: 3px">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                    <path d="M3 7l9 6l9 -6" />
+                                </svg>
+
+                                <a href="mailto:account@naulopasal.com"
+                                    class="text-white text-xs pt-0.5 transition hover:opacity-75">
+                                    account@naulopasal.com
+
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1246,15 +1318,18 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <!-- Footer Bottom -->
             <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
                 <div class="animate_top">
-                    <ul class="tc wf gg">
-                        <li><a href="#" class="xl">English</a></li>
-                        <li><a href="#" class="xl">Privacy Policy</a></li>
-                        <li><a href="#" class="xl">Support</a></li>
-                    </ul>
+                    &copy; 2024. Naulopasal. All rights reserved.
                 </div>
 
                 <div class="animate_top">
-                    <p>&copy; 2025 Base. All rights reserved</p>
+                    <div style="font-size: 0.875rem; color: white; text-align: center;">
+                        Powered By
+                        <a target="_blank" href="https://naulotech.naulopasal.com/"
+                            style="color: #7065d4; text-decoration: none;">
+                            NauloTech
+                        </a>
+                    </div>
+
                 </div>
             </div>
             <!-- Footer Bottom -->
@@ -1330,7 +1405,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             };
         };
     </script>
-    <script defer src="{{asset("js/bundle.js")}}"></script>
+    <script defer src="{{ asset('js/bundle.js') }}"></script>
 </body>
 
 </html>
