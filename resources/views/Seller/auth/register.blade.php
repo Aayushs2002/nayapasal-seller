@@ -59,10 +59,10 @@
 </script>
 
 <body class="max-w-screen-2xl mx-auto bg-gray-100">
-    {{-- <div class="sticky top-0 z-[999]">
+    <div class="sticky top-0 z-[999]">
 
         @include('Seller.registerlayout.navbar')
-    </div> --}}
+    </div>
     <div class="lg:mx-32 max-lg:mx-2 max-sm:mx-5">
         <div class=" my-10 border  border-[#ff2953]">
             <form action="{{ route('seller.store') }}" id="registration-form" method="POST"
