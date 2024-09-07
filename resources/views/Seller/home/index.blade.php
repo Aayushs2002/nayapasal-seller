@@ -1205,7 +1205,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <div class="vd ro tc sf rn un gg vn">
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Company</h4>
+                            <h4 class=" wm tj ec">Company</h4>
 
                             <ul>
                                 <li><a href="https://naulopasal.com/about" class="sc xl vb">About</a></li>
@@ -1222,7 +1222,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </div>
 
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Helpful Links</h4>
+                            <h4 class=" wm tj ec">Helpful Links</h4>
 
                             <ul>
                                 <li><a href="https://naulopasal.com/helpandsupport" class="sc xl vb">Help &
@@ -1247,7 +1247,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </div> --}}
 
                         <div class="animate_top">
-                            <h4 class="kk wm tj ec">Contact Us</h4>
+                            <h4 class=" wm tj ec">Contact Us</h4>
                             <div class="" style="display: flex; gap: 3px">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
