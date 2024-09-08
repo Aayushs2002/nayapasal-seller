@@ -214,13 +214,13 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                             making your experience with us seamless and enjoyable.
                         </p>
 
-                        <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
+                        {{-- <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
                             <span class="tc wf xf be dd rg i gh ua">
                                 <span class="nf h vc yc vd rg gh qk -ud-z-1"></span>
                                 <img src={{ asset('image/icon-play.svg') }} alt="Play" />
                             </span>
                             <span class="kk">SEE HOW WE WORK</span>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>
