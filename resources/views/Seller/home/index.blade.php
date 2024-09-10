@@ -21,8 +21,6 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
         @endphp
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i ">
-
-        <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
             <div class="vd to/4 tc wf yf">
                 <a href="/seller/seller">
                     <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
