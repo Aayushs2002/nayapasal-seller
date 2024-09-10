@@ -540,7 +540,7 @@
                                 <label>
                                     <input type="checkbox" name="check" value="check" required />
                                     I/We hereby acknowledge and accept the <a class="text-blue-500 underline"
-                                        href="https://naulopasal.com/termsandcondition " target="_blank">terms and
+                                        href="https://seller.naulopasal.com/seller/termsandcondition" target="_blank">terms and
                                         conditions</a>
                                     of NauloPasal.com. I/We confirm that all the information and documents provided are
                                     accurate and true. In the event that any of the provided documents are found to be

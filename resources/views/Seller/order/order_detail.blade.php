@@ -63,6 +63,16 @@
                         </ul>
 
                     </div>
+                    @if ($order->order_status == 'CANCELED')
+                        @if ($order->cancel)
+                            <div class="flex gap-2 flex-wrap">
+
+                                <div class="text-newsecondary font-semibold">Reason for Cancel :</div>
+                                <div class="text-md text-red-500 font-bold underline">{{ $order->cancel->reason }}</div>
+                            </div>
+                        @endif
+                    @endif
+                    
                     <div class="flex items-center justify-between mt-5 text-sm w-full">
                         <ul class="text-gray-600">
                             <li class="text-lg mb-1 text-slate-800">

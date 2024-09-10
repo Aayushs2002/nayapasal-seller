@@ -5,6 +5,7 @@ use App\Http\Controllers\Seller\SellerAuthController;
 use App\Http\Controllers\Seller\SellerDashboardController;
 use App\Http\Controllers\Seller\SellerOrderController;
 use App\Http\Controllers\Seller\SellerProfileController;
+use App\Http\Controllers\Seller\TermsAndPolicyController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ Route::get('/', function () {
 Route::get('/seller', function () {
     return view("Seller.home.index");
 });
+
+Route::get('/termsandcondition', [TermsAndPolicyController::class, 'termsandcondition'])->name('termsandcondition');
+Route::get('/privacypolicy', [TermsAndPolicyController::class, 'privacypolicy'])->name('privacypolicy');
 
 Route::get('/migrate', function () {
     Artisan::call('migrate');
@@ -51,7 +55,7 @@ Route::middleware(['seller'])->group(function () {
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
     Route::get('setting', [SellerProfileController::class, 'setting'])->name('setting');
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
-    Route::resource('seller-profile', SellerProfileController::class); 
+    Route::resource('seller-profile', SellerProfileController::class);
     // Route::resource('seller-profile', SellerProfileController::class);
         // from dashboard
         Route::get('/seller/changepassword', [SellerProfileController::class, 'sellerchangepassword'])->name('sellerchangepassword');
