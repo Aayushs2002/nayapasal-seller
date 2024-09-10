@@ -26,7 +26,7 @@
 
         <div class="container mx-auto py-8">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h1 class="text-3xl font-semibold">{{ $pages->pagename }}</h1>
+                <h1 class="text-3xl font-semibold">{{ $pages->title }}</h1>
 
                 <hr class="my-4">
 
