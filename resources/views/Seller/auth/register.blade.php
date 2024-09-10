@@ -75,7 +75,7 @@
                             <div class="font-medium text-xl">
                                 Easy Fast Track Registration Form
                             </div>
-                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                            <a href="{{ route('seller.login') }}" class="text-blue-500 hover:underline font-semibold">
                                 Already have an account? Login
                             </a>
                         </div>
@@ -196,7 +196,8 @@
                                     <div id="password-error" class="error-message"></div>
 
                                     @error('password')
-                                        <div id="error-message" class="error-message invalid-feedback text-sm text-red-500"
+                                        <div id="error-message"
+                                            class="error-message invalid-feedback text-sm text-red-500"
                                             style="display: block;">
                                             {{ $message }}
 
@@ -222,10 +223,12 @@
                             <div class="font-medium text-xl">
                                 Easy Fast Track Registration Form
                             </div>
-                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                            <a href="{{ route('seller.login') }}"
+                                class="text-blue-500 hover:underline font-semibold">
                                 Already have an account? Login
                             </a>
-                        </div>                        <div class="">
+                        </div>
+                        <div class="">
                             <div class="flex justify-center items-center">
                                 <div
                                     class="flex justify-center items-center rounded-full text-white bg-[#4F4F4F] md:h-[35px] md:w-[35px] px-2">
@@ -426,7 +429,8 @@
                             <div class="font-medium text-xl">
                                 Easy Fast Track Registration Form
                             </div>
-                            <a href="{{route('seller.login')}}" class="text-blue-500 hover:underline font-semibold">
+                            <a href="{{ route('seller.login') }}"
+                                class="text-blue-500 hover:underline font-semibold">
                                 Already have an account? Login
                             </a>
                         </div>
@@ -497,13 +501,12 @@
                                         @enderror
                                     </div>
                                     <div class="flex flex-col gap-2 flex-1 w-full">
-                                        <label htmlFor="company_logo"
-                                            class="text-13 font-semibold text-[#0A0A0A]" data-after=" *">
+                                        <label htmlFor="company_logo" class="text-13 font-semibold text-[#0A0A0A]"
+                                            data-after=" *">
                                             Company Logo
                                         </label>
 
-                                        <input type="file" name="company_logo"
-                                            id="company_logo"
+                                        <input type="file" name="company_logo" id="company_logo"
                                             class="input-field bg-white border-[1px] border-[#C2C2C2] rounded-lg px-4 py-[10px] text-16 focus:border-primary focus:outline-none" />
                                         <div id="company_logo-error" class="error-message"></div>
                                         @error('company_logo')
@@ -537,8 +540,10 @@
                                 <label>
                                     <input type="checkbox" name="check" value="check" required />
                                     I accept the
-                                    <a class="text-blue-500 underline" href="https://naulopasal.com/termsandcondition " target="_blank">terms and conditions</a>
-                                  </label>
+                                    <a class="text-blue-500 underline"
+                                        href="https://naulopasal.com/termsandcondition " target="_blank">terms and
+                                        conditions</a>
+                                </label>
 
 
                                 <div class="flex gap-5">
@@ -546,7 +551,8 @@
                                         class="md:w-[150px] max-sm:text-sm cursor-pointer bg-[#ff2953] flex items-center justify-center text-white tet-16 font-medium rounded-lg md:px-4 md:py-[10px] p-2  border-[1px] border-[#ff2953] hover:outline-none hover:bg-white hover:text-primary transition-all duration-500 ease-cubic-bezier">
                                         Previous
                                     </div>
-                                    <input type="hidden" name="g-recaptcha-response" value="" id="recaptcha3" />
+                                    <input type="hidden" name="g-recaptcha-response" value=""
+                                        id="recaptcha3" />
 
 
                                     <button type="submit"
