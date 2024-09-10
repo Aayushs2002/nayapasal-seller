@@ -14,13 +14,13 @@
 <body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" :class="{ 'b eh': darkMode === true }">
     <!-- ===== Header Start ===== -->
-    <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll': stickyMenu }"
+    <header class="g s r vd ya cj border-b-2 border-b-[#ff2953]" :class="{ 'hh sm _k dj bl ll': stickyMenu }"
         @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
         @php
             $link = getOtherSetting();
 
         @endphp
-        <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+        <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i ">
             <div class="vd to/4 tc wf yf">
                 <a href="/seller/seller">
                     <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
@@ -53,15 +53,15 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
             <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
                 <nav>
-                    <ul class="tc _o sf yo cg ep">
+                    <ul class="tc _o sf yo cg ep text-[#023047] font-semibold ">
                         <li>
-                            <a href="#home" class="xl" :class="">Home</a>
+                            <a href="#home" class="xl hover:text-[#ff2953]" :class="">Home</a>
                         </li>
-                        <li><a href="#features" class="xl">Why Us </a></li>
+                        <li><a href="#features" class="xl hover:text-[#ff2953]">Why Us </a></li>
 
-                        <li><a href="#service" class="xl">Services</a></li>
+                        <li><a href="#service" class="xl hover:text-[#ff2953]">Services</a></li>
 
-                        <li><a href="#advertising" class="xl">Advertise</a></li>
+                        <li><a href="#advertising" class="xl hover:text-[#ff2953]">Advertise</a></li>
 
                     </ul>
                 </nav>
@@ -71,11 +71,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     }
                 </style>
                 <div class="tc wf ig pb no">
+                        <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.login') }}"
+                        :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
+                        class="lk gh dk rg tc wf xf _l gi hi">Sign In</a>
 
-
-                    <a target="_blank" href="{{ route('seller.login') }}"
-                        :class="{ 'nk yl': page === 'home', 'ok': page === 'home' && stickyMenu }"
-                        class="ek pk xl">Sign In</a>
                     <a style="background-color:#ff2953" target="_blank" href="{{ route('seller.register') }}"
                         :class="{ 'hh/[0.15]': page === 'home', 'sh': page === 'home' && stickyMenu }"
                         class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
@@ -143,7 +142,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <a href="{{ route('seller.register') }}" style="background-color:#ff2953"
             class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
         </div>
-        <p class="mt-6"> For any question or concern : <span class="text-blue-500">info@naulopasal.com</span>
+        <p class="mt-6"> For any question or concern : <span class="text-[#ff2953]">info@naulopasal.com</span>
            </p>
       </div>
     </div>
