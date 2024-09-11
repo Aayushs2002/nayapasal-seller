@@ -9,10 +9,10 @@ use App\Http\Controllers\Seller\TermsAndPolicyController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/', function () {
+//     return 'Welcome to my Laravel application!';
+// });
 Route::get('/', function () {
-    return 'Welcome to my Laravel application!';
-});
-Route::get('/seller', function () {
     return view("Seller.home.index");
 });
 
