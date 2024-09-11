@@ -323,7 +323,7 @@
                                     <div class="flex flex-col gap-2 flex-1 w-full">
                                         <label htmlFor="vatno" class="text-13 font-semibold text-[#0A0A0A]"
                                             data-after=" *">
-                                            VAT Registration Number (If Applicable)
+                                            VAT/PAN Registration Number (If Applicable)
                                         </label>
 
                                         <input type="text" name="vatno" id="vatno"
@@ -484,7 +484,7 @@
                                     <div class="flex flex-col gap-2 flex-1 w-full">
                                         <label htmlFor="vat_registration_documents"
                                             class="text-13 font-semibold text-[#0A0A0A]" data-after=" *">
-                                            Copy of VAT Registration Documentation
+                                            Copy of VAT/PAN Registration Documentation
                                         </label>
 
                                         <input type="file" name="vat_registration_documents"
@@ -539,10 +539,12 @@
 
                                 <label>
                                     <input type="checkbox" name="check" value="check" required />
-                                    I accept the
-                                    <a class="text-blue-500 underline"
-                                        href="https://naulopasal.com/termsandcondition " target="_blank">terms and
+                                    I/We hereby acknowledge and accept the <a class="text-blue-500 underline"
+                                        href="https://seller.naulopasal.com/seller/termsandcondition" target="_blank">terms and
                                         conditions</a>
+                                    of NauloPasal.com. I/We confirm that all the information and documents provided are
+                                    accurate and true. In the event that any of the provided documents are found to be
+                                    fraudulent or misleading, I/We take full responsibility for such actions.
                                 </label>
 
 
