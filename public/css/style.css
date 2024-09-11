@@ -1422,8 +1422,8 @@ h1,  h2,  h3,  h4,  h5,  h6{
   padding: 1rem;
 }
 .gi{
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .hi{
   padding-left: 1.875rem;
@@ -1514,13 +1514,13 @@ h1,  h2,  h3,  h4,  h5,  h6{
   padding-bottom: 1.875rem;
 }
 .cj{
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-.dj{
+/* .dj{
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-}
+} */
 .ej{
   padding-top: 10rem;
 }
