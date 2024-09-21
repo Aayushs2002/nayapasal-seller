@@ -19,7 +19,7 @@
         <div>
             <nav class="mt-24 ">
 
-                <a class="{{ request()->segment(2) == 'dashboard' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(1) == 'dashboard' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="{{ route('seller.dashboard') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -33,7 +33,7 @@
 
 
 
-                <a class="{{ request()->segment(2) == 'product' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(1) == 'product' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform hover:bg-primary hover:text-white"
                     href="{{ route('seller.product.index') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -44,7 +44,7 @@
 
                     <span class="mx-2 text-sm font-medium">Products</span>
                 </a>
-                <a class="{{ request()->segment(2) == 'order' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                <a class="{{ request()->segment(1) == 'order' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="{{ route('seller.order') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
@@ -55,8 +55,21 @@
 
                     <span class="mx-2 text-sm font-medium">Order</span>
                 </a>
+                <a class="{{ request()->segment(1) == 'invoices' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                    href="{{ route('seller.invoices.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-invoice">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path
+                            d="M19 12v7a1.78 1.78 0 0 1 -3.1 1.4a1.65 1.65 0 0 0 -2.6 0a1.65 1.65 0 0 1 -2.6 0a1.65 1.65 0 0 0 -2.6 0a1.78 1.78 0 0 1 -3.1 -1.4v-14a2 2 0 0 1 2 -2h7l5 5v4.25" />
+                    </svg>
 
-                <a class="{{ request()->segment(2) == 'setting' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
+                    <span class="mx-2 text-sm font-medium">Invoice</span>
+                </a>
+
+                <a class="{{ request()->segment(1) == 'setting' ? 'bg-primary text-white' : '' }} flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform  hover:bg-primary hover:text-white"
                     href="
                     {{ route('seller.setting') }}
                     ">

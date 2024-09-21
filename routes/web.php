@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Seller\InvoiceController;
 use App\Http\Controllers\Seller\ProductController;
 use App\Http\Controllers\Seller\SellerAuthController;
 use App\Http\Controllers\Seller\SellerDashboardController;
@@ -65,6 +66,8 @@ Route::middleware(['seller'])->group(function () {
     Route::post('/togleActive/{product}', [ProductController::class, 'togleActive'])->name('togleActive');
 
     Route::resource('product', ProductController::class);
+    Route::resource('invoices', InvoiceController::class);
+
     Route::get('productimage/{product}', [ProductController::class, 'imagecreate'])->name('myimage');
     Route::post('flashdeal/{id}', [ProductController::class, 'flashdeal'])->name('flashdeal');
     Route::delete('/delete-flashdeal/{productId}', [ProductController::class, 'destroyFlashDeal'])->name('flashdeal.destroy');
