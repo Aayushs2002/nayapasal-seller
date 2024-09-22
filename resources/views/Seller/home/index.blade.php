@@ -22,10 +22,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         @endphp
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i ">
             <div class="vd to/4 tc wf yf">
-                <a href="/">
-                    <img class="w-28 om" src="{{ asset('logos/newlogo.svg') }}"
+                <a href="/seller/seller">
+                    <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
                         alt="Logo Light" />
-
+                    <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}"
+                        alt="Logo Dark" />
                 </a>
 
                 <!-- Hamburger Toggle BTN -->
@@ -125,28 +126,47 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         {{-- </section> --}}
 
 
-        <header
-  class="ezy__header3 light py-20 md:py-36 text-black"
-  style=""
->
-  <div class=" px-4 relative">
-    <div class="grid grid-cols-12">
-      <div class="col-span-12 text-center my-16 animate_left">
-        <h2 class="text-3xl leading-none md:text-[50px] font-semibold mb-6">Join Our <span class="text-[#ff2953]">Marketplace </span> Expand Your Business with Ease!</h2>
-        <p class="text-[22px] leading-normal opacity-80 px-12 md:px-44 lg:px-64">
-            Elevate Your Business Now. Your Products, Our Platform, Let’s Boost Your Sales!
-        </p>
+        <header class="ezy__header3 light py-20 md:py-36 text-black" style="">
+            <div class="container px-4 relative">
+              <div class="grid grid-cols-12">
+                <div class="col-span-12 text-center my-16 animate_left opacity-0" id="header-content">
+                  <h2 class="text-3xl leading-none md:text-[50px] font-semibold mb-6">
+                    Join Our <span class="text-[#ff2953]">Marketplace </span> Expand Your Business with Ease!
+                  </h2>
+                  <p class="text-[22px] leading-normal opacity-80 px-12 md:px-44 lg:px-64">
+                    Elevate Your Business Now. Your Products, Our Platform, Let’s Boost Your Sales!
+                  </p>
 
-        <div class="flex items-center justify-center mt-12">
-            <a href="{{ route('seller.register') }}" style="background-color:#ff2953"
-            class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
-        </div>
-        <p class="mt-6"> For any question or concern : <span class="text-[#ff2953]">info@naulopasal.com</span>
-           </p>
-      </div>
-    </div>
-  </div>
-</header>
+                  <div class="flex items-center justify-center mt-12">
+                    <a href="{{ route('seller.register') }}" style="background-color:#ff2953" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                  </div>
+                  <p class="mt-6">
+                    For any question or concern: <span class="text-[#ff2953]">info@naulopasal.com</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <script>
+            window.addEventListener('load', function() {
+              // Add a class to fade in the content once the page is fully loaded
+              document.getElementById('header-content').classList.add('fade-in');
+            });
+          </script>
+
+          <style>
+            #header-content.fade-in {
+              opacity: 1;
+              transition: opacity 1s ease-in;
+            }
+
+            /* Initial hidden state */
+            #header-content {
+              opacity: 0;
+            }
+          </style>
+
 
         <!-- ===== Hero End ===== -->
 
@@ -557,7 +577,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 </template>
                             </ul>
     <!-- Button -->
-    <a href="#" class="bg-[#ff2953] ek rg lk ml il gi ri"
+    <a href="#" class="ek rg lk ml il gi ri"
     :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'">
     Buy Now
 </a>
