@@ -576,8 +576,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 </template>
                             </ul>
     <!-- Button -->
-    <a href="#" class="ek rg lk ml il gi ri"
-    :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'">
+    <a href="#" class="bg-[#ff2953] p-1 px-2 rounded-md text-white border border-[#ff2953]
+    transition duration-300 ease-in-out
+    hover:text-[#ff2953] hover:bg-white
+    transform hover:scale-105 hover:shadow-lg">
+
     Buy Now
 </a>
 
