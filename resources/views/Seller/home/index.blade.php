@@ -148,7 +148,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
   class="ezy__header3 light py-20 md:py-36 text-black"
   style=""
 >
-  <div class="container px-4 relative">
+  <div class="px-4 relative">
     <div class="grid grid-cols-12">
       <div class="col-span-12 text-center my-16 animate_left">
         <h2 class="text-3xl leading-none md:text-[50px] font-semibold mb-6">Join Our <span class="text-[#ff2953]">Marketplace </span> Expand Your Business with Ease!</h2>
