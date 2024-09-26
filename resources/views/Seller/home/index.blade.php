@@ -52,7 +52,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             </div>
 
             <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
-                <nav>
+                {{-- <nav>
                     <ul class="tc _o sf yo cg ep text-[#023047] font-semibold ">
                         <li>
                             <a href="#home" class="xl hover:text-[#ff2953]" :class="">Home</a>
@@ -64,7 +64,24 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         <li><a href="#advertising" class="xl hover:text-[#ff2953]">Advertise</a></li>
 
                     </ul>
+                </nav> --}}
+                <nav>
+                    <ul class="flex space-x-6 text-[#023047] font-semibold">
+                        <li>
+                            <a href="#home" class="hover:text-[#ff2953]">Home</a>
+                        </li>
+                        <li>
+                            <a href="#features" class="hover:text-[#ff2953]">Why Us</a>
+                        </li>
+                        <li>
+                            <a href="#service" class="hover:text-[#ff2953]">Services</a>
+                        </li>
+                        <li>
+                            <a href="#advertising" class="hover:text-[#ff2953]">Advertise</a>
+                        </li>
+                    </ul>
                 </nav>
+
                 <style>
                     html {
                         scroll-behavior: smooth;
@@ -221,8 +238,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- About Content -->
                     <div id="features" class="animate_right jn/2">
-                        <h4 style="color: #ff2953" class="ek yj mk gb ">Why Choose Us</h4>
-                        <h2 class="fk vj zp pr kk wm qb">
+                        <h4 style="color: #ff2953" class="fk vj zp pr kk wm qb ">Why Choose Us</h4>
+                        <h2 class=" text-[#023047] text-xl">
                             We Make Our customers happy by giving Best services.
                         </h2>
                         <p class="uo">
