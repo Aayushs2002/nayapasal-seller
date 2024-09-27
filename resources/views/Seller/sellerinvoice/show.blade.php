@@ -12,6 +12,8 @@
                 </div>
             </div>
             <div class="flex justify-center text-sm">www.naulopasal.com</div>
+            <div class="flex justify-center text-sm">PAN No. 621214394</div>
+
 
             {{-- @php
 
