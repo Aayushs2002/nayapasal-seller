@@ -22,10 +22,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         @endphp
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i ">
             <div class="vd to/4 tc wf yf">
-                <a href="/">
-                    <img class="w-28 om" src="{{ asset('logos/newlogo.svg') }}"
+                <a href="/seller/seller">
+                    <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
                         alt="Logo Light" />
-
+                    <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}"
+                        alt="Logo Dark" />
                 </a>
 
                 <!-- Hamburger Toggle BTN -->
@@ -51,7 +52,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             </div>
 
             <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
-                <nav>
+                {{-- <nav>
                     <ul class="tc _o sf yo cg ep text-[#023047] font-semibold ">
                         <li>
                             <a href="#home" class="xl hover:text-[#ff2953]" :class="">Home</a>
@@ -63,7 +64,24 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         <li><a href="#advertising" class="xl hover:text-[#ff2953]">Advertise</a></li>
 
                     </ul>
+                </nav> --}}
+                <nav>
+                    <ul class="flex space-x-6 text-[#023047] font-semibold">
+                        <li>
+                            <a href="#home" class="hover:text-[#ff2953]">Home</a>
+                        </li>
+                        <li>
+                            <a href="#features" class="hover:text-[#ff2953]">Why Us</a>
+                        </li>
+                        <li>
+                            <a href="#service" class="hover:text-[#ff2953]">Services</a>
+                        </li>
+                        <li>
+                            <a href="#advertising" class="hover:text-[#ff2953]">Advertise</a>
+                        </li>
+                    </ul>
                 </nav>
+
                 <style>
                     html {
                         scroll-behavior: smooth;
@@ -83,8 +101,26 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
     </header>
 
     <!-- ===== Header End ===== -->
+    <script>
+        window.addEventListener('load', function() {
+          // Add the fade-in class to the main content once the page is fully loaded
+          document.getElementById('main-content').classList.add('fade-in');
+        });
+      </script>
 
-    <main>
+      <style>
+        /* Initially hide the main content */
+        .main-section {
+          opacity: 0;
+        }
+
+        /* Fade-in effect for the main content */
+        .main-section.fade-in {
+          opacity: 1;
+          transition: opacity 1s ease-in;
+        }
+      </style>
+    <main class="main-section opacity-0" id="main-content">
         <!-- ===== Hero Start ===== -->
         {{-- <section class="gj do ir hj sp jr i pg"> --}}
             <!-- Hero Images -->
@@ -129,7 +165,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
   class="ezy__header3 light py-20 md:py-36 text-black"
   style=""
 >
-  <div class=" px-4 relative">
+  <div class="px-4 relative">
     <div class="grid grid-cols-12">
       <div class="col-span-12 text-center my-16 animate_left">
         <h2 class="text-3xl leading-none md:text-[50px] font-semibold mb-6">Join Our <span class="text-[#ff2953]">Marketplace </span> Expand Your Business with Ease!</h2>
@@ -202,8 +238,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     <!-- About Content -->
                     <div id="features" class="animate_right jn/2">
-                        <h4 style="color: #ff2953" class="ek yj mk gb ">Why Choose Us</h4>
-                        <h2 class="fk vj zp pr kk wm qb">
+                        <h4 style="color: #ff2953" class="fk vj zp pr kk wm qb ">Why Choose Us</h4>
+                        <h2 class=" text-[#023047] text-xl">
                             We Make Our customers happy by giving Best services.
                         </h2>
                         <p class="uo">
@@ -557,8 +593,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 </template>
                             </ul>
     <!-- Button -->
-    <a href="#" class="bg-[#ff2953] ek rg lk ml il gi ri"
-    :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'">
+    <a href="#" class="bg-[#ff2953] p-1 px-2 rounded-md text-white border border-[#ff2953]
+    transition duration-300 ease-in-out
+    hover:text-[#ff2953] hover:bg-white
+    transform hover:scale-105 hover:shadow-lg">
+
     Buy Now
 </a>
 
