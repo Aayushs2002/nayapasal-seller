@@ -109,7 +109,7 @@
                                                 </td>
                                                 <td class="p-3 pr-0 ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
-                                                        {{ $product->product_price }}</span>
+                                                        {{ (float) $product->product_price - (float) $product->discount_amount }}</span>
                                                 </td>
                                                 {{-- <td class="p-3 pr-0 ">
                                                 <span class="font-semibold text-light-inverse text-md/normal">
@@ -146,7 +146,7 @@
                                                 </td>
                                                 {{-- @dd($product->flashDeal) --}}
                                                 @php
-                                                    $flashDeal = $product->flashDeal ;
+                                                    $flashDeal = $product->flashDeal;
 
                                                 @endphp
                                                 <td class="p-3">
