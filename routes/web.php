@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', function () {
     return view("Seller.home.index");
-});
+})->name('home');
 
 Route::get('/termsandcondition', [TermsAndPolicyController::class, 'termsandcondition'])->name('termsandcondition');
 Route::get('/privacypolicy', [TermsAndPolicyController::class, 'privacypolicy'])->name('privacypolicy');

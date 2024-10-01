@@ -22,7 +22,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         @endphp
         <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i ">
             <div class="vd to/4 tc wf yf">
-                <a href="/seller/seller">
+                <a href="{{route('seller.home')}}">
                     <img style="height:50px ; width: 160px" class=" om" src="{{ asset('logos/newlogo.svg') }}"
                         alt="Logo Light" />
                     <img style="height:50px ; width: 160px" class="xc nm" src="{{ asset('logos/newlogo.svg') }}"
@@ -160,7 +160,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             </div> --}}
         {{-- </section> --}}
 
-        <header class="ezy__header3 custom-header light py-10 md:py-32 text-black" style="">
+        <header class="ezy__header3 custom-header light py-32 md:py-32 text-black" style="">
             @include('Seller.commission-chart.commission')
         
             <script src="https://cdn.tailwindcss.com"></script>
