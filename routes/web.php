@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Seller\CommissionChartController;
 use App\Http\Controllers\Seller\InvoiceController;
 use App\Http\Controllers\Seller\ProductController;
 use App\Http\Controllers\Seller\SellerAuthController;
@@ -48,9 +49,11 @@ Route::controller(SellerAuthController::class)->group(function () {
 
     Route::post('/checkresetotp/{token}', 'checkresetotp')->name('checkresetotp');
     Route::get('/checkresetotp/{token}', 'getresetotp')->name('getresetotp');
-    Route::post('/changepassword/{token}','changepasswords')->name('changepasswords');
+    Route::post('/changepassword/{token}', 'changepasswords')->name('changepasswords');
 });
-
+Route::controller(CommissionChartController::class)->group(function () {
+    Route::get('/commission-chart',  'index')->name('commission-chart');
+});
 Route::middleware(['seller'])->group(function () {
     Route::get('/dashboard', [SellerDashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [SellerAuthController::class, 'logout'])->name('logout');
@@ -58,10 +61,10 @@ Route::middleware(['seller'])->group(function () {
     Route::post('paymentdetails', [SellerProfileController::class, 'paymentdetails'])->name('paymentdetails');
     Route::resource('seller-profile', SellerProfileController::class);
     // Route::resource('seller-profile', SellerProfileController::class);
-        // from dashboard
-        Route::get('/seller/changepassword', [SellerProfileController::class, 'sellerchangepassword'])->name('sellerchangepassword');
+    // from dashboard
+    Route::get('/seller/changepassword', [SellerProfileController::class, 'sellerchangepassword'])->name('sellerchangepassword');
 
-        Route::post('/seller/changepassword', [SellerProfileController::class, 'changepassword'])->name('changepassword');
+    Route::post('/seller/changepassword', [SellerProfileController::class, 'changepassword'])->name('changepassword');
     Route::post('/productstock/{product}', [ProductController::class, 'editstock'])->name('editstock');
     Route::post('/togleActive/{product}', [ProductController::class, 'togleActive'])->name('togleActive');
 
