@@ -89,6 +89,24 @@
                         </div>
                     </div>
 
+                    <div>
+                        <label class="text-sm font-semibold w-full" htmlFor="">
+                            Product Tags (<span class="text-gray-600 italic">Type Tags to help in search Product (Eg. example1 ,example2,...)</span>)
+                        </label>
+                        <div>
+
+                            <input
+                                class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-secondary placeholder-gray-400 focus:outline-none hover:border-secondary w-full"
+                                name="tags" placeholder="Type product tags seperated with comma like example, example2.exapmle,3 ..." type="text"
+                                value="{{ old('tags') }}" />
+                            @error('tags')
+                                <div class="invalid-feedback text-red-400 text-sm" style="display: block;">
+                                    * {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
                     {{-- Available Quantity --}}
                     <div class="mt-2">
                         <label class="text-sm font-semibold w-full" htmlFor="">Available Product Quantity ( Stock
