@@ -98,7 +98,7 @@
                             <input
                                 class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-secondary placeholder-gray-400 focus:outline-none hover:border-secondary w-full"
                                 name="tags" placeholder="Type product tags seperated with comma like example, example2.exapmle,3 ..." type="text"
-                                value="{{ old('tags') }}" />
+                                value="{{ old('tags',$product->tags) }}" />
                             @error('tags')
                                 <div class="invalid-feedback text-red-400 text-sm" style="display: block;">
                                     * {{ $message }}
