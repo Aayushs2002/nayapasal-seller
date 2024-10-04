@@ -68,16 +68,16 @@
                             <div class="overflow-x-auto">
                                 <table class="w-full text-left item-center  border-neutral-200">
                                     <thead class="">
-                                        <tr class="font-semibold text-[0.95rem] border-b border-dashed">
-                                            <th class="pb-3  ">Product Name</th>
+                                        <tr class="font-semibold  text-center text-[0.95rem] border-b border-dashed">
+                                            <th class="pb-3  text-left">Product Name</th>
                                             <th class="pb-3">
                                                 Image
                                             </th>
                                             <th class="pb-3">
-                                                Product Price
+                                                Price
                                             </th>
                                             <th class="pb-3 px-3.5">
-                                                Product Stock
+                                                Stock
                                             </th>
 
                                             <th class="pb-3">
@@ -87,31 +87,32 @@
                                                 Flash Deal
                                             </th>
 
-                                            <th class="pb-3">
+                                            {{-- <th class="pb-3">
                                                 Created At
-                                            </th>
+                                            </th> --}}
                                             <th class="pb-3">ACTION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($products as $key => $product)
                                             <tr class="border-b  item-center border-dashed last:border-b-0">
-                                                <td class="p-3 pr-0 ">
+                                                <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
-                                                        {{ $product->product_name }}</span>
+                                                        {{ $product->product_name }}aaaaaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaa
+                                                        aaaaaaaaaaa</span>
                                                 </td>
-                                                <td class="p-3 pr-0 ">
+                                                <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
                                                         <img class="w-14"
                                                             src="{{ baseUrl() . 'uploads/' . $product->featured_image }}"
                                                             alt="{{ $product->product_name }}" />
                                                     </span>
                                                 </td>
-                                                <td class="p-3 pr-0 ">
+                                                <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
                                                         {{ (float) $product->product_price - (float) $product->discount_amount }}</span>
                                                 </td>
-                                                {{-- <td class="p-3 pr-0 ">
+                                                {{-- <td class="p-3  ">
                                                 <span class="font-semibold text-light-inverse text-md/normal">
                                                     {{ $product->product_stock }}</span>
                                             </td> --}}
@@ -162,7 +163,7 @@
                                                 @include('Seller.product.action.flash_deal')
 
 
-                                                <td class="p-3 pr-0 ">
+                                                {{-- <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
                                                         @if ($product->created_at)
                                                             <div>
@@ -172,28 +173,31 @@
                                                             <div>-</div>
                                                         @endif
                                                     </span>
-                                                </td>
+                                                </td> --}}
 
-                                                <td class="py-7 pr-12 flex  item-center ">
+                                                <td class="py-7 flex flex-col   item-center ">
                                                     <a href="{{ route('seller.myimage', $product->id) }}"
                                                         class=" mr-4 rounded-lg bg-green-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 ">
                                                         Add Image
                                                     </a>
-                                                    <a href="{{ route('seller.product.edit', $product->id) }}"
-                                                        class=" mr-4 rounded-lg bg-green-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 ">
-                                                        Edit
-                                                    </a>
+                                                    <div class="flex pt-2 item-center">
+                                                        <a href="{{ route('seller.product.edit', $product->id) }}"
+                                                            class=" mr-4 rounded-lg bg-green-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 ">
+                                                            Edit
+                                                        </a>
 
-                                                    <div class="font-semibold text-light-inverse text-md/normal">
-                                                        <form method="POST" id="delete-form-{{ $product->id }}"
-                                                            action="{{ route('seller.product.destroy', $product->id) }}">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button onclick="deleteImage({{ $product->id }})"
-                                                                type="button"
-                                                                class="mr-4 rounded-lg bg-red-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 ">Delete</button>
-                                                        </form>
+                                                        <div class="font-semibold text-light-inverse text-md/normal">
+                                                            <form method="POST" id="delete-form-{{ $product->id }}"
+                                                                action="{{ route('seller.product.destroy', $product->id) }}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button onclick="deleteImage({{ $product->id }})"
+                                                                    type="button"
+                                                                    class="mr-4 rounded-lg bg-red-500 py-1 px-2 text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 ">Delete</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
+
                                                 </td>
                                             </tr>
                                         @endforeach

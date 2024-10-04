@@ -14,6 +14,7 @@ class Product extends Model
         'featured',
         'vendor_id',
         'brand_id',
+        'tags',
         'featured_image',
         'description',
         'product_order',
