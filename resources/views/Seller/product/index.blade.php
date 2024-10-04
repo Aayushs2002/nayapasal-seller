@@ -98,8 +98,7 @@
                                             <tr class="border-b  item-center border-dashed last:border-b-0">
                                                 <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
-                                                        {{ $product->product_name }}aaaaaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaa
-                                                        aaaaaaaaaaa</span>
+                                                        {{ $product->product_name }}</span>
                                                 </td>
                                                 <td class="p-3  ">
                                                     <span class="font-semibold text-light-inverse text-md/normal">
