@@ -52,7 +52,8 @@ class SellerService
         $data['active'] = '1';
 
         $data['registration_documents'] = $registrationDocuments;
-        $data['company_logo'] = $company_logo;
+        $data['logo'] = $company_logo;
+        // $data['company_logo'] = $company_logo;
         $data['vat_registration_documents'] = $vatRegistrationDocuments;
         $data['password'] = Hash::make($request->password);
         // dd($data);
