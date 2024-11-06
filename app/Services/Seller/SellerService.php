@@ -37,9 +37,9 @@ class SellerService
                 if ($vendor->vat_registration_documents) {
                     (new FileService)->imageDelete($vendor->vat_registration_documents);
                 }
-                // if ($vendor->company_logo) {
-                //     (new FileService)->imageDelete($vendor->company_logo);
-                // }
+                if ($vendor->logo) {
+                    (new FileService)->imageDelete($vendor->logo);
+                }
                 $vendor->delete();
             }
         }
