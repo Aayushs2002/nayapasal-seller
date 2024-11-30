@@ -73,7 +73,7 @@ class ProductService
     }
 
     public function storeProduct($request)
-    {
+    { 
 
         $selectedAttributes = $request->input('attributes');
 
