@@ -72,7 +72,7 @@
                                     </h3>
                                 </div>
                                 <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -92,9 +92,9 @@
                                                 <th class="pb-3">
                                                     Payment Amount
                                                 </th>
-                                                <th class="pb-3">
+                                                {{-- <th class="pb-3">
                                                     Paid On
-                                                </th>
+                                                </th> --}}
 
                                                 <th class="pb-3">
                                                     Created At
@@ -122,13 +122,13 @@
                                                         <span class="font-semibold text-light-inverse text-md/normal">
                                                             Rs. {{ $invoice->amount }}</span>
                                                     </td>
-                                                    <td class="p-3 pr-0 ">
+                                                    {{-- <td class="p-3 pr-0 ">
                                                         <span class="font-semibold text-light-inverse text-md/normal">
                                                             {{ $invoice->payment_method }}</span>
                                                         <span class="font-semibold text-light-inverse text-md/normal ">
                                                             ({{ $invoice->account_number }})
                                                         </span>
-                                                    </td>
+                                                    </td> --}}
 
                                                     <td class="p-3 pr-0 ">
                                                         <span class="font-semibold text-light-inverse text-md/normal">
