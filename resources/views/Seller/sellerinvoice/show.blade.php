@@ -1,7 +1,7 @@
 @extends('Seller.layouts.master')
 @section('body')
     @include('message.index')
-    <button class="py-1.5 px-3 text-lg text-white bg-gray-700 rounded" onclick="printDiv('printableArea')">Print</button>
+    {{-- <button class="py-1.5 px-3 text-lg text-white bg-gray-700 rounded" onclick="printDiv('printableArea')">Print</button> --}}
 
     <div class="bg-white mt-3 px-6 font-semibold" id="printableArea">
         <div class="px-4">
@@ -12,6 +12,8 @@
                 </div>
             </div>
             <div class="flex justify-center text-sm">www.naulopasal.com</div>
+            <div class="flex justify-center text-sm">PAN No. 621214394</div>
+
 
             {{-- @php
 
@@ -157,7 +159,7 @@
 
 
 
-    <script>
+    {{-- <script>
         function printDiv(divId) {
             var printContents = document.getElementById(divId).innerHTML;
             var originalContents = document.body.innerHTML;
@@ -168,5 +170,5 @@
 
             document.body.innerHTML = originalContents;
         }
-    </script>
+    </script> --}}
 @endsection

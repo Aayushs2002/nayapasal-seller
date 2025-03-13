@@ -73,7 +73,7 @@ class ProductService
     }
 
     public function storeProduct($request)
-    {
+    { 
 
         $selectedAttributes = $request->input('attributes');
 
@@ -126,6 +126,7 @@ class ProductService
 
 
         $req['category_id'] = $request->category;
+
         // $req['brand_id'] = $request->brand;
 
         $product->update($req);

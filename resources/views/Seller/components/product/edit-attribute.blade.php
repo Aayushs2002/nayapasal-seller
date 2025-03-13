@@ -19,7 +19,7 @@
                         <div class="ml-7  text-gray-500">No attributes found</div>
                     @endif
                 </div>
-            @endforeach
+            @endforeach 
 
         </div>
     </div>

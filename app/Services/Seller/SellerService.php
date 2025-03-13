@@ -37,22 +37,23 @@ class SellerService
                 if ($vendor->vat_registration_documents) {
                     (new FileService)->imageDelete($vendor->vat_registration_documents);
                 }
-                // if ($vendor->company_logo) {
-                //     (new FileService)->imageDelete($vendor->company_logo);
-                // }
+                if ($vendor->logo) {
+                    (new FileService)->imageDelete($vendor->logo);
+                }
                 $vendor->delete();
             }
         }
         $registrationDocuments =   (new FileService)->fileUpload($request->file("registration_documents"), "registration_documents", "seller");
 
         $vatRegistrationDocuments = (new FileService)->fileUpload($request->file("vat_registration_documents"), "vat_registration_documents", "seller");
-        $company_logo = (new FileService)->fileUpload($request->file("company_logo"), "company_logo", "seller");
+        $company_logo = (new FileService)->fileUpload($request->file("company_logo"), "company_logo", "logo");
         $data = $request->all();
         $data['status'] = 'PENDING';
         $data['active'] = '1';
 
         $data['registration_documents'] = $registrationDocuments;
-        $data['company_logo'] = $company_logo;
+        $data['logo'] = $company_logo;
+        // $data['company_logo'] = $company_logo;
         $data['vat_registration_documents'] = $vatRegistrationDocuments;
         $data['password'] = Hash::make($request->password);
         // dd($data);
