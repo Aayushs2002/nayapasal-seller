@@ -5,15 +5,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NauloPasal | Seller</title>
-    <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}">
 
+    <title>NauloPasal | Sell & Promote Your Business Online</title>
+
+    <meta name="description" content="NauloPasal is the ultimate platform for sellers to advertise and promote their businesses online. Join us to reach more customers and grow your brand." />
+    <meta name="keywords" content="NauloPasal, online marketplace, sell online, business promotion, ecommerce, multivendor platform" />
+    <meta name="author" content="NauloPasal" />
+
+
+    <link rel="canonical" href="https://seller.naulopasal.com/images/seller.png" />
+
+
+    <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}" />
+
+
+    <meta property="og:title" content="NauloPasal | Sell & Promote Your Business Online" />
+    <meta property="og:description" content="Join NauloPasal to expand your business reach and connect with more customers. Sell and promote your products online easily." />
+    <meta property="og:image" content="{{ asset('logos/og-image.png') }}" />
+    <meta property="og:url" content="https://seller.naulopasal.com/image/seller.png" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NauloPasal | Sell & Promote Your Business Online" />
+    <meta name="twitter:description" content="NauloPasal helps you sell and promote your business online. Reach more customers and grow your brand today!" />
+    <meta name="twitter:image" content="{{ asset('logos/og-image.png') }}" />
+
+    <!-- CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 
+
 <body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" :class="{ 'b eh': darkMode === true }">
-    <!-- ===== Header Start ===== -->
+
     <header class="g s r vd ya cj border-b-2 border-b-[#ff2953]" :class="{ 'hh sm _k dj bl ll': stickyMenu }"
         @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
         @php
@@ -29,7 +53,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         alt="Logo Dark" />
                 </a>
 
-                <!-- Hamburger Toggle BTN -->
+
                 <button class="po rc" @click="navigationOpen = !navigationOpen">
                     <span class="rc i pf re pd">
                         <span class="du-block h q vd yc">
@@ -48,7 +72,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                         </span>
                     </span>
                 </button>
-                <!-- Hamburger Toggle BTN -->
+
             </div>
 
             <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
@@ -100,21 +124,19 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </div>
     </header>
 
-    <!-- ===== Header End ===== -->
+
     <script>
         window.addEventListener('load', function() {
-          // Add the fade-in class to the main content once the page is fully loaded
           document.getElementById('main-content').classList.add('fade-in');
         });
       </script>
 
       <style>
-        /* Initially hide the main content */
+
         .main-section {
           opacity: 0;
         }
 
-        /* Fade-in effect for the main content */
         .main-section.fade-in {
           opacity: 1;
           transition: opacity 1s ease-in;
