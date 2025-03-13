@@ -233,7 +233,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="tc wf gg qq">
                     <!-- About Images -->
                     <div class="animate_left xc gn gg jn/2 i">
-                  <img src="https://neetable.com/img/multi-vendor/multi-vendor-marketplace-banner.svg" >
+                  <img src="{{ asset('image/whyseller.png') }}" >
                     </div>
 
                     <!-- About Content -->
