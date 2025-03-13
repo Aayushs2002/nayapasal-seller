@@ -12,27 +12,29 @@
     <meta name="keywords" content="NauloPasal, online marketplace, sell online, business promotion, ecommerce, multivendor platform" />
     <meta name="author" content="NauloPasal" />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://seller.naulopasal.com" />
 
-    <link rel="canonical" href="https://seller.naulopasal.com/images/seller.png" />
-
-
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('logos/fav.png') }}" />
 
-
+    <!-- Open Graph (OG) Tags for Social Media -->
     <meta property="og:title" content="NauloPasal | Sell & Promote Your Business Online" />
     <meta property="og:description" content="Join NauloPasal to expand your business reach and connect with more customers. Sell and promote your products online easily." />
-    <meta property="og:image" content="{{ asset('logos/og-image.png') }}" />
-    <meta property="og:url" content="https://seller.naulopasal.com/image/seller.png" />
+    <meta property="og:image" content="https://seller.naulopasal.com/images/seller.png" />
+    <meta property="og:url" content="https://seller.naulopasal.com" />
     <meta property="og:type" content="website" />
 
+    <!-- Twitter Card for Twitter Sharing -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NauloPasal | Sell & Promote Your Business Online" />
     <meta name="twitter:description" content="NauloPasal helps you sell and promote your business online. Reach more customers and grow your brand today!" />
-    <meta name="twitter:image" content="{{ asset('logos/og-image.png') }}" />
+    <meta name="twitter:image" content="https://seller.naulopasal.com/images/seller.png" />
 
     <!-- CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
+
 
 
 <body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
